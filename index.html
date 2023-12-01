@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Adoption</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #result {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pet Adoption</h1>
+
+  <form action="/add" method="post">
+    <h2>Add a Dog</h2>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required>
+    <br>
+    <label for="color">Color:</label>
+    <input type="text" id="color" name="color" required>
+    <br>
+    <button type="submit">Add Dog</button>
+  </form>
+
+  <hr>
+
+  <form id="retrieveForm">
+    <h2>Retrieve a Dog</h2>
+    <label for="dogName">Dog's Name:</label>
+    <input type="text" id="dogName" name="dogName" required>
+    <br>
+    <button type="button" onclick="retrieveData()">Retrieve Dog</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    async function retrieveData() {
+      const dogName = document.getElementById('dogName').value;
+      const response = await fetch('/retrieve', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `dogName=${encodeURIComponent(dogName)}`,
+      });
+      const data = await response.json();
+      displayResult(data);
+    }
+
+    function displayResult(data) {
+      const resultContainer = document.getElementById('result');
+      resultContainer.innerHTML = '';
+
+      if (data) {
+        resultContainer.innerHTML = `
+          <h3>Data Retrieved:</h3>
+          <p>Name: ${data.name}</p>
+          <p>Age: ${data.age}</p>
+          <p>Color: ${data.color}</p>
+        `;
+      } else {
+        resultContainer.innerHTML = '<p>No data found for the given dog name.</p>';
+      }
+    }
+  </script>
+</body>
+</html>
