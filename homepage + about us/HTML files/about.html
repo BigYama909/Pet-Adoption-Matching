@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <link rel="icon" type="images/png" href="/favicons/pet_adoption.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <img id="logo" src="/images/logo_for_website.png" alt="Pet Adoption Match Logo">
+            </a>
+        
+        <!-- Horizontal Navigation Bar -->
+        <nav>
+            <ul>
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="providers">Pet Care Providers</a></li>
+                <li><a href="matching">Matching</a></li>
+            </ul>
+        </nav>
+
+        <!-- Login/Sign Up Section -->
+        <div id="login-signup">
+            <button id="login-button"><a id="login-link" href="#login">Login</a></button>  
+            <button id="signup-button"><a id="signup-link" href="#signup">Sign Up</a></button>
+        </div>
+
+        <!-- Add this button where users can toggle between night and day mode -->
+        <button id="night-mode-toggle"></button>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2 id="title">About us</h2>
+            <hr id="top_hr">
+
+            <p class="introduction">Welcome to Pet Adoption Match, a heartfelt endeavor driven by our profound love for animals. Rooted in the belief that every pet 
+                deserves a permanent home filled with care and affection, our platform has emerged as a beacon of compassion in the world of pet adoption. 
+                Founded on a passion for animal welfare, we are a dedicated group of individuals committed to making the adoption process responsible, 
+                effective, and above all, brimming with empathy. Our primary mission is to connect loving adopters with their future furry family members in a seamless and rewarding manner.
+            </p>
+
+            <p class="introduction">At Pet Adoption Match, we leverage the power of advanced machine learning algorithms to facilitate the perfect match between adopters and pets. 
+                Our commitment to a responsible adoption process ensures that each pet finds a home where it is not just a companion but an integral part of a loving family. 
+                Navigating through our platform is designed to be a user-friendly experience, accommodating both seasoned pet owners and first-time adopters. 
+                The intuitive interface allows users to explore pet profiles, delve into comprehensive details, and effortlessly engage in meaningful communication with pet owners. 
+                More than just a platform, Pet Adoption Match is a community that fosters compassion in every interaction. We believe in creating a world where every pet is cherished, 
+                and every adopter experiences the unparalleled joy and fulfillment that comes with pet companionship. Join us in this heartfelt journey, where the love for pets knows no 
+                bounds, and together, let's make every adoption a celebration of love, connection, and lifelong companionship.
+            </p>
+        </div>
+        <hr id="bottom_hr">
+    </main>
+
+    <footer>
+        
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p><strong>@ 2024 Pet Adoption Match Incorporated. All rights reserved.</strong></p>
+    </footer>
+    
+    <script>
+        document.getElementById('night-mode-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('night-mode');
+        });
+    </script>
+    
+
+</body>
+</html>
