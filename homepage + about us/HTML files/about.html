@@ -11,25 +11,24 @@
 </head>
 
 <body>
+
     <header>
-        <a href="index.html">
+        <a href="homepage.html">
             <img id="logo" src="/images/logo_for_website.png" alt="Pet Adoption Match Logo">
-            </a>
-        
-        <!-- Horizontal Navigation Bar -->
+        </a>
+   
         <nav>
-            <ul>
-                <li><a href="homepage.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="providers">Pet Care Providers</a></li>
-                <li><a href="matching">Matching</a></li>
-            </ul>
+        
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="providers">Pet Care Providers</a></li>
+            <li><a href="matching">Matching</a></li> 
         </nav>
 
         <!-- Login/Sign Up Section -->
-        <div id="login-signup">
-            <button id="login-button"><a id="login-link" href="#login">Login</a></button>  
-            <button id="signup-button"><a id="signup-link" href="#signup">Sign Up</a></button>
+        <div class="login-signup">
+            <a id="login-link" href="login-page.html"><button id="login-button">Login</button></a>
+            <a id="signup-link" href="signup-page.html"><button id="signup-button">Sign Up</button></a>
         </div>
 
         <!-- Add this button where users can toggle between night and day mode -->
@@ -37,16 +36,26 @@
     </header>
 
     <main>
-        <div class="container">
-            <h2 id="title">About us</h2>
-            <hr id="top_hr">
 
+        <div class="container">
+
+            <div id="title-and-hr">
+                <h2 id="title">Our Story</h2>
+                <hr id="top_hr">
+            </div>
+
+            <p id="short-intro"><strong>
+                Your gateway to finding the perfect furry companion. With our innovative approach, 
+                we connect you with your ideal pet, making every adoption a joyful journey filled with love and companionship.
+                </strong>
+            </p>
+            <h2 id="who-we-are">Who we are</h2>
             <p class="introduction">Welcome to Pet Adoption Match, a heartfelt endeavor driven by our profound love for animals. Rooted in the belief that every pet 
                 deserves a permanent home filled with care and affection, our platform has emerged as a beacon of compassion in the world of pet adoption. 
                 Founded on a passion for animal welfare, we are a dedicated group of individuals committed to making the adoption process responsible, 
                 effective, and above all, brimming with empathy. Our primary mission is to connect loving adopters with their future furry family members in a seamless and rewarding manner.
             </p>
-
+            <h2 id="how-we-work">How we work</h2>
             <p class="introduction">At Pet Adoption Match, we leverage the power of advanced machine learning algorithms to facilitate the perfect match between adopters and pets. 
                 Our commitment to a responsible adoption process ensures that each pet finds a home where it is not just a companion but an integral part of a loving family. 
                 Navigating through our platform is designed to be a user-friendly experience, accommodating both seasoned pet owners and first-time adopters. 
@@ -55,8 +64,17 @@
                 and every adopter experiences the unparalleled joy and fulfillment that comes with pet companionship. Join us in this heartfelt journey, where the love for pets knows no 
                 bounds, and together, let's make every adoption a celebration of love, connection, and lifelong companionship.
             </p>
+            <h2 id="our-commitment">Our commitment</h2>
+            <p class="introduction">
+                Additionally, Pet Adoption Match is committed to ongoing education and advocacy for responsible pet ownership. We provide resources, guidance, and support to 
+                pet owners, ensuring a harmonious bond between humans and their animal companions. Join our mission to promote the welfare of pets everywhere, and together, 
+                let's make a positive impact on the lives of countless furry friends in need of loving homes.
+            </p>
+
         </div>
-        <hr id="bottom_hr">
+        
+    
+
     </main>
 
     <footer>
@@ -66,8 +84,9 @@
             <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
             <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <p><strong>@ 2024 Pet Adoption Match Incorporated. All rights reserved.</strong></p>
         </div>
-        <p><strong>@ 2024 Pet Adoption Match Incorporated. All rights reserved.</strong></p>
+        
     </footer>
     
     <script>
