@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../register-form"
+		},
+		{
+			"path": "../repos/pet-registration"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "register-form"
+	}
+}
