@@ -1,165 +1,225 @@
 :root {
-    --background-color-day: white;
+    --background-color-day: #ffffff;
     --text-color-day: #000000;
-    --background-color-night:#121212;
+    --background-color-night: #1a1a1a;
     --text-color-night: #f5f5dc;
 }
 
-#logo {
-    width: 250px;
-    height: auto;
+
+body {
+    margin:0; /*Fix the margin of the header*/
+    /*Set default background and text color for day mode*/
+    background-color: var(--background-color-day);
+    color: var(--text-color-day);
+    /*Set the transition delay for switching dark mode*/
+    transition: background-color 2s, color 1s;
 }
 
-header {
-    display: flex;
-    align-items: center;
-    background-color: rgb(8, 199, 199);
-    margin: 0;
-    padding: 0;
-}
-
-#login-signup {
-    margin-right: 20px;
-}
-
-#login-button,
-#signup-button {
-    font-size: 22px;
-    padding: 10px 20px;
-    border-radius: 20px;
-    margin-left: 10px;
-    width: 130px;
+body.night-mode {
+    background-color: var(--background-color-night);
+    color: var(--text-color-night);
     
 }
 
+header {
 
-#login-link,
-#signup-link {
-    text-decoration: none;
+    display: flex; /*Align all items in the header */
+    align-items:center; /*Vertically center the items*/
+    background-color: rgb(8, 199, 199);
+    margin: 0;
+    
 }
 
-#login-link {
-    color: black;
-}
-
-#signup-link {
-    color: whitesmoke;
-}
-
-#login-button {
-    background-color: white;
-}
-
-#signup-button {
-    background-color: black;
-}
-
-main {
-    flex: 1;
-    margin: 20px;
+#logo {
+    max-width: 250px;
+    height: auto;
+    margin:0;
 }
 
 nav {
-    margin: 0 auto;
-    justify-content: center;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+    display: flex; /*Align item in the nav bar*/
+    margin: auto; /*Set the nav bar in the middle*/
+   
 }
 
 nav li {
-    display: inline;
-    padding-right: 20px;
+   
+    list-style: none; /*No underscore, bullet point for li element*/
+    margin-right: 1rem; /* Adjust as needed */
 }
 
 nav a {
     text-decoration: none;
     color: black;
-    position: relative;
+    position:relative;
+    /*proivde positioning context for it's children or pseudo-element*/
+    font-size: 2.45rem; /* Adjust as needed */
+    
+}
+/*Style for nav bar link on hover */
+/*Ignore this code temp*/
+@media DISABLED {
+    nav a:hover {
+        
+        border-bottom: 2px solid rgb(225, 54, 54); /* Add a 2px solid black border at the bottom on hover */
+        font-weight: bold;
+        position: relative;/* Establish a positioning context for absolutely positioned pseudo-elements */
+
+
+    }
 }
 
-nav a:hover {
-    border-bottom: 2px solid black;
-    transition: border-bottom 0.3s ease-in-out;
-}
 
+/* Pseudo-element before each navigation link */
 nav a::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: black;
-    transform: scaleX(0);
-    transition: transform 0.3s ease-in-out;
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute; /* Position the pseudo-element absolutely within the anchor */
+    width: 100%; /* Make the pseudo-element take up the full width of the anchor */
+    height: 2px; /* Set the height of the pseudo-element to create an underline effect */
+    bottom: 0; /* Position the pseudo-element at the bottom of the anchor */
+    left: 0; /* Position the pseudo-element at the left edge of the anchor */
+    background-color: black; /* Set the background color of the pseudo-element to black */
+    transform: scaleX(0); /* Initially scale the pseudo-element horizontally to 0 (hidden) */
+    transition: transform 0.5s ease-in-out; /* Smooth transition for the transform property */
+    font-weight: bold;
 }
 
+/* Pseudo-element before each navigation link on hover */
 nav a:hover::before {
-    transform: scaleX(1.2);
+    transform: scaleX(1);/* Scale the pseudo-element horizontally to its original size on hover (visible) */
 }
 
-
-
-body {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    background-color: var(--background-color-day);
-    color: var(--text-color-day);
-    transition: background-color 0.5s, color 0.5s;
+/*Set margin for both login and signup buttons cotainer*/
+.login-signup {
+    margin-right: 1rem; /* Adjust as needed */
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+/*Styling both login and signup button*/
+#login-button, #signup-button {
+    font-size: 1.5rem;/* Adjust as needed */
+    padding: 0.5rem 0.5rem;/* Adjust as needed */
+    border-radius: 1rem;/* Adjust as needed */
+    margin-right:10px;/* Adjust as needed */
+    width: 9rem;/* Adjust as needed */
+    height: 4rem;
+    
     
 }
 
+/*Styling signup button*/
+#signup-button {
+    background-color: black;
+    color: whitesmoke;
+
+}
+/*Styling login button*/
+#login-button {
+    background-color: white;
+  
+}
+
+/*Styling the day/night mode button*/
+#night-mode-toggle {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    
+}
+
+/*Moon icon styling */
+#night-mode-toggle::before {
+    
+    content: '\f186';
+    font-family: 'Font Awesome 5 Free';
+    font-size: 2rem; /* Adjust as needed */
+    color: black;
+    margin-right: 0.75rem;
+    transition: color 2s ;
+}
+
+/*Sun icon styling*/
+body.night-mode #night-mode-toggle:before {
+    content: '\263C';
+    color: white;
+    font-size: 3.2rem /* Adjust as needed */
+
+}
+/*Add hover effect for dark mode button*/
+#night-mode-toggle:hover::before {
+    color: #574ddd;
+}
+
+/*Styling the whole container from about us to paragraph*/
+.container {
+    text-align: center; /*Make it text-align center*/
+    margin: 4rem 40rem 4rem 40rem; /*Set the space for the about us*/
+    
+    
+}
+
+/*Styling the Our Story title*/
 #title {
     text-align: center;
-    font-size: 2em;
-    margin-bottom: 20px;
+    font-size: 3em;
+    margin-bottom: 1rem;
 }
 
-
-.introduction {
-    font-size: 20px;
-    line-height: 1.5;
-    text-align: justify;
-    margin-bottom: 20px;
+/*Styling the top hr */
+#top_hr {
+    width: 10rem;
+    margin-bottom: 3rem;
     
 }
-#top_hr {
-    width: 50%;
+
+#short-intro {
+    font-size: 1.4rem;
+    color:#003c56;
+    line-height: 1.5;
+    font-family:Karla,sans-serif ;
+    font-style: italic;
+    margin-bottom: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
-#bottom_hr {
-    width: 80%;
-    height: 4px; /* Increase the height as needed */
-    background-color: black; /* Set your preferred color */
-    border: none;
-    margin-top: 20px; /* Add some top margin for spacing */
-    margin-bottom: 20px; /* Add some bottom margin for spacing */
-    font-weight: bold; /* Make the <hr> bold */
+#who-we-are, #how-we-work, #our-commitment {
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
+
+/*Styling the paragraph*/
+.introduction {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: left;
+    
+}
 
 footer {
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 0px;
+    border: solid;
     color: var(--text-color-day);
+    background-color:rgb(8, 199, 199);
+
 }
+
+.social-icons {
+    margin-top: 2rem;
+}
+
 .social-icons a {
-    font-size: 40px;
-    margin: 0 10px;
+    font-size: 3.2rem;
+    margin: 0 0.5rem;
     color: #333;
+}
+
+.social-icons p {
+    font-size: 2rem;
+}
+body.night-mode .social-icons p {
+    color: var(--text-color-night);
 }
 
 body.night-mode footer {
@@ -172,9 +232,7 @@ body.night-mode .social-icons a {
     color: white;
 }
 
-.social-icons a:hover {
-    color: #007bff;
-}
+
 
 #night-mode-toggle {
     background-color: transparent;
@@ -207,6 +265,46 @@ body.night-mode {
     color: var(--text-color-night);
 }
 
-.social-icons p {
-    font-size: 2rem;
+
+
+@media screen and (max-width: 700px) {
+    .container {
+        margin: 4rem 5%; /* Adjusted margin for smaller screens */
+    }
+
+    #title {
+        font-size: 2.5em; /* Adjusted font size for smaller screens */
+    }
+
+    #short-intro {
+        font-size: 1.25rem; /* Adjusted font size for smaller screens */
+    }
+
+    .introduction {
+        font-size: 1rem; /* Adjusted font size for smaller screens */
+    }
+    .social-icons a {
+        font-size: 2rem;
+    }
+    .social-icons p {
+        font-size:1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        margin: 4rem 2%; /* Further adjusted margin for smaller screens */
+    }
+
+    #title {
+        font-size: 2em; /* Further adjusted font size for smaller screens */
+    }
+
+    #short-intro {
+        font-size: 1rem; /* Further adjusted font size for smaller screens */
+    }
+
+    .introduction {
+        font-size: 0.9rem; /* Further adjusted font size for smaller screens */
+    }
 }
