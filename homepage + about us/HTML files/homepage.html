@@ -2,57 +2,72 @@
 <html lang="en">
 
 <head>
+    <!-- Meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
     <title>Pet Adoption Match</title>
-    <link rel="icon" type="image/png" href="/images/logo.jpeg">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/favicon_and_chatbot_logo.jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- External CSS -->
     <link rel="stylesheet" href="/CSS files/homepage.css">
-    <!-- ... other head content ... -->
-    <!-- Add any additional meta tags, stylesheets, or scripts here -->
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    
 </head>
 
 <body>
 
+    <div class="top-bar">
     <header>
+         <!-- Logo -->
         <a href="homepage.html">
             <img id="logo" src="/images/logo_for_website.png" alt="Pet Adoption Match Logo">
         </a>
-   
-
-    <nav>
-       
-        <li><a href="homepage.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="providers">Pet Care Providers</a></li>
-        <li><a href="matching">Matching</a></li>
+        <!--Navigation Bar-->
+        <nav> 
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="providers">Pet Care Providers</a></li>
+            <li><a href="matching">Matching</a></li>    
+        </nav>
         
-    </nav>
 
-    <!-- Login/Sign Up Section -->
-    <div class="login-signup">
-        <a id="login-link" href="login-page.html"><button id="login-button">Login</button></a>
-        <a id="signup-link" href="signup-page.html"><button id="signup-button">Sign Up</button></a>
-    </div>
-
-    <!-- Add this button where users can toggle between night and day mode -->
-    <button id="night-mode-toggle"></button>
-    </header>
-
-    <main>
-    <!-- Search Bar -->
-    <div id="search-bar-image-container">
-
-        <div id="search-bar">
-            <input id="type_search" type="text" placeholder="Search Dogs, Kittens, etc">
-            <input id="location_search" type="text" placeholder="90250, CA, USA">
-            <button id="search-icon" type="submit"><i class="fas fa-search"></i></button>
+        <!-- Login/Sign Up Section -->
+        <div class="login-signup">
+            <a id="login-link" href="login-page.html"><button id="login-button">Login</button></a>
+            <a id="signup-link" href="signup-page.html"><button id="signup-button">Sign Up</button></a>
         </div>
 
-        <img id="homepage_image" src="/images/adopt a pet.jpeg">
+        <!-- Add this button where users can toggle between night and day mode -->
+        <button id="night-mode-toggle"></button>
+        <!-- Use any element to open the sidenav -->
+    </header>
+    </div>
 
+    <!-- Search Bar -->
+    <div id="homepage-image-container">
+        <img id="homepage_image" src="/images/adopt a pet.jpeg"> 
+        <div id="overlay-text">
+            Let's get started. Search pets by types or locations from shelters and rescues.
+        </div>
+        <div id="search-bar-container">
+            <div id="search-bar">
+                <input id="type_search" type="text" placeholder="Search Dogs, Kittens, etc">
+                <input id="location_search" type="text" placeholder="90250, CA, USA">
+                <button id="search-icon" type="submit"><i class="fas fa-search"></i>Get Started</button>
+            </div>
+        </div>
+    </div>
+    <!--Make a hr under the search bar -->
+    <div id="under-container">
+        <hr>
     </div>
     
+    <!-- Pet List-->
+    </div>
     <div id="pet-list">
         <h2 id="meet-our-pet">Meet Our Pets</h2>
         <h4 id="check-out">Check out the latest pets looking for forever homes.</h4>
@@ -75,7 +90,7 @@
                     <p>Los Angeles/ Barstow, CA</p>
                 </a>
             </li>
-            <!-- Add more list items for additional pets -->
+            
             <li>
                 <a href="pet3.html">
                     <img src="/images/Toby.jpeg" alt="Pet 3">
@@ -95,15 +110,16 @@
         </ul>
     </div>
 
-    <div id="advice">
-        <div id="head-of-advice">
+    <!-- Advice section -->
+    <div class="advice">
+        <div class="advice-header">
             <h2>Check out adoption advice</h2>
-            <h4 id="get-the-inside">Get the inside scoop on pet adoption and bring home a furry friend</h4>
+            <h4 id="get-the-inside">Get the inside scoop on pet adoption<br> and bring home a furry friend</h4>
         </div>
         
-        <div id="two-columns">
+        <div class="two-columns">
 
-            <div id="column1">
+            <div class="column">
                 <h4>Why we recommend adopting ?</h4>
                     <p>There are so many reasons to adopt: meeting a unique pet, spending less, doing a good deed—but let’s talk facts. 
                         Millions of pets enter shelters every year. And hundreds of thousands are euthanized each year. 
@@ -113,7 +129,7 @@
                     </p>
             </div>
 
-            <div id="column2">
+            <div class="column">
                 <h4>How to find the perfect pet</h4>
                     <p>Let’s bust a myth. The perfect pet? Doesn’t exist. Because there are so many pets that can be the right fit for you. 
                         It’s just about knowing what you’re looking for. So start by thinking about your criteria based on your lifestyle, 
@@ -125,9 +141,10 @@
         </div>
     </div>
 
-    <div id="faq">
+    <!-- FAQ section -->
+    <div class="faq">
 
-        <div id="head-of-faq">
+        <div class="head-of-faq">
             <h2 id="at-a-glance"><strong>At a glance</strong></h2>
             <h4 id="some-faq">Some frequently asked questions</h4>
         </div>
@@ -191,7 +208,7 @@
     </div>
 
 
-
+    <!--more question section-->
     <div id="more_questions">
         <hr>
         <h3 id="ques_text">More questions ?</h3>
@@ -243,7 +260,7 @@
         <details>
             <summary>What should I do to prepare to adopt a pet?</summary>
             <p>This is a great question! We know how exciting it is to adopt a pet. We also know it can be a big life change so planning ahead can ensure you're 
-                ready and prepared. Check out this collection of helpful <a id="adoption_preparation" href=https://www.thewildest.com/search?keyword=adoption&topic=all&sort=relevant&page=1">Adoption Preparation articles</a>
+                ready and prepared. Check out this collection of helpful <a target="blank" id="adoption_preparation" href=https://www.thewildest.com/search?keyword=adoption&topic=all&sort=relevant&page=1">Adoption Preparation articles</a>
             </p>
         </details>
 
@@ -252,16 +269,15 @@
         
     </div>
     <div>
-        <button id="chatbot image">
-            <i class="fas fa-comment-dots"></i>
-        </button>
+        
     </div>
 
      
 </main>
+</div>
 
 <footer>
-        
+    <!--Social icon section-->
     <div class="social-icons">
         <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -269,12 +285,10 @@
         <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
         <p><strong>@ 2024 Pet Adoption Match Incorporated. All rights reserved.</strong></p>
     </footer>
-    </div>
-
-    <script>
+     <script>  
+        /*Night mode feature*/
         document.getElementById('night-mode-toggle').addEventListener('click', function() {
-            document.body.classList.toggle('night-mode');
+        document.body.classList.toggle('night-mode');
         });
     </script>
-
 </body>

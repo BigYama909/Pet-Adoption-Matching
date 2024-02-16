@@ -1,10 +1,12 @@
+/* Define CSS custom properties for day and night modes */
 :root {
     --background-color-day: #ffffff;
     --text-color-day: #000000;
     --background-color-night: #1a1a1a;
     --text-color-night: #f5f5dc;
+    --container-padding: 4%; /* Adjust as needed */
+    --nav-item-margin: 2%; /* Adjust as needed */
 }
-
 
 body {
     margin:0; /*Fix the margin of the header*/
@@ -14,14 +16,14 @@ body {
     /*Set the transition delay for switching dark mode*/
     transition: background-color 2s, color 1s;
 }
-
+/*Styling the dark mode feature*/
 body.night-mode {
     background-color: var(--background-color-night);
     color: var(--text-color-night);
     
 }
-
-header {
+/*Styling the header*/
+ header {
 
     display: flex; /*Align all items in the header */
     align-items:center; /*Vertically center the items*/
@@ -29,14 +31,14 @@ header {
     margin: 0;
     
 }
-
+/*Styling the logo*/
 #logo {
     max-width: 250px;
     height: auto;
     margin:0;
 }
-
-nav {
+/*Styling the navigation bar*/
+ nav {
     display: flex; /*Align item in the nav bar*/
     margin: auto; /*Set the nav bar in the middle*/
    
@@ -44,8 +46,8 @@ nav {
 
 nav li {
    
-    list-style: none; /*No underscore, bullet point for li element*/
-    margin-right: 1rem; /* Adjust as needed */
+    list-style: none;
+    margin-right: 1.25rem; /* Adjust as needed */
 }
 
 nav a {
@@ -53,20 +55,15 @@ nav a {
     color: black;
     position:relative;
     /*proivde positioning context for it's children or pseudo-element*/
-    font-size: 2.45rem; /* Adjust as needed */
+    font-size: 2rem; /* Adjust as needed */
     
 }
 /*Style for nav bar link on hover */
 /*Ignore this code temp*/
-@media DISABLED {
-    nav a:hover {
-        
-        border-bottom: 2px solid rgb(225, 54, 54); /* Add a 2px solid black border at the bottom on hover */
-        font-weight: bold;
-        position: relative;/* Establish a positioning context for absolutely positioned pseudo-elements */
-
-
-    }
+nav a:hover {
+transform: scale(1.1);
+transition: transform 0.3s ease;
+text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
 }
 
 
@@ -102,10 +99,14 @@ nav a:hover::before {
     margin-right:10px;/* Adjust as needed */
     width: 9rem;/* Adjust as needed */
     height: 4rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
     
     
 }
-
+#login-button:hover, #signup-button:hover {
+    opacity: 0.8;
+}
 /*Styling signup button*/
 #signup-button {
     background-color: black;
@@ -126,6 +127,7 @@ nav a:hover::before {
     
 }
 
+
 /*Moon icon styling */
 #night-mode-toggle::before {
     
@@ -144,15 +146,16 @@ body.night-mode #night-mode-toggle:before {
     font-size: 3.2rem /* Adjust as needed */
 
 }
-/*Add hover effect for dark mode button*/
 #night-mode-toggle:hover::before {
     color: #574ddd;
 }
 
+
+
 /*Styling the whole container from about us to paragraph*/
 .container {
     text-align: center; /*Make it text-align center*/
-    margin: 4rem 40rem 4rem 40rem; /*Set the space for the about us*/
+    padding: 4rem 30rem 4rem 30rem; /*Set the space for the about us*/
     
     
 }
@@ -172,139 +175,111 @@ body.night-mode #night-mode-toggle:before {
 }
 
 #short-intro {
-    font-size: 1.4rem;
-    color:#003c56;
-    line-height: 1.5;
-    font-family:Karla,sans-serif ;
-    font-style: italic;
-    margin-bottom: 3rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    /* Styling for the short introduction */
+    font-size: 1.4rem; /* Set font size */
+    color: #003c56; /* Set text color */
+    line-height: 1.5; /* Set line height */
+    font-family: Karla, sans-serif; /* Set font family */
+    font-style: italic; /* Set font style */
+    margin-bottom: 3rem; /* Set bottom margin */
+    margin-left: 1rem; /* Set left margin */
+    margin-right: 1rem; /* Set right margin */
 }
 
-#who-we-are, #how-we-work, #our-commitment {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+#who-we-are,
+#how-we-work,
+#our-commitment {
+    /* Styling for section headings */
+    font-size: 2rem; /* Set font size */
+    margin-bottom: 1rem; /* Set bottom margin */
 }
 
-
-/*Styling the paragraph*/
+/* Styling the paragraph */
 .introduction {
-    font-size: 1.25rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    text-align: left;
-    
+    /* Styling for the introduction paragraph */
+    font-size: 1.25rem; /* Set font size */
+    line-height: 1.5; /* Set line height */
+    margin-bottom: 20px; /* Set bottom margin */
+    text-align: left; /* Set text alignment */
 }
 
 footer {
-    text-align: center;
-    border: solid;
-    color: var(--text-color-day);
-    background-color:rgb(8, 199, 199);
-
-}
-
-.social-icons {
-    margin-top: 2rem;
-}
-
-.social-icons a {
-    font-size: 3.2rem;
-    margin: 0 0.5rem;
-    color: #333;
-}
-
-.social-icons p {
-    font-size: 2rem;
-}
-body.night-mode .social-icons p {
-    color: var(--text-color-night);
-}
-
-body.night-mode footer {
-    color: white;
-}
-
-
-
-body.night-mode .social-icons a {
-    color: white;
+    /* Styling for the footer */
+    text-align: center; /* Set text alignment */
+    border: solid; /* Add border */
+    color: var(--text-color-day); /* Set text color */
+    background-color: rgb(8, 199, 199); /* Set background color */
 }
 
 
 
 #night-mode-toggle {
-    background-color: transparent;
-    border: none;
-    color: #333;
-    font-size: 18px;
-    cursor: pointer;
-    transition: color 0.3s;
+    /* Styling for night mode toggle button */
+    background-color: transparent; /* Set background color */
+    border: none; /* Remove border */
+    color: #333; /* Set text color */
+    font-size: 18px; /* Set font size */
+    cursor: pointer; /* Set cursor style */
+    transition: color 0.3s; /* Add transition effect */
 }
 
 #night-mode-toggle:hover::before {
-    color: #574ddd;
+    /* Styling for night mode toggle button on hover */
+    color: #574ddd; /* Set text color */
 }
 
 #night-mode-toggle:before {
-    content: '\f186';
-    font-family: 'Font Awesome 5 Free';
-    margin-right: 8px;
-    font-size: 30px;
+    /* Styling for night mode toggle button icon */
+    content: '\f186'; /* Add content */
+    font-family: 'Font Awesome 5 Free'; /* Set font family */
+    margin-right: 8px; /* Set right margin */
+    font-size: 30px; /* Set font size */
 }
 
 body.night-mode #night-mode-toggle:before {
-    content: '\263C';
-    font-size: 50px;
-    color: white;
+    /* Styling for night mode toggle button icon in night mode */
+    content: '\263C'; /* Add content */
+    font-size: 50px; /* Set font size */
+    color: white; /* Set text color */
 }
 
 body.night-mode {
-    background-color: var(--background-color-night);
-    color: var(--text-color-night);
+    /* Styling for night mode */
+    background-color: var(--background-color-night); /* Set background color */
+    color: var(--text-color-night); /* Set text color */
 }
 
-
-
-@media screen and (max-width: 700px) {
-    .container {
-        margin: 4rem 5%; /* Adjusted margin for smaller screens */
-    }
-
-    #title {
-        font-size: 2.5em; /* Adjusted font size for smaller screens */
-    }
-
-    #short-intro {
-        font-size: 1.25rem; /* Adjusted font size for smaller screens */
-    }
-
-    .introduction {
-        font-size: 1rem; /* Adjusted font size for smaller screens */
-    }
-    .social-icons a {
-        font-size: 2rem;
-    }
-    .social-icons p {
-        font-size:1rem;
-    }
+/* Styling for the footer */
+footer {
+    text-align: center; /* Center-align text */
+    border: solid; /* Add border */
+    color: var(--text-color-day); /* Set text color */
+    background-color: rgb(8, 199, 199); /* Set background color */
 }
 
-@media screen and (max-width: 480px) {
-    .container {
-        margin: 4rem 2%; /* Further adjusted margin for smaller screens */
-    }
+/* Styling for the social icons container */
+.social-icons {
+    margin-top: 2rem; /* Add top margin of 2rem */
+}
 
-    #title {
-        font-size: 2em; /* Further adjusted font size for smaller screens */
-    }
-
-    #short-intro {
-        font-size: 1rem; /* Further adjusted font size for smaller screens */
-    }
-
-    .introduction {
-        font-size: 0.9rem; /* Further adjusted font size for smaller screens */
-    }
+/* Styling for the social icons */
+.social-icons a {
+    font-size: 3.2rem; /* Set font size to 3.2rem */
+    margin: 0 0.5rem; /* Add margin */
+    color: #333; /* Set text color */
+}
+.social-icons i {
+    transition: all 0.3s ease;
+}
+/* Styling for the text inside social icons container in night mode */
+body.night-mode .social-icons a {
+    color: white; /* Set text color to white */
+}
+.social-icons i:hover{
+   color:blue;
+   opacity: 0.8;
+}
+/* Styling for the text inside social icons container in night mode */
+body.night-mode .social-icons p {
+    color: var(--text-color-night); /* Set text color to night mode text color */
 }
