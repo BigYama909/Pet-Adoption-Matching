@@ -85,7 +85,7 @@
 }
 
 
-.green_btn {
+.login_btn {
 	border: none;
 	outline: none;
 	padding: 12px 0;
@@ -99,7 +99,7 @@
 	margin: 10px;
 }
 
-.white_btn{
+.signup_btn{
 	border: none;
 	color: #2342a7;
 	outline: none;

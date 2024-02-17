@@ -84,12 +84,12 @@ const Signup = () => {
 						/>
 						{error && <div className={styles.error_msg}>{error}</div>}
 						{msg && <div className={styles.success_msg}>{msg}</div>}
-						<button type="submit" className={styles.green_btn}>
+						<button type="submit" className={styles.register_btn}>
 							Register
 						</button>
 						<h2>Have an account?
 						<Link to="/login">
-						<button type="button" className={styles.white_btn}>
+						<button type="button" className={styles.login_btn}>
 							Login
 						</button>
 						</Link>
