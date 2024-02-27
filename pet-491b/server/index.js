@@ -1,13 +1,15 @@
-require("dotenv").config();
+// require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
 const connection = require("./db");
 const userRoutes = require("./routes/users");
 const authRoutes = require("./routes/auth");
+// const petRoutes = require('./routes/pets');
 
 //move this to routes folder
 const axios = require('axios');
+require('dotenv').config();
 const PETFINDER_API_KEY = process.env.PETFINDER_API_KEY;
 const PETFINDER_API_SECRET = process.env.PETFINDER_API_SECRET;
 
@@ -42,7 +44,7 @@ app.get('/api/pets', async (req, res) => {
         id: pet.id,
         name: pet.name,
         description: pet.description,
-        images: pet.photos.map(photo => photo.medium), // Adjust the size based on your requirements
+        images: pet.photos.map(photo => photo.small), // Adjust the size based on your requirements
         }));
 
         res.json(pets);
@@ -51,7 +53,7 @@ app.get('/api/pets', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
-//////////////////////////////////////////////////////////////
+//////////////////////////////
 
 // database connection
 connection();
