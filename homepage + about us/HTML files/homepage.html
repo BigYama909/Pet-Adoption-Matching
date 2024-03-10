@@ -6,12 +6,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Title -->
+
     <title>Pet Adoption Match</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/favicon_and_chatbot_logo.jpeg">
+
+    <!--Icons imported from Font Awesoem Library-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <!-- External CSS -->
     <link rel="stylesheet" href="/CSS files/homepage.css">
+    <link rel="stylesheet" href="/CSS files/service.css">
+    <link href="/CSS files/contact_form.css" rel="stylesheet" type="text/css">
+    
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
@@ -31,7 +38,9 @@
             <li><a href="homepage.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="providers">Pet Care Providers</a></li>
-            <li><a href="matching">Matching</a></li>    
+            <li><a href="matching">Matching</a></li>
+            
+
         </nav>
         
 
@@ -43,7 +52,8 @@
 
         <!-- Add this button where users can toggle between night and day mode -->
         <button id="night-mode-toggle"></button>
-        <!-- Use any element to open the sidenav -->
+
+       
     </header>
     </div>
 
@@ -207,74 +217,225 @@
         </div>
     </div>
 
+    <section class="service-section">
+        <div class="w-layout-blockcontainer main-container w-container">
+          <div class="service-container">
+            <div class="service-heading-wrapper">
+              <h3 class="h1">Some recommend services for your pet</h3><img src="/images/Decorative.svg" loading="lazy" alt="" class="decorative service">
+            </div>
+            <div class="service-blocks-wrapper">
 
-    <!--more question section-->
-    <div id="more_questions">
-        <hr>
-        <h3 id="ques_text">More questions ?</h3>
-        <details>
-            <summary>What is the difference between a shelter and a rescue?</summary>
+              <div class="service-block shadow orange-shadow"><img src="/images/Group-40287.svg" loading="lazy" alt="Service icon" class="service-block-icon">
+                <h4 class="h6">Dog Care</h4>
+                <p class="paragraph dark-font-color">Spacious and clean boarding facilities are designed with your dog&#x27;s comfort in mind.</p>
+              </div>
 
-            <p>Shelters are brick and mortar facilities where homeless pets are cared for while they await adoption. 
-                They are public or privately owned and often use words like “humane society” or “SPCA” in their name, 
-                although they are all separate independently run organizations and not affiliated with one another. 
-                Shelters often allow same day adoptions and have staff, volunteers, and hours of operation when they are open for adopters to meet pets.
+              <div class="service-block shadow green-shadow"><img src="/images/Group-40286.svg" loading="lazy" alt="Service icon" class="service-block-icon">
+                <h4 class="h6">Cat Care</h4>
+                <p class="paragraph dark-font-color">Dedicated team of caretakers ensures that your cat receives attention at home.</p>
+              </div>
 
-            </p>
-            
-            <p>
-            Rescues are privately operated groups that typically rely on volunteers and a network of loving foster homes to board pets while they await adoption, 
-            although they may also have a physical facility. They typically hold adoption events at pet stores, parks, and other pet-friendly locations on weekends 
-            so adopters can meet pets and inquire about the rescue's adoption process.
-            </p>
-        </details>
+              <div class="service-block shadow light-purple-shadow"><img src="/images/Group-40289.svg" loading="lazy" alt="Service icon" class="service-block-icon">
+                <h4 class="h6">Pet Grooming</h4>
+                <p class="paragraph dark-font-color">Spacious and clean boarding facilities are designed with your dog&#x27;s comfort in mind.</p>
+              </div>
+
+              <div class="service-block shadow violet-shadow"><img src="/images/Layer_1.svg" loading="lazy" alt="Service icon" class="service-block-icon">
+                <h4 class="h6">Veterinary Care</h4>
+                <p class="paragraph dark-font-color">We are committed to providing exceptional veterinary care for your beloved pets.</p>
+              </div>
+
+              <div class="service-block shadow light-blue-shadow"><img src="/images/Group-40291.svg" loading="lazy" alt="Service icon" class="service-block-icon">
+                <h4 class="h6">Pet Boarding</h4>
+                <p class="paragraph dark-font-color"> facilities and advanced medical equipment to deliver best treatment options.</p>
+              </div>
+
+              <div class="service-block shadow pink-shadow"><img src="/images/Group-40290.svg" loading="lazy" alt="Service icon" class="service-block-icon">
+                <h4 class="h6">Health &amp; Treatment</h4>
+                <p class="paragraph dark-font-color">Spacious and clean boarding facilities are designed with your dog&#x27;s comfort in mind.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div id="Service" class="anchor-div"></div>
+    </section>
+
+    <section class="FAQ_section">
+        <div class="w-layout-blockcontainer main-container w-container">
+          <div class="faq-container">
+            <h3 class="h1_title">Frequently asked questions</h3>
+            <div class="faq-row">
+              <div class="faq-left-block shadow orange-shadow">
+                <div class="faq-left-block-text-wrapper">
+                  <h4 id="your_question">You have more questions?</h4>
+                  <a href="tel:1234567890" class="phone-link"><img src="/images/Orange-Phone-Icon.svg" loading="lazy" alt="phone icon" class="phone-icon hide-on-mobile">
+                    <div id="call_us">Call us: 1234567890</div>
+                  </a>
+                </div>
+                <div class="faq-image-wrapper">
+                    <img id="faq_img" src="/images/pet_adoption.png">
+                </div>
+              </div>
+
+              <div class="faq-accordion-wrapper">
+
+                <div class="accordion-block">
+                  <div class="accordion-row">
+                    <div class="question_title">What's difference between a shelter and  a resuce?</div>
+                    <div class="accordion-toggle-indicator">
+                      <div class="horizontal-line w-embed"><svg width="14" height="3" viewbox="0 0 14 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0.3125 1.13525L11.3125 1.13525" stroke="currentColor" stroke-width="3" stroke-linejoin="round"></path>
+                        </svg></div>
+                      <div class="vertical-line w-embed"><svg width="3" height="14" viewbox="0 0 3 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0.8125 11.6353L0.8125 0.635254" stroke="currentColor" stroke-width="3" stroke-linejoin="round"></path>
+                        </svg></div>
+                    </div>
+                  </div>
+                  <div class="accordion-para-wrapper">
+                    <div class="accordion-space"></div>
+                    <p class="paragraph_faq">Shelters are brick and mortar facilities where homeless pets are cared for while they await adoption. They are public or privately owned and often use words like “humane society” or “SPCA” in their name, although they are all separate independently run organizations and not affiliated with one another. Shelters often allow same day adoptions and have staff, volunteers, and hours of operation when they are open for adopters to meet pets.<br>Rescues are privately operated groups that typically rely on volunteers and a network of loving foster homes to board pets while they await adoption, although they may also have a physical facility. They typically hold adoption events at pet stores, parks, and other pet-friendly locations on weekends so adopters can meet pets and inquire about the rescue&#x27;s adoption process.</p>
+                  </div>
+                </div>
+
+                <div class="horizontal-divider"></div>
+
+                <div class="accordion-block">
+                  <div class="accordion-row">
+                    <div class="question_title">Do you have adoptable pets in your care?</div>
+                    <div class="accordion-toggle-indicator">
+                      <div class="horizontal-line w-embed"><svg width="14" height="3" viewbox="0 0 14 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0.3125 1.13525L11.3125 1.13525" stroke="currentColor" stroke-width="3" stroke-linejoin="round"></path>
+                        </svg></div>
+                      <div class="vertical-line w-embed"><svg width="3" height="14" viewbox="0 0 3 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0.8125 11.6353L0.8125 0.635254" stroke="currentColor" stroke-width="3" stroke-linejoin="round"></path>
+                        </svg></div>
+                    </div>
+                  </div>
+                  <div class="accordion-para-wrapper">
+                    <div class="accordion-space"></div>
+                    <p class="paragraph_faq">.No. Pet Adoption Match is not a shelter or rescue and we do not have pets in our care.Our website is an online platform run by a small but mighty group of pet lovers who believe life, simply put, is better with pets. We&#x27;re confident you&#x27;ll feel the same way when you meet your match, so we build technology to help you do just that.</p>
+                  </div>
+                </div>
+                <div class="horizontal-divider"></div>
+
+                <div class="accordion-block">
+                  <div class="accordion-row">
+                    <div class="question_title">What is the process to adopt a pet? </div>
+                    <div class="accordion-toggle-indicator">
+                      <div class="horizontal-line w-embed"><svg width="14" height="3" viewbox="0 0 14 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0.3125 1.13525L11.3125 1.13525" stroke="currentColor" stroke-width="3" stroke-linejoin="round"></path>
+                        </svg></div>
+                      <div class="vertical-line w-embed"><svg width="3" height="14" viewbox="0 0 3 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0.8125 11.6353L0.8125 0.635254" stroke="currentColor" stroke-width="3" stroke-linejoin="round"></path>
+                        </svg></div>
+                    </div>
+                  </div>
+                  <div class="accordion-para-wrapper">
+                    <div class="accordion-space"></div>
+                    <p class="paragraph_faq">Making Every organization&#x27;s adoption process is different and you will have to inquire with the shelter or rescue, directly, for their adoption process details.<br>If the pet is with a rescue, they will likely ask you to complete an adoption application, talk with a volunteer who can tell you more about the pet and, if it seems like a good match, they will arrange for a home visit before completing the adoption. Once you pay the adoption fee and your adoption is complete, they will give you vaccination and sterilization records and arrange for your new pet to come home.If you&#x27;re adopting from a shelter, you may be able to adopt the same day. <br>If the pet is at a shelter with open hours, you can likely visit the facility to meet the pet, complete any necessary paperwork and pay the adoption fee, and then take your new best friend home to get cozy and settle in.</p>
+                  </div>
+                </div>
+                <div class="horizontal-divider"></div>
+
+                <div class="accordion-block">
+                  <div class="accordion-row">
+                    <div class="question_title">How much does it cost to adopt a pet?</div>
+                    <div class="accordion-toggle-indicator">
+                      <div class="horizontal-line w-embed"><svg width="14" height="3" viewbox="0 0 14 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0.3125 1.13525L11.3125 1.13525" stroke="currentColor" stroke-width="3" stroke-linejoin="round"></path>
+                        </svg></div>
+                      <div class="vertical-line w-embed"><svg width="3" height="14" viewbox="0 0 3 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0.8125 11.6353L0.8125 0.635254" stroke="currentColor" stroke-width="3" stroke-linejoin="round"></path>
+                        </svg></div>
+                    </div>
+                  </div>
+                  <div class="accordion-para-wrapper">
+                    <div class="accordion-space"></div>
+                    <p class="paragraph_faq">Adoption fees vary from organization to organization, but typically range from $25 to $125 at shelters and $100 to $300 or more at rescues. Adoption fees help to cover the cost of care for pets in the time leading up to adoption (food, supplies, veterinary care and sterilization, etc.) and rarely even come close to what the shelter or rescue actually spends.</p>
+                  </div>
+                </div>
+                <div class="horizontal-divider"></div>
+
+                <div class="accordion-block">
+                  <div class="accordion-row">
+                    <div class="question_title">What should I do to prepare to adopt a pet?</div>
+                    <div class="accordion-toggle-indicator">
+                      <div class="horizontal-line w-embed"><svg width="14" height="3" viewbox="0 0 14 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0.3125 1.13525L11.3125 1.13525" stroke="currentColor" stroke-width="3" stroke-linejoin="round"></path>
+                        </svg></div>
+                      <div class="vertical-line w-embed"><svg width="3" height="14" viewbox="0 0 3 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0.8125 11.6353L0.8125 0.635254" stroke="currentColor" stroke-width="3" stroke-linejoin="round"></path>
+                        </svg></div>
+                    </div>
+                  </div>
+                  <div class="accordion-para-wrapper">
+                    <div class="accordion-space"></div>
+                    <p class="paragraph_faq">We know how exciting it is to adopt a pet. We also know it can be a big life change so planning ahead can ensure you&#x27;re ready and prepared. Check out this collection of helpful <a target="blank" href="https://www.thewildest.com/search?keyword=adoption&amp;topic=all&amp;sort=relevant&amp;page=1%22">Adoption Preparation articles</a>
+                    </p>
+                  </div>
+                </div>
+                <div class="horizontal-divider"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
     
-        <details>
-            <summary>Do you have adoptable pets in your care</summary>
-            <p>No. Pet Adoption Match is not a shelter or rescue and we do not have pets in our care.Our website is an online platform run by a small but mighty
-                group of pet lovers who believe life, simply put, is better with pets. We're confident you'll feel the same way when you meet your match, 
-                so we build technology to help you do just that.</p>
-        </details>
 
-        <details>
-            <summary>What is the process to adopt a pet?</summary>
-            <p>Every organization's adoption process is different and you will have to inquire with the shelter or rescue, directly, for their adoption process details.</p>
-            
-            <p>If the pet is with a rescue, they will likely ask you to complete an adoption application, talk with a volunteer who can tell you more about the pet and, 
-                if it seems like a good match, they will arrange for a home visit before completing the adoption. Once you pay the adoption fee and your adoption is complete, 
-                they will give you vaccination and sterilization records and arrange for your new pet to come home.</p>
-                
-            <p>If you're adopting from a shelter, you may be able to adopt the same day. If the pet is at a shelter with open hours, you can likely visit the facility to meet the 
-                pet, complete any necessary paperwork and pay the adoption fee, and then take your new best friend home to get cozy and settle in.</p>
-        </details>
-
-        <details>
-            <summary>How much does it cost to adopt a pet?</summary>
-            <p>Adoption fees vary from organization to organization, but typically range from $25 to $125 at shelters and $100 to $300 or more at rescues. 
-                Adoption fees help to cover the cost of care for pets in the time leading up to adoption (food, supplies, veterinary care and sterilization, etc.) 
-                and rarely even come close to what the shelter or rescue actually spends. You can feel good paying your adoption fee because every adoption fee paid.
-                helps another pet in need. That's hero stuff right there!
-            </p>
-        </details>
-
-        <details>
-            <summary>What should I do to prepare to adopt a pet?</summary>
-            <p>This is a great question! We know how exciting it is to adopt a pet. We also know it can be a big life change so planning ahead can ensure you're 
-                ready and prepared. Check out this collection of helpful <a target="blank" id="adoption_preparation" href=https://www.thewildest.com/search?keyword=adoption&topic=all&sort=relevant&page=1">Adoption Preparation articles</a>
-            </p>
-        </details>
-
+<section class="contact-section">
+  <div class="w-layout-blockcontainer main-container w-container">
+    <div class="contact-container">
+      <div class="contact-heading-wrapper">
         
-        <hr>
-        
+        <h3 class="h1">Fill out our contact form</h3>
+      </div>
+      <div class="contact-row">
+        <div class="contact-text-wrapper">
+          <h4 class="h5">Connect with us</h4>
+
+          <div class="contact-links-wrapper">
+            <div class="contact-link">
+                <i class="fas fa-map-marker-alt"></i>
+              <div class="paragraph-big">7039 NE 138th St Kirkland, Washington 98034</div>
+            </div>
+
+            <a href="tel:1234567890" class="contact-link w-inline-block">
+              <i class="fas fa-phone-alt contact-link-icon"></i>
+              <div class="paragraph-big">1234567890</div>
+            </a>
+
+            <a href="mailto:email@yourdomain.com" class="contact-link w-inline-block">
+              <i class="fas fa-envelope contact-link-icon"></i>
+              <div class="paragraph-big">email@yourdomain.com</div>
+            </a>
+
+            <div class="contact-link">
+              
+              <div class="paragraph-big">Everyday: 9.00 am - 5.00 pm</div>
+            </div>
+          </div>
+          <img src="/images/Decorative.svg" loading="lazy" alt="" class="decorative contact">
+
+        </div>
+        <div class="contact-form-wrapper shadow purple-shadow w-form">
+          <form id="Contact-From" name="wf-form-Contact-From" data-name="Contact From" method="get" class="contact-from" data-wf-page-id="65ebb052148c3175586c7d57" data-wf-element-id="64dd556a-230f-c308-d683-1724c017b0c2">
+            <div class="contact-fields-wrapper"><input class="input-field w-input" maxlength="256" name="First-Name" data-name="First Name" placeholder="First Name" type="text" id="First-Name" required=""><input class="input-field w-input" maxlength="256" name="Last-Name" data-name="Last Name" placeholder="Last Name" type="text" id="Last-Name" required=""></div>
+            <div class="contact-fields-wrapper"><input class="input-field w-input" maxlength="256" name="Email-address" data-name="Email Address" placeholder="Email address" type="email" id="Email-address" required=""><input class="input-field w-input" maxlength="256" name="Phone" data-name="Phone" placeholder="Phone" type="tel" id="Phone" required=""></div>
+            <div class="contact-fields-wrapper"></div>
+            <div class="contact-fields-wrapper"><textarea id="Message" name="Message" maxlength="5000" data-name="Message" placeholder="Message" class="input-field with-min-height w-input"></textarea></div>
+            <div class="contact-form-button-wrapper"><input type="submit" data-wait="Please wait..." class="primary-button w-button" value="Submit"></div>
+          </form>
     </div>
-    <div>
-        
-    </div>
+  </div>
+  <hr>
+  <div id="Contact" class="anchor-div"></div>
 
-     
+</section>
+
+</section>
 </main>
-</div>
+
 
 <footer>
     <!--Social icon section-->
@@ -284,11 +445,44 @@
         <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
         <p><strong>@ 2024 Pet Adoption Match Incorporated. All rights reserved.</strong></p>
-    </footer>
+</footer>
      <script>  
         /*Night mode feature*/
         document.getElementById('night-mode-toggle').addEventListener('click', function() {
         document.body.classList.toggle('night-mode');
-        });
+        })
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionRows = document.querySelectorAll('.accordion-row');
+        
+            accordionRows.forEach(row => {
+                row.addEventListener('click', function() {
+                    const accordionBlock = this.parentElement;
+                    accordionBlock.classList.toggle('active');
+        
+                    const paraWrapper = accordionBlock.querySelector('.accordion-para-wrapper');
+                    if (paraWrapper.style.display === 'block') {
+                        paraWrapper.style.display = 'none';
+                    } else {
+                        paraWrapper.style.display = 'block';
+                        // Scroll to the accordionBlock
+                        scrollToElement(accordionBlock);
+                    }
+                });
+            });
+        
+            function scrollToElement(element) {
+                const blockPosition = element.getBoundingClientRect().top + window.scrollY;
+                
+                window.scrollTo({
+                    top: blockPosition - 20, // Adjust this value if you want more space above the element or if you have a fixed header
+                    behavior: 'smooth'
+                });
+            }
+        });
+        </script>
+        
+    
 </body>
+</html>

@@ -1,0 +1,530 @@
+:root {
+    --background-color-day: #ffffff;
+    --text-color-day: #000000;
+    --background-color-night: #1a1a1a;
+    --text-color-night: #f5f5dc;
+}
+
+
+body {
+    margin:0; /*Fix the margin of the header*/
+    /*Set default background and text color for day mode*/
+    background-color: var(--background-color-day);
+    color: var(--text-color-day);
+    /*Set the transition delay for switching dark mode*/
+    transition: background-color 2s, color 1s;
+}
+
+body.night-mode {
+    background-color: var(--background-color-night);
+    color: var(--text-color-night);
+    
+}
+
+header {
+
+    display: flex; /*Align all items in the header */
+    align-items:center; /*Vertically center the items*/
+    background-color: rgb(8, 199, 199);
+    margin: 0;
+    
+}
+
+#logo {
+    max-width: 250px;
+    height: auto;
+    margin:0;
+}
+
+nav {
+    display: flex; /*Align item in the nav bar*/
+    margin: auto; /*Set the nav bar in the middle*/
+   
+}
+
+nav li {
+   
+    list-style: none; /*No underscore, bullet point for li element*/
+    margin-right: 1rem; /* Adjust as needed */
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    position:relative;
+    /*proivde positioning context for it's children or pseudo-element*/
+    font-size: 2.45rem; /* Adjust as needed */
+    
+}
+/*Style for nav bar link on hover */
+/*Ignore this code temp*/
+@media DISABLED {
+    nav a:hover {
+        
+        border-bottom: 2px solid rgb(225, 54, 54); /* Add a 2px solid black border at the bottom on hover */
+        font-weight: bold;
+        position: relative;/* Establish a positioning context for absolutely positioned pseudo-elements */
+
+
+    }
+}
+
+
+/* Pseudo-element before each navigation link */
+nav a::before {
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute; /* Position the pseudo-element absolutely within the anchor */
+    width: 100%; /* Make the pseudo-element take up the full width of the anchor */
+    height: 2px; /* Set the height of the pseudo-element to create an underline effect */
+    bottom: 0; /* Position the pseudo-element at the bottom of the anchor */
+    left: 0; /* Position the pseudo-element at the left edge of the anchor */
+    background-color: black; /* Set the background color of the pseudo-element to black */
+    transform: scaleX(0); /* Initially scale the pseudo-element horizontally to 0 (hidden) */
+    transition: transform 0.5s ease-in-out; /* Smooth transition for the transform property */
+    font-weight: bold;
+}
+
+/* Pseudo-element before each navigation link on hover */
+nav a:hover::before {
+    transform: scaleX(1);/* Scale the pseudo-element horizontally to its original size on hover (visible) */
+}
+
+/*Set margin for both login and signup buttons cotainer*/
+.login-signup {
+    margin-right: 1rem; /* Adjust as needed */
+}
+
+/*Styling both login and signup button*/
+#login-button, #signup-button {
+    font-size: 1.5rem;/* Adjust as needed */
+    padding: 0.5rem 0.5rem;/* Adjust as needed */
+    border-radius: 1rem;/* Adjust as needed */
+    margin-right:10px;/* Adjust as needed */
+    width: 9rem;/* Adjust as needed */
+    height: 4rem;
+    
+    
+}
+
+/*Styling signup button*/
+#signup-button {
+    background-color: black;
+    color: whitesmoke;
+
+}
+/*Styling login button*/
+#login-button {
+    background-color: white;
+  
+}
+
+/*Styling the day/night mode button*/
+#night-mode-toggle {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    
+}
+
+
+/*Moon icon styling */
+#night-mode-toggle::before {
+    
+    content: '\f186';
+    font-family: 'Font Awesome 5 Free';
+    font-size: 2rem; /* Adjust as needed */
+    color: black;
+    margin-right: 0.75rem;
+    transition: color 2s ;
+}
+
+/*Sun icon styling*/
+body.night-mode #night-mode-toggle:before {
+    content: '\263C';
+    color: white;
+    font-size: 3.2rem /* Adjust as needed */
+
+}
+#night-mode-toggle:hover::before {
+    color: #574ddd;
+}
+
+/* Styling two search bars*/
+#search-bar {
+    display: flex; /*Make them in the same line*/
+    justify-content: center;
+    position: absolute; /*Make position absolute to adjust the position with the viewport*/
+    top: 20%;
+    left: 25%;
+
+}
+/* Styling the input in both search bar*/
+#search-bar input {
+    padding: 0.5rem;
+    width:30rem;
+    height:2.75rem;
+    transition: border-color 0.3s ease-in-out;
+    background-color: #f4f4f4;
+    font-size: 1.25rem;
+
+}
+
+#search-bar input:focus {
+    outline:none;
+    border:solid 4px rgb(11, 139, 139);
+}
+
+/* Styling the left search box: type_search*/
+#type_search {
+    border-radius: 20px 0 0 20px;
+    border: none;
+    border-right: #ccc solid;
+   
+}
+
+/*Styling the right search box: location_search*/
+#location_search {
+    border: none;
+    border-radius: 0 20px 20px 0;
+    border-left: hidden;
+}
+
+/*Styling the search bar button*/
+#search-bar button {
+    padding: 15px;
+    background-color: rgb(8, 199, 199);
+    border: solid;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.5s ease-in-out;
+}
+
+/*Styling search bar button when hovering*/
+#search-bar button:hover {
+    background-color: #574ddd; /* Change background color on hover */
+}
+
+/*Set the icon size*/
+#search-bar button i {
+    font-size: 20px; /* Adjust the size of the search icon */
+    
+}
+/*Styling homepage image*/
+#homepage_image {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    object-position: center top;
+    margin: 0;
+    margin-bottom: 0;
+    border: 1px solid transparent;
+}
+
+
+/*Styling the pet-list division*/
+#pet-list {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin: 0;
+    margin-top: 0;
+    border: 1px solid transparent;
+}
+
+body.night-mode #pet-list {
+    background-color: black;
+}
+/*Text-align center for h2 and h4 element*/
+#pet-list h2,
+#pet-list h4 {
+    text-align: center;
+}
+
+/*Styling the meet out pets title*/
+#meet-our-pet {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 2.5rem;
+    
+}
+
+/*Styling the check out text*/
+#check-out {
+
+    margin-top: 0;
+    font-size: 2.5rem;
+    
+}
+
+/* Sytling the unordered list*/
+#pet-items {
+    list-style: none; /*Remove bullet point*/
+    display: flex; /*Make the list items in the samle line */
+    justify-content: space-evenly ; /*Spaces btw list items are the same*/
+    padding-left: 1.5rem;
+    padding-right: 1.5em;
+    margin-bottom: 1.5rem;
+
+}
+
+/*Styling the text under the pet picture*/
+#pet-items a {
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.75rem;
+    transition: 0.5s color;
+  
+}
+
+/*Change text color of each pet list item in dark mode*/
+body.night-mode #pet-items a {
+    color: var(--text-color-night);
+
+}
+/*Styling the  pet image*/
+#pet-list img {
+    width: 450px;
+    height:550px;
+    border-radius: 40px;
+    transition: transform 1s;
+    
+}
+/*Add effect when hover the picture*/
+#pet-items img:hover {
+    transform: scale(1.2);
+}
+
+/*Styling the advice division */
+#advice {
+
+    background-color: rgb(239, 234, 227);
+    border-radius: 15px;
+    border: solid;
+
+}
+
+/*Syling the head of advice( the first two lines)*/
+#head-of-advice {
+    text-align: center;
+
+}
+
+/*Styling the check out adoption advice*/
+#advice h2 {
+   
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 4.5rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/*Styling the get inside*/
+#get-the-inside {
+    margin-top: 0;
+    font-size: 2rem;
+    margin-bottom: 0;
+  
+}
+
+/*Styling the two columns*/
+#two-columns {
+    display: flex; /*two columns in the same line*/
+    padding-left: 30rem;
+    padding-right:30rem;
+    line-height: 1.3;
+    
+}
+
+/*Styling 2 column*/
+#two-columns h4 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+/*Styling both paragraph*/
+#two-columns p {
+    font-size: 1.5rem;
+}
+
+/*Styling margin for both columns */
+#column1, #column2 {
+    margin-right: 3rem;
+}
+
+/*Change the text and background color in dark mode*/
+body.night-mode #advice {
+    color: var(--text-color-night);
+    background-color: black;
+}
+
+/*Styling the faq divison*/
+#faq {
+    background-color: rgb(239, 232, 232); 
+    margin: 4rem 8rem 4rem 8rem;
+    border-radius: 10px;
+    
+}
+/*Styling the header of faq*/
+#head-of-faq {
+    
+    margin-top: 1.5rem;
+    text-align: center;
+}
+/*Styling the title*/
+#at-a-glance {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+/*Styling the second line*/
+#some-faq {
+    margin-top: 0;
+    font-size: 2.25rem;
+}
+/*Styling first and second row*/
+.first-row, .second-row {
+    display: flex;
+    margin-bottom: 1.24em;
+
+
+}
+/*Display flex both image and text*/
+.img-and-text {
+    display: flex;
+    align-items:flex-start
+    
+}
+/*Make all the img has the same size*/
+.img-and-text img {
+    width: 7rem;
+    height: auto;
+}
+/*Set specific height for last picture*/
+#pic4 {
+    height: 6.5rem;
+}
+/*Set the space for the text next to the img*/
+.text {
+    margin-left:1rem;
+}
+
+/*Styling the header of the text*/
+.text h5 {
+    font-size: 2rem;
+    margin-bottom: 0rem;
+}
+/*Styling the paragraph*/
+.text p {
+    margin-top: 0rem;
+    line-height: 1.3;
+    font-size: 1.5rem;
+    
+}
+/*Set margin for column1*/
+.column1{
+    margin-left: 4rem;
+    margin-right: 12rem;
+    width: 100%;
+   
+}
+/*Set margin for column2*/
+.column2{
+    margin-right: 4rem;
+    width:100%;
+    
+}
+body.night-mode #faq {
+    background-color: black
+}
+
+#more_questions hr {
+    margin-right: 8rem;
+    margin-left: 8rem;
+    height: 0.35rem; /* Increase the height as needed */
+    background-color: black; /* Set your preferred color */
+    border: none;
+    margin-top: 1rem; /* Add some top margin for spacing */
+    margin-bottom: 1rem; /* Add some bottom margin for spacing */
+    font-weight: bold; /* Make the <hr> bold */
+}
+body.night-mode #more_questions hr {
+    background-color: wheat;
+}
+
+#ques_text  {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom:2rem ;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 3rem;
+
+}
+
+details{
+    margin-left: 37rem;
+}
+
+summary{
+    font-size: 2rem;
+    color: rgb(11, 139, 139);
+    margin-bottom: 2rem;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+}
+
+#more_questions p {
+    font-size: 2rem;
+    margin-left: 2.0625;
+    margin-right:37.5rem;
+    transition: opacity 0.5 ease-in-out;
+}
+#more_questions details[open] summary {
+    transform: scale(1.1);
+}
+#adoption_preparation  {
+    color: rgb(11, 139, 139);
+    text-decoration: none;
+
+    
+
+}
+#adoption_preparation:hover {
+    text-decoration: underline;
+    color: rgb(11, 139, 139);
+
+}
+
+footer {
+    text-align: center;
+    margin-top: 0px;
+    color:var(--text-color-day)
+    
+}
+
+.social-icons a {
+    font-size: 3.2rem;
+    margin: 0 0.5rem;
+    color: #333;
+}
+
+.social-icons p {
+    font-size: 2rem;
+}
+body.night-mode .social-icons a {
+    color: white;
+}
+
+body.night-mode .social-icons p {
+    color: var(--text-color-night);
+}
+
+#chatbot-icon {
+    font-size: 3.5rem;
+    position: fixed;
+    border: none;
+    background-color: transparent;
+    color: #555; /* Adjust icon color */
+    cursor: pointer;
+    z-index: 999; /* Ensure the button is above other elements */
+  }

@@ -16,31 +16,64 @@
 </head>
 
 <body>
-    <!--Header section-->
-    <header>
-        <a href="homepage.html">
-            <img id="logo" src="/images/logo_for_website.png" alt="Pet Adoption Match Logo">
-        </a>
-        <!-- Navigation menu -->
-        <nav>
-        
-            <li><a href="homepage.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="providers">Pet Care Providers</a></li>
-            <li><a href="matching">Matching</a></li> 
-        </nav>
-
-        <!-- Login/Sign Up Section -->
-        <div class="login-signup">
-            <a id="login-link" href="login-page.html"><button id="login-button">Login</button></a>
-            <a id="signup-link" href="signup-page.html"><button id="signup-button">Sign Up</button></a>
+    <div class="top-bar">
+        <header>
+             <!-- Logo -->
+            <a href="homepage.html">
+                <img id="logo" src="/images/logo_for_website.png" alt="Pet Adoption Match Logo">
+            </a>
+            <!--Navigation Bar-->
+            <nav> 
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="providers">Pet Care Providers</a></li>
+                <li><a href="matching">Matching</a></li>
+                
+    
+            </nav>
+            
+    
+            <!-- Login/Sign Up Section -->
+            <div class="login-signup">
+                <a id="login-link" href="login-page.html"><button id="login-button">Login</button></a>
+                <a id="signup-link" href="signup-page.html"><button id="signup-button">Sign Up</button></a>
+            </div>
+    
+            <!-- Add this button where users can toggle between night and day mode -->
+            <button id="night-mode-toggle"></button>
+    
+           
+        </header>
         </div>
-
-        <!-- Add this button where users can toggle between night and day mode -->
-        <button id="night-mode-toggle"></button>
-    </header>
     <!-- Main content -->
     <main>
+        <section class="about-section">
+            <div class="w-layout-blockcontainer main-container w-container">
+              <div class="about-container">
+                <div class="about-heading-wrapper">
+                  <h2 class="h1">The founding story behind our practice</h2>
+                </div>
+                <div class="about-row">
+                  <div class="about-image-wrapper">
+                    <img src="/images/About-Image_1-p-500.png"></div>
+                  <div class="about-text-wrapper">
+                    <p class="paragraph-big">We have a team of passionate and experienced professionals who are devoted to the well-being of pets. Our staff includes trained veterinarians, groomers, trainers, and caretakers who are committed to providing the best care possible.</p>
+                    <div class="about-text shadow orange-shadow">
+                      <div class="clients-profile-wrapper">
+                        <img src="/images/Mask-group-1_1Mask group-1.webp" loading="lazy" alt="Client Image" class="client-profile">
+                        <img src="/images/Mask-group-2_1Mask group-2.webp" loading="lazy" alt="Client Image" class="client-profile">
+                        <img src="/images/Mask-group_1Mask group.webp" loading="lazy" alt="Client Image" class="client-profile">
+                        <div class="client-profile with-bg-color">
+                            <img src="/images/Plus-Icon.svg" loading="lazy" alt="plus icon" class="plus-icon"></div>
+                      </div>
+                      <div class="paragraph-big">Trusted by over x clients worldwide since 2023</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="About-us" class="anchor-div"></div>
+          </section>
 
         <div class="container">
             <!-- Title and horizontal rule -->
@@ -77,7 +110,50 @@
                 pet owners, ensuring a harmonious bond between humans and their animal companions. Join our mission to promote the welfare of pets everywhere, and together, 
                 let's make a positive impact on the lives of countless furry friends in need of loving homes.
             </p>
-
+        </div>
+        <hr id="bottom_hr">
+        <div class="team_member">
+            <h2 id="our-team">Our Team</h2>
+            <div class="row">
+            <div class="column">
+                <div class="card">
+                <img src="/images/adopt a pet.jpeg" alt="Jane" style="width:100%">
+                <div class="team_container">
+                    <h2>Khoa Diep</h2>
+                    <p class="title">Founder</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>jane@example.com</p>
+                    <p><button class="contact_button" data-email="jane@example.com">Contact</button></p>
+                </div>
+                </div>
+            </div>
+            
+            <div class="column">
+                <div class="card">
+                <img src="/images/adopt a pet.jpeg" alt="Mike" style="width:100%">
+                <div class="team_container">
+                    <h2>David Viers</h2>
+                    <p class="title">Founder</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>mike@example.com</p>
+                    <p><button class="contact_button" data-email="jane@example.com">Contact</button></p>
+                </div>
+                </div>
+            </div>
+            
+            <div class="column">
+                <div class="card">
+                <img src="/images/adopt a pet.jpeg" alt="John" style="width:100%">
+                <div class="team_container">
+                    <h2>Ren Yamasaki</h2>
+                    <p class="title">Founder</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>john@example.com</p>
+                    <p><button class="contact_button" data-email="jane@example.com">Contact</button></p>
+                </div>
+                </div>
+            </div>
+            </div>
         </div>
     </main>
     <!-- Footer section -->
@@ -97,6 +173,16 @@
         document.getElementById('night-mode-toggle').addEventListener('click', function() {
             document.body.classList.toggle('night-mode');
         });
+        document.addEventListener('DOMContentLoaded', function() {
+    const contactButtons = document.querySelectorAll('.contact_button');
+
+    contactButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const email = this.getAttribute('data-email');
+            window.location.href = `mailto:${email}`;
+        });
+    });
+});
     </script>
 </body>
 </html>
