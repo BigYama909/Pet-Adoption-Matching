@@ -1,0 +1,158 @@
+/* Define CSS custom properties for day and night modes */
+:root {
+    --background-color-day: #ffffff;
+    --text-color-day: #000000;
+    --background-color-night: #1a1a1a;
+    --text-color-night: #f5f5dc;
+   
+}
+
+body {
+    margin:0; /*Fix the margin of the header*/
+    /*Set default background and text color for day mode*/
+    background-color: var(--background-color-day);
+    color: var(--text-color-day);
+    /*Set the transition delay for switching dark mode*/
+    transition: background-color 0.5s, color 0.5s;
+}
+/*Styling the dark mode feature*/
+body.night-mode {
+    background-color: var(--background-color-night);
+    color: var(--text-color-night);
+    
+}
+/*Styling the header*/
+ .top-bar header {
+    display: flex; /*Align all items in the header */
+    align-items: center; /*Vertically center the items*/
+    background-color: rgb(8, 199, 199);
+    margin: 0;
+    
+}
+body.night-mode .top-bar header {
+    background-color: black;
+    transition: 0.5s ease;
+}
+body.night-mode nav a {
+    color: rgb(235, 233, 233);
+    transition: 0.5s ease;
+}
+/*Styling the logo*/
+#logo {
+    max-width: 250px;
+    height: auto;
+    margin:0;
+}
+/*Styling the navigation bar*/
+ nav {
+    display: flex; /*Align item in the nav bar*/
+    margin: auto; /*Set the nav bar in the middle*/
+   
+}
+
+nav li {
+   
+    list-style: none;
+    margin-right: 1.25rem; /* Adjust as needed */
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    position:relative;
+    /*proivde positioning context for it's children or pseudo-element*/
+    font-size: 2rem; /* Adjust as needed */
+    cursor: pointer;
+    
+}
+/*Style for nav bar link on hover */
+/*Ignore this code temp*/
+nav a:hover {
+transform: scale(1.1);
+transition: transform 0.3s ease;
+text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
+}
+
+
+/* Pseudo-element before each navigation link */
+nav a::before {
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute; /* Position the pseudo-element absolutely within the anchor */
+    width: 100%; /* Make the pseudo-element take up the full width of the anchor */
+    height: 2px; /* Set the height of the pseudo-element to create an underline effect */
+    bottom: 0; /* Position the pseudo-element at the bottom of the anchor */
+    left: 0; /* Position the pseudo-element at the left edge of the anchor */
+    background-color: black; /* Set the background color of the pseudo-element to black */
+    transform: scaleX(0); /* Initially scale the pseudo-element horizontally to 0 (hidden) */
+    transition: transform 0.5s ease-in-out; /* Smooth transition for the transform property */
+    font-weight: bold;
+}
+
+/* Pseudo-element before each navigation link on hover */
+nav a:hover::before {
+    transform: scaleX(1);/* Scale the pseudo-element horizontally to its original size on hover (visible) */
+}
+
+/*Set margin for both login and signup buttons cotainer*/
+.login-signup {
+    margin-right: 1rem; /* Adjust as needed */
+}
+
+/*Styling both login and signup button*/
+#login-button, #signup-button {
+    font-size: 1.5rem;/* Adjust as needed */
+    padding: 0.5rem 0.5rem;/* Adjust as needed */
+    border-radius: 1rem;/* Adjust as needed */
+    margin-right:10px;/* Adjust as needed */
+    width: 9rem;/* Adjust as needed */
+    height: 4rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    
+    
+}
+#login-button:hover, #signup-button:hover {
+    opacity: 0.8;
+}
+/*Styling signup button*/
+#signup-button {
+    background-color: black;
+    color: whitesmoke;
+
+}
+/*Styling login button*/
+#login-button {
+    background-color: white;
+  
+}
+
+/*Styling the day/night mode button*/
+#night-mode-toggle {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    
+}
+
+
+/*Moon icon styling */
+#night-mode-toggle::before {
+    
+    content: '\f186';
+    font-family: 'Font Awesome 5 Free';
+    font-size: 2rem; /* Adjust as needed */
+    color: black;
+    margin-right: 0.75rem;
+    transition: color 2s ;
+}
+
+/*Sun icon styling*/
+body.night-mode #night-mode-toggle:before {
+    content: '\263C';
+    color: white;
+    font-size: 3.2rem /* Adjust as needed */
+
+}
+#night-mode-toggle:hover::before {
+    color: #574ddd;
+}
