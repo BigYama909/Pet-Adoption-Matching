@@ -6,6 +6,7 @@ import EmailVerify from "./components/EmailVerify";
 import Pet from "./components/Pet";
 
 
+
 function App() {
 	// determine if a user is authenticated.
 	const user = localStorage.getItem("token");
@@ -22,5 +23,6 @@ function App() {
 		</Routes>
 	);
 }
+
 
 export default App;
