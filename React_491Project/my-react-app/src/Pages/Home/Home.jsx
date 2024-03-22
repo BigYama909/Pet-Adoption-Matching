@@ -8,7 +8,7 @@ import FAQ from "../../Components/FAQ/FAQ.jsx"
 function Home() {
   return(
   <>
-  
+  <Header/>
   <SearchBar/>
   <PetList />
   <Advice />

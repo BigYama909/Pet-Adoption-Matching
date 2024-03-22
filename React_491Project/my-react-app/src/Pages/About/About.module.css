@@ -204,7 +204,8 @@
 }
 
 .team_container {
-    padding: 0 16px;
+    padding: 0 20px;
+    border: solid blue;
   }
   
   .team_container::after, .row::after {
@@ -229,21 +230,23 @@ h2 {
 }
 
 .contact_paragraph {
-    margin: 10px 0;
+    margin: 10px 0px;
+    
 }
-  .contact_button {
-    border: none;
-    outline: 0;
-    display: inline-block;
-    padding: 8px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-  }
+.contact_link {
+  background-color: #000; /* Black background */
+  color: white; /* White text */
+  padding: 8px; /* Padding for a button-like appearance */
+  text-decoration: none; /* Remove underline from links */
+  display: inline-block; /* Allows the application of padding and margin */
+  border: none;
+  outline: 0;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
   
-  .contact_button:hover {
+  .contact_link:hover {
     background-color: #555;
   }
 

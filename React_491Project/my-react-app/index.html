@@ -28,72 +28,9 @@
 
     <title>Vite + React</title>
   </head>
+
   <body>
-    <div class="top_bar">
-      <header class="header">
-        <!-- Logo -->
-        <div class="img_logo">
-          <a href="/" class="logoLink">
-            <img
-              class="logo"
-              src="/src/assets/logo_for_website.png"
-              alt="Pet Adoption Match Logo"
-            />
-          </a>
-        </div>
-    
-        <div class="nav_bar">
-          <!-- Navigation Bar -->
-          <nav class="nav">
-            <ul class="navList">
-              <!-- Enclose nav items in a ul for semantic structure -->
-              <li class="navItem">
-                <a href="/">Home</a>
-              </li>
-              <li class="navItem">
-                <a href="/about">About Us</a>
-              </li>
-              <li class="navItem">
-                <a href="/providers">Pet Care Providers</a>
-              </li>
-              <li class="navItem">
-                <a href="/matching">Matching</a>
-              </li>
-              <li class="navItem">
-                <a href="/donate">Donate Now</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-    
-        <!-- Login/Sign Up Section -->
-        <div class="loginSignup">
-          <a href="/login" class="loginLink">
-            <button class="loginButton">Login</button>
-          </a>
-          <a href="/signup" class="signupLink">
-            <button class="signupButton">Sign Up</button>
-          </a>
-        </div>
-    
-        <!-- Night Mode Toggle Button -->
-        <button
-          class="nightModeToggle"
-          aria-label="Toggle night mode"
-        ></button>
-      </header>
-    </div>
-
-
     <div id="root"></div>
-
     <script type="module" src="/src/main.jsx"></script>
-    <script>
-      document
-        .getElementById("night-mode-toggle")
-        .addEventListener("click", function () {
-          document.body.classList.toggle("night-mode");
-        });
-    </script>
   </body>
 </html>

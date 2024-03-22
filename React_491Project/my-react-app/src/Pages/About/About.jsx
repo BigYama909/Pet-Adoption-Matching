@@ -11,7 +11,7 @@ import AdoptAPet from "./Images/adoptapet.jpeg";
 function About() {
   return (
     <>
-      
+      <Header />
       <section className={styles.about_section}>
         <div
           className={`${styles.w_layout_blockcontainer} ${styles.w_container}`}
@@ -149,14 +149,12 @@ function About() {
                   Some text that desceribes me lorem ipsum lorem
                 </p>
                 <p className={styles.sample_email}>sample@example.com</p>
-                <p className={styles.contact_paragraph}>
-                  <button
-                    className={styles.contact_button}
-                    data-email="jane@example.com"
-                  >
-                    Contact
-                  </button>
-                </p>
+                <div className={styles.contact_paragraph}>
+                    <a className={styles.contact_link}
+                      href={`mailto:${"jane@example.com"}`}>
+                      Contact
+                    </a>
+                </div>
               </div>
             </div>
           </div>
@@ -172,14 +170,12 @@ function About() {
                   Some text that desceribes me lorem ipsum lorem
                 </p>
                 <p className={styles.sample_email}>sample@example.com</p>
-                <p className={styles.contact_paragraph}>
-                  <button
-                    className={styles.contact_button}
-                    data-email="jane@example.com"
-                  >
-                    Contact
-                  </button>
-                </p>
+                <div className={styles.contact_paragraph}>
+                    <a className={styles.contact_link}
+                      href={`mailto:${"jane@example.com"}`}>
+                      Contact
+                    </a>
+                </div>
               </div>
             </div>
           </div>
@@ -195,14 +191,13 @@ function About() {
                   Some text that desceribes me lorem ipsum lorem
                 </p>
                 <p className={styles.sample_email}>sample@example.com</p>
-                <p className={styles.contact_paragraph}>
-                  <button
-                    className={styles.contact_button}
-                    data-email="jane@example.com"
-                  >
-                    Contact
-                  </button>
-                </p>
+                <div className={styles.contact_paragraph}>
+                    <a className={styles.contact_link}
+                      href={`mailto:${"jane@example.com"}`}>
+                      Contact
+                    </a>
+                </div>
+                
               </div>
             </div>
           </div>
