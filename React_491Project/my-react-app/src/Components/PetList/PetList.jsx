@@ -14,37 +14,45 @@ function PetList() {
         <li>
           <a href="/pet1">
             <img src={Chuck}></img>
+          </a>
+          <div className={styles.pet_description}>
             <p className={styles.pet_info}>Chuck</p>
             <p className={styles.pet_info}>Male, 10 years</p>
             <p className={styles.pet_info}>Los Angeles/ Barstow, CA</p>
-          </a>
+          </div>
         </li>
 
         <li>
           <a href="/pet2">
             <img src={Oliver}></img>
+          </a>
+          <div className={styles.pet_description}>
             <p className={styles.pet_info}>Oliver</p>
             <p className={styles.pet_info}>Male, 10 years</p>
             <p className={styles.pet_info}>Los Angeles/ Barstow, CA</p>
-          </a>
+          </div>
         </li>
 
         <li>
-          <a href="/pet1">
+          <a href="/pet3">
             <img src={Puntia}></img>
+          </a>
+          <div className={styles.pet_description}>
             <p className={styles.pet_info}>Puntia</p>
             <p className={styles.pet_info}>Male, 10 years</p>
             <p className={styles.pet_info}>Los Angeles/ Barstow, CA</p>
-          </a>
+          </div>
         </li>
 
         <li>
-          <a href="/pet1">
+          <a href="/pet4">
             <img src={Toby}></img>
+          </a>
+          <div className={styles.pet_description}>
             <p className={styles.pet_info}>Toby</p>
             <p className={styles.pet_info}>Male, 10 years</p>
             <p className={styles.pet_info}>Los Angeles/ Barstow, CA</p>
-          </a>
+          </div>
         </li>
       </ul>
     </div>

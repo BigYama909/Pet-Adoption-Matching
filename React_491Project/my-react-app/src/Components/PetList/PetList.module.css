@@ -1,8 +1,8 @@
+
 .pet_list {
   padding-left: 2rem;
   padding-right: 2rem;
   margin-top: 3rem;
- 
 }
 
 .meet_our_pet,
@@ -29,11 +29,12 @@
     padding-right: 1.5em;
     margin-bottom: 1.5rem;
 }
+.pet_description {
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
 .pet_items a {
-    text-align: center;
-    text-decoration: none;
-    color: #333;
-    font-size: 1.75rem;
     transition: 0.5s color;
 }
 .pet_items img:hover {

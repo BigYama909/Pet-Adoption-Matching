@@ -1,0 +1,11 @@
+:root{
+    --background-color-day-mode: #f2f2f2;
+    --background-color-night-mode: #1a1a1a;
+    --text-color-day-mode: #000000;
+    --text-color-night-mode: #f5f5dc;
+}
+
+body {
+    background-color: var(--background-color-day-mode);
+    color: var(--text-color-day-mode);
+}
