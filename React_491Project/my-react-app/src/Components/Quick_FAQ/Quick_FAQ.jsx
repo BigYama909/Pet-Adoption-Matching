@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './FAQ.module.css'; // Assuming the CSS module is named Faq.module.css
+import styles from './Quick_FAQ.module.css'; // Assuming the CSS module is named Faq.module.css
 import glanceImage1 from './Images/1.png'
 import glanceImage2 from './Images/2.png'
 import glanceImage3 from './Images/3.png'
@@ -27,7 +27,7 @@ function Faq() {
 
         <div className={styles.column2}>
           <div className={styles.img_and_text}>
-            <img src={glanceImage3} alt="Glance 2"/>
+            <img src={glanceImage2} alt="Glance 2"/>
             <div className={styles.text}>
               <h5>We are not a shelter or rescue.</h5>
               <p>Pet Adoption Match is an online platform designed to streamline the process of connecting pets in need of homes with potential adopters effortlessly.</p>
@@ -51,7 +51,7 @@ function Faq() {
 
         <div className={styles.column2}>
           <div className={styles.img_and_text}>
-            <img className={styles.pic4} src={glanceImage1} alt="Glance 4"/>
+            <img className={styles.pic4} src={glanceImage4} alt="Glance 4"/>
             <div className={styles.text}>
               <h5>What sets us apart from other platforms?</h5>
               <p>Social sharing, a detailed pet ownership cost calculator, advanced matching algorithm.

@@ -2,6 +2,7 @@
     max-width: 1200px; /* Or your preferred max width */
     margin: 0 auto; /* Center the FAQ section */
     padding: 20px;
+    border: solid red;
   }
   
   .head_of_faq {
