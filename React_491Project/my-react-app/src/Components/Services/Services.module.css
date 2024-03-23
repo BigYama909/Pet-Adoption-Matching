@@ -22,15 +22,10 @@
   margin-left: auto;
   margin-right: auto;
   display: block;
+  
 }
 
-.main_container {
-  width: 100%;
-  height: 100%;
-  max-width: 1290px;
-  padding-left: 30px;
-  padding-right: 30px;
-}
+
 
 .w_container {
   margin-left: auto;
@@ -60,6 +55,7 @@
   justify-content: center;
   align-items: center;
   display: flex;
+  
 }
 
 .service_heading_wrapper {
@@ -83,28 +79,20 @@
   font-size: 3.125rem;
   font-weight: 400;
   line-height: 4.0625rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
+
 
 .decorative {
   z-index: -1;
   width: 74px;
   height: 79px;
   position: absolute;
-  top: 70px;
+  top: 20px;
   bottom: 0%;
   left: auto;
-  right: -90px;
-}
-
-.decorative {
-  z-index: -1;
-  width: 74px;
-  height: 79px;
-  position: absolute;
-  top: 70px;
-  bottom: 0%;
-  left: auto;
-  right: -60px;
+  right: -80px;
 }
 .service_blocks_wrapper {
   display: grid; /* Use grid instead of flex */
@@ -113,11 +101,12 @@
   justify-content: center;
   align-items: start; /* Align items at the start of each cell */
   width: 100%;
+  
 }
 
 .service_block {
   width: 100%;
-  max-width: 370px;
+  max-width: 250px;
   grid-row-gap: 0px;
   background-color: var(--white);
   flex-direction: column;
@@ -166,6 +155,8 @@
   font-weight: 400;
   line-height: 1rem;
   color: var(--purple);
+  margin-top:1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .paragraph {
@@ -174,3 +165,43 @@
   font-size: 1rem;
   line-height: 1.575rem;
 }
+
+/* Below 650px (You might need to add more specific styles for smaller devices) */
+@media (max-width: 649px) {
+    .service_blocks_wrapper {
+      grid-template-columns: repeat(1, 1fr); /* Stack blocks vertically on very small screens */
+      justify-items: center;
+    }
+  }
+  
+  /* Between 650px and 768px */
+  @media (min-width: 650px) and (max-width: 767px) {
+    .service_blocks_wrapper {
+      grid-template-columns: repeat(2, 1fr); /* Use 2 columns for service blocks */
+      grid-gap: 30px; /* Reduce gap for smaller screens */
+    }
+  
+    .service_block {
+      padding: 30px; /* Reduce padding */
+    }
+  
+    
+  }
+  
+  /* Between 768px and 991px */
+  @media (min-width: 768px) and (max-width: 990px) {
+    .service_blocks_wrapper {
+      grid-template-columns: repeat(3, 1fr); /* Adjust if necessary, already set for larger screens */
+      grid-gap: 40px; /* Adjust gap size */
+    }
+  
+    .service_block {
+      max-width: 200px; /* Adjust block width */
+    }
+  }
+  
+  /* Above 991px */
+  @media (min-width: 991px) {
+    /* Your styles are already optimized for larger screens, but you can add adjustments here if needed. */
+  }
+  

@@ -774,12 +774,7 @@ body.night-mode footer{
   
   
   
-  p {
-    color: var(--dark-grey);
-    margin-bottom: 0;
-    font-family: Nunito, sans-serif;
-    font-weight: 400;
-  }
+  
   
   a {
     text-decoration: none;

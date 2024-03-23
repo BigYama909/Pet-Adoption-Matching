@@ -1,9 +1,3 @@
-.w-layout-blockcontainer {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
 
 @media screen and (max-width: 991px) {
   .w-layout-blockcontainer {
@@ -239,13 +233,14 @@
   font-weight: 400;
 }
 
-.main-container {
+.main-container-of-contact, .main-container-of-faq {
   width: 100%;
   height: 100%;
   max-width: 1290px;
   padding-left: 30px;
   padding-right: 30px;
 }
+
 
 .decorative {
   z-index: -1;
