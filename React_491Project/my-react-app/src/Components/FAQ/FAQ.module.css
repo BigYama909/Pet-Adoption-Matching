@@ -51,10 +51,12 @@
   padding: 43px 15px 25px;
   display: flex;
   flex-direction: column;
+  
 }
 
 .faq_left_block.shadow.orange_shadow {
   box-shadow: 9px 10px #fc8864;
+  
 }
 .shadow {
   border: 3px solid var(--dark);
@@ -72,7 +74,6 @@
 
 .your_question {
   font-size: 2rem;
-
 }
 
 .phone_link {
@@ -183,3 +184,118 @@
   margin-top: 40px;
 }
 
+@media screen and (max-width: 991px) {
+  .w_layout_blockcontainer {
+    max-width: 728px;
+  }
+  .faq_left_block {
+    align-items: center;
+  }
+
+  .accordion_para_wrapper {
+    padding-right: 20px;
+  }
+
+  .faq_accordion_wrapper {
+    max-width: none;
+    order: -1;
+    margin-top: 0;
+  }
+
+  .phone_link {
+    grid-column-gap: 10px;
+  }
+
+  .faq_left_block_text_wrapper {
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+  }
+
+  .faq_row {
+    grid-row-gap: 90px;
+    flex-direction: column;
+  }
+
+  .faq_container {
+    grid-row-gap: 60px;
+  }
+}
+
+@media (min-width: 650px) and (max-width: 767px) {
+  .w_layout_blockcontainer {
+    max-width: none;
+  }
+
+  .accordion_para_wrapper {
+    padding-right: 20px;
+  }
+
+  .accordion_toggle_indicator {
+    flex: none;
+  }
+
+  .accordion_space {
+    height: 8px;
+  }
+
+  .phone_link {
+    align-items: center;
+  }
+
+  .phone_icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .faq_container {
+    grid-row-gap: 45px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .phone_link {
+    grid-row-gap: 5px;
+    flex-wrap: wrap;
+  }
+
+  .phone_link.faq {
+    flex-direction: column;
+  }
+
+  .phone_icon.hide_on_mobile {
+    display: none;
+  }
+
+  .faq_left_block_text_wrapper {
+    text-align: center;
+  }
+}
+
+@media (max-width: 649px) {
+  
+  .accordion_block {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .accordion_para_wrapper {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .question_title, .paragraph_faq {
+    word-wrap: break-word;
+  }
+
+  .faq_left_block {
+    width: 100%; /* Ensures the block fits the screen size */
+    margin-left: 20px; /* Centers the block horizontally */
+    margin-right:75px; /* Centers the block horizontally */
+    display: flex; /* Maintains flexbox layout */
+    justify-content: center; /* Centers content horizontally within the block */
+    align-items: center; /* Centers content vertically within the block */
+    
+  }
+ }
