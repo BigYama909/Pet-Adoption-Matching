@@ -1,28 +1,38 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./FAQ.module.css";
 import OrangePhone from "./Images/OrangePhone.svg";
 import PetAdoption from "./Images/pet_adoption.png";
 
-function FAQ() {
-  const [openFAQIndex, setOpenFAQIndex] = useState(null);
+function FAQ() 
+{
+  // Change state to manage multiple open FAQ indices
+  const [openFAQIndices, setOpenFAQIndices] = useState([]);
 
-  // Create a ref array to hold refs for each accordion item
-  const accordionRefs = useRef([]);
+  const faqItemsLength = 5; // Adjust based on your actual FAQ items
+  const accordionRefs = useRef(Array(faqItemsLength).fill(null));
 
-  
   const toggleFAQItem = (index) => {
-    setOpenFAQIndex(openFAQIndex === index ? null : index);
-    // If we're opening an accordion, scroll to it
-    if (openFAQIndex !== index) {
+    // Check if the index already exists in the openFAQIndices array
+    if (openFAQIndices.includes(index)) {
+      // If so, remove it (close this FAQ item)
+      setOpenFAQIndices(openFAQIndices.filter((i) => i !== index));
+    } else {
+      // Otherwise, add it (open this FAQ item)
+      setOpenFAQIndices([...openFAQIndices, index]);
+    }
+    // Scroll into view logic remains unchanged but is now conditional on opening an item
+    if (!openFAQIndices.includes(index)) {
       setTimeout(() => {
-        accordionRefs.current[index].scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }, 300); // Adjust timing as needed
+        if (accordionRefs.current[index]) {
+          accordionRefs.current[index].scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }, 50);
     }
   };
-
+      
   const faqItems = [
     {
       question: "What's the difference between a shelter and a rescue?",
@@ -89,12 +99,15 @@ function FAQ() {
                   <div
                     className={styles.accordion_block}
                     onClick={() => toggleFAQItem(index)}
+                    // Dynamically assign ref to each accordion block
+                    ref={(el) => (accordionRefs.current[index] = el)}
                   >
                     <div className={styles.accordion_row}>
                       <div className={styles.question_title}>
                         {item.question}
                       </div>
                       <div className={styles.accordion_toggle_indicator}>
+                        {/* Always display the horizontal line for both "+" and "-" */}
                         <div className={styles.horizontal_line}>
                           <svg
                             width="14"
@@ -111,7 +124,7 @@ function FAQ() {
                             ></path>
                           </svg>
                         </div>
-                        {openFAQIndex !== index && (
+                        {!openFAQIndices.includes(index) && (
                           <div className={styles.vertical_line}>
                             <svg
                               width="3"
@@ -131,7 +144,7 @@ function FAQ() {
                         )}
                       </div>
                     </div>
-                    {openFAQIndex === index && (
+                    {openFAQIndices.includes(index) && (
                       <div className={styles.accordion_para_wrapper}>
                         <div className={styles.accordion_space}></div>
                         <p
@@ -151,5 +164,4 @@ function FAQ() {
     </section>
   );
 }
-
 export default FAQ;
