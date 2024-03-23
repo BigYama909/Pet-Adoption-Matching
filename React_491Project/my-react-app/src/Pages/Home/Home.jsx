@@ -14,6 +14,7 @@ function Home() {
   <PetList />
   <Advice />
   <FAQ />
+  <Services />
   <Footer />
   </>
   );

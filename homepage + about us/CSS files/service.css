@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+  padding: 0;
+}
 :root {
     --dark: #150b33;
     --dark-grey: #4f4c57;
@@ -58,6 +62,7 @@
     margin-top: 0;
     font-weight: 700;
     font-size: 1rem;
+    line-height: 1.575rem;
     
   }
   .service-container {
@@ -82,15 +87,7 @@
     
   }
 
-  .service-blocks-wrapper {
-    width: 100%;
-    grid-column-gap: 55px;
-    grid-row-gap: 75px;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    display: flex;
-  }
+ 
   .service-blocks-wrapper {
     display: grid; /* Use grid instead of flex */
     grid-template-columns: repeat(3, 1fr); /* Create 3 columns */
@@ -140,14 +137,7 @@
 
   
 
-  h6 {
-    color: var(--dark);
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 18px;
-  }
+  
 
   body.night-mode .service-section {
     background-color: black;
