@@ -1,6 +1,8 @@
 import styles from "./Header.module.css";
 import { useTheme } from '/src/Components/ThemeContext.jsx'; 
 
+// Header component has some specific CSS style for dark mode like headerClass
+// Navlink and toggle
 function Header() {
   const {isNightMode, toggleNightMode} = useTheme();
 

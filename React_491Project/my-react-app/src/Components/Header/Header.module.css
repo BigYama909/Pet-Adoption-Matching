@@ -2,15 +2,19 @@
   background-color: rgb(8, 199, 199);
   display: flex;
   align-items: center;
-  transition: background-color 1s, color 0.5s;
+  transition: color 0.5s ease-in-out;
+  transition: background-color 1s ease-in-out;
 }
 
 .nightHeader {
-   /* Darker background for night mode */
+  /* Darker background for night mode */
   display: flex;
   align-items: center;
-  transition: background-color 1s, color 0.5s;
+  background-color: black;
+  transition: color 0.5s ease-in-out;
+  transition: background-color 1s ease-in-out;
 }
+
 
 /*Styling the logo*/
 .logo {
@@ -39,6 +43,7 @@
 .nightNavItem {
   margin-right: 1.25rem;
 }
+
 .nightNavItem a {
   color: var(--text-color-night-mode);
   text-decoration: none;
@@ -46,7 +51,6 @@
   cursor: pointer;
   transition: transform 1s ease;
   position: relative;
-  transition: 0.5s ease;
 }
 .navItem a {
   text-decoration: none;
@@ -55,7 +59,6 @@
   cursor: pointer;
   transition: transform 1s ease;
   position: relative;
-  transition: 0.5s ease;
 }
 
 .navItem a:hover {
@@ -76,7 +79,7 @@
   bottom: 0; /* Position the pseudo-element at the bottom of the anchor */
   left: 0; /* Position the pseudo-element at the left edge of the anchor */
   background-color: black;
-    
+
   /* Set the background color of the pseudo-element to black */
   transform: scaleX(
     0
@@ -165,7 +168,6 @@
 .lightModeToggle:hover::before {
   opacity: 0.7;
 }
-
 
 /* Hide .nav_bar for widths less than 1440px */
 @media (max-width: 1439px) {

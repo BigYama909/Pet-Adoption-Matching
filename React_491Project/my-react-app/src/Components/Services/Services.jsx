@@ -7,6 +7,7 @@ import VeterinaryCare from "./Images/Layer_1.svg"
 import Boarding from "./Images/Group-40291.svg"
 import Health from "./Images/Group-40290.svg"
 
+// the service_section is applied for external CSS (inside App.css)
 function Services() {
     return (
         <section className="service_section">

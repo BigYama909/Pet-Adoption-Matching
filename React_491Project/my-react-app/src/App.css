@@ -8,7 +8,12 @@
 body {
   background-color: var(--background-color-day-mode);
   color: var(--text-color-day-mode);
-  transition: background-color 1s, color 0.5s;
+  transition: color 0.5s ease-in-out;
+  transition: background-color 1s ease-in-out;
+}
+.nightMode {
+  background-color: #171717; /* Dark background for night mode */
+  color: #f5f5dc; /* Light text for contrast */
 }
 .service_section {
   z-index: 1;
@@ -25,10 +30,6 @@ body {
   background-color: rgb(8, 199, 199);
   margin: 0;
   transition: background-color 0.5 ease;
-}
-.nightMode {
-  background-color: #171717; /* Dark background for night mode */
-  color: #f5f5dc; /* Light text for contrast */
 }
 
 .nightMode a {

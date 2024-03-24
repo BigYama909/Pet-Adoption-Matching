@@ -1,7 +1,6 @@
 .advice {
-    width: 100%;
-    margin: 0;
-    
+ 
+    margin: 40px 50px;
     border: solid;
     border-radius: 20px;
 }
@@ -49,5 +48,8 @@
     .twoColumns {
         flex-direction: column;
         width: 60%;
+    }
+    .advice {
+        margin: 0;
     }
 }
