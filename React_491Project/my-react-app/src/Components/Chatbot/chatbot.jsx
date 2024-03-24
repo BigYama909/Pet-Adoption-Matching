@@ -1,7 +1,8 @@
-function Chat () {
+import styles from "./ChatBot.module.css"
+function ChatBot () {
     return (
         <h1>Hello</h1>
     );
 }
 
-export default Chat
+export default ChatBot
