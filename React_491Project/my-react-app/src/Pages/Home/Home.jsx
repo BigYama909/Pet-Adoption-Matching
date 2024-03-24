@@ -6,12 +6,12 @@ import Advice from "../../Components/Advice/Advice";
 import Quick_FAQ from "../../Components/Quick_FAQ/Quick_FAQ.jsx";
 import Services from "../../Components/Services/Services.jsx";
 import FAQ from "../../Components/FAQ/FAQ.jsx";
-
+import Chat from "../../Components/Chat/Chat.jsx"
 
 function Home() {
   return (
     <>
-      
+      <Chat />
       {/* 
       <Header />
       <SearchBar />
