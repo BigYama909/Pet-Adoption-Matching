@@ -3,7 +3,7 @@ function Footer () {
 
     return (
         <>
-            <div className={styles.footer}>
+            <div className="footer">
                 <div className={styles.social_icons}>
                     <a href="https://facebook.com" target="_blank"><i className="fab fa-facebook"></i></a>
                     <a href="https://twitter.com" target="_blank"><i className="fab fa-twitter"></i></a>

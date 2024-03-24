@@ -9,7 +9,7 @@ import Health from "./Images/Group-40290.svg"
 
 function Services() {
     return (
-        <section className={styles.service_section}>
+        <section className="service_section">
         <div className={`${styles.w_layout_blockcontainer} ${styles.main_container} ${styles.w_container}`}>
           <div className={styles.service_container}>
             <div className={styles.service_heading_wrapper}>

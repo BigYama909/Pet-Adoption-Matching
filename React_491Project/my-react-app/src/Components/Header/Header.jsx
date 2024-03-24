@@ -1,10 +1,16 @@
 import styles from "./Header.module.css";
+import { useTheme } from '/src/Components/ThemeContext.jsx'; 
 
 function Header() {
+  const {isNightMode, toggleNightMode} = useTheme();
 
+   // Dynamically set the header class based on isNightMode
+   const headerCLass = isNightMode ? styles.nightHeader : styles.header;
+   const navLink = isNightMode ? styles.nightNavItem : styles.navItem;
+   const toggle = isNightMode ? styles.lightModeToggle: styles.nightModeToggle;
   return (
     <div className={styles.top_bar}>
-      <header className={styles.header}>
+      <header className={headerCLass}>
         {/* Logo */}
         <div className={styles.img_logo}>
           <a href="/" className={styles.logoLink}>
@@ -21,19 +27,19 @@ function Header() {
           <nav className={styles.nav}>
             <ul className={styles.navList}>
               {/* Enclose nav items in a ul for semantic structure */}
-              <li className={styles.navItem}>
+              <li className={navLink}>
                 <a href="/">Home</a>
               </li>
-              <li className={styles.navItem}>
+              <li className={navLink}>
                 <a href="/about">About Us</a>
               </li>
-              <li className={styles.navItem}>
+              <li className={navLink}>
                 <a href="/providers">Pet Care Providers</a>
               </li>
-              <li className={styles.navItem}>
+              <li className={navLink}>
                 <a href="/matching">Matching</a>
               </li>
-              <li className={styles.navItem}>
+              <li className={navLink}>
                 <a href="/donate">Donate Now</a>
               </li>
             </ul>
@@ -52,8 +58,9 @@ function Header() {
 
         {/* Night Mode Toggle Button */}
         <button
-          className={styles.nightModeToggle}
+          className={toggle}
           aria-label="Toggle night mode"
+          onClick={toggleNightMode}
         ></button>
       </header>
     </div>

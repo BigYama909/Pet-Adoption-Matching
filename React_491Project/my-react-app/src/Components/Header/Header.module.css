@@ -2,9 +2,15 @@
   background-color: rgb(8, 199, 199);
   display: flex;
   align-items: center;
-  transition: background-color 0.5s, color 0.5s;
+  transition: background-color 1s, color 0.5s;
 }
 
+.nightHeader {
+   /* Darker background for night mode */
+  display: flex;
+  align-items: center;
+  transition: background-color 1s, color 0.5s;
+}
 
 /*Styling the logo*/
 .logo {
@@ -30,9 +36,21 @@
   margin-right: 1.25rem;
 }
 
+.nightNavItem {
+  margin-right: 1.25rem;
+}
+.nightNavItem a {
+  color: var(--text-color-night-mode);
+  text-decoration: none;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 1s ease;
+  position: relative;
+  transition: 0.5s ease;
+}
 .navItem a {
   text-decoration: none;
-  color: black;
+  color: var(--nav-item-color);
   font-size: 2rem;
   cursor: pointer;
   transition: transform 1s ease;
@@ -45,6 +63,11 @@
   text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
 }
 
+.nightNavItem a:hover {
+  transform: scale(1.1);
+  text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
+}
+
 .navItem a::before {
   content: ""; /* Empty content for the pseudo-element */
   position: absolute; /* Position the pseudo-element absolutely within the anchor */
@@ -52,7 +75,24 @@
   height: 2px; /* Set the height of the pseudo-element to create an underline effect */
   bottom: 0; /* Position the pseudo-element at the bottom of the anchor */
   left: 0; /* Position the pseudo-element at the left edge of the anchor */
-  background-color: black; /* Set the background color of the pseudo-element to black */
+  background-color: black;
+    
+  /* Set the background color of the pseudo-element to black */
+  transform: scaleX(
+    0
+  ); /* Initially scale the pseudo-element horizontally to 0 (hidden) */
+  transition: transform 0.5s ease-in-out; /* Smooth transition for the transform property */
+  font-weight: bold;
+}
+
+.nightNavItem a::before {
+  content: ""; /* Empty content for the pseudo-element */
+  position: absolute; /* Position the pseudo-element absolutely within the anchor */
+  width: 100%; /* Make the pseudo-element take up the full width of the anchor */
+  height: 2px; /* Set the height of the pseudo-element to create an underline effect */
+  bottom: 0; /* Position the pseudo-element at the bottom of the anchor */
+  left: 0; /* Position the pseudo-element at the left edge of the anchor */
+  background-color: white; /* Set the background color of the pseudo-element to black */
   transform: scaleX(
     0
   ); /* Initially scale the pseudo-element horizontally to 0 (hidden) */
@@ -63,11 +103,13 @@
 .navItem a:hover::before {
   transform: scaleX(1);
 }
+.nightNavItem a:hover::before {
+  transform: scaleX(1);
+}
 
 .loginSignup {
   display: flex;
   margin-right: 12px;
-  
 }
 
 .loginButton,
@@ -96,7 +138,8 @@
   color: whitesmoke;
 }
 
-.nightModeToggle {
+.nightModeToggle,
+.lightModeToggle {
   background-color: transparent;
   cursor: pointer;
   border: none;
@@ -108,36 +151,34 @@
   font-size: 2rem;
 }
 
-.nightMode .nightModeToggle::before {
+.lightModeToggle::before {
   content: "\263C";
   color: white;
-  font-size: 3.3rem;
+  font-size: 2rem;
 }
 
 .nightModeToggle:hover::before {
-  color: #574ddd;
+  color: #171717;
+  opacity: 0.7;
 }
 
-.nightMode .header {
-  background-color: black;
+.lightModeToggle:hover::before {
+  opacity: 0.7;
 }
 
-.nightMode .navItem a {
-  color: rgb(235, 233, 233);
-}
 
 /* Hide .nav_bar for widths less than 1440px */
 @media (max-width: 1439px) {
-    .nav_bar {
-      opacity: 0;
-    }
-    
-    .loginSignup {
-        position: absolute;
-        right: 20px;
-    }
+  .nav_bar {
+    opacity: 0;
   }
-  
+
+  .loginSignup {
+    position: absolute;
+    right: 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
@@ -174,6 +215,5 @@
     margin-top: 20px; /* Adds some space between the nav items and the login/signup buttons */
     width: 100%; /* Takes full width to utilize the centering from justify-content */
     margin-bottom: 20px;
+  }
 }
-}
-
