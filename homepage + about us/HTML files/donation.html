@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donation Page</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<link rel="stylesheet" href="/homepage + about us/CSS files/donation.css">
+<link rel="stylesheet" href="/homepage + about us/CSS files/navbar.css">
+</head>
+<body>
+<div class="top-bar">
+    <header>
+        <!-- Logo -->
+       <a href="homepage.html">
+           <img id="logo" src="/homepage + about us/images/logo_for_website.png" alt="Pet Adoption Match Logo">
+       </a>
+       <!--Navigation Bar-->
+       <nav> 
+           <li><a href="homepage.html">Home</a></li>
+           <li><a href="about.html">About Us</a></li>
+           <li><a href="providers">Pet Care Providers</a></li>
+           <li><a href="matching">Matching</a></li>
+           <li><a href="donation.html">Donate Now</a></li>
+           
+
+       </nav>
+       
+
+       <!-- Login/Sign Up Section -->
+       <div class="login-signup">
+           <a id="login-link" href="login-page.html"><button id="login-button">Login</button></a>
+           <a id="signup-link" href="signup-page.html"><button id="signup-button">Sign Up</button></a>
+       </div>
+
+       <!-- Add this button where users can toggle between night and day mode -->
+       <button id="night-mode-toggle"></button>
+
+      
+   </header>
+
+</div>
+<div class="container">
+  <div class="make-a-donation"><h1>Make a donation</h1></div>
+  <div class="header">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscingelit, sed Border Collie do eiusmod tempor incididunt ut labore et dolore Dachshund magna aliqua. Tempor orci eu Shiba Inu lobortiselementum nibh. Consequat id Golden Retriever porta nibh venenatis crassed. Tempor orci eu Abyssinian lobortis elementum nibh. Consequat id Ocicat porta nibh venenatis cras sed. Vitae suscipit tellus mauris adiam. 
+        Vestibulum lectus Ragdoll mauris ultrices eros in Himalayan cursusturpis. Vestibulum lectus Beagle mauris ultrices eros in Siberian Husky cursus turpis..</p>
+  </div>
+
+  <div class="donation-grid">
+    <!-- Donation Option 1 -->
+    <div class="donation-option" style="background: #ffccbc;">
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="sampleemail@gmail.com">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="amount" value="25">
+        <div class="icon" style="color: #6d4c41;"><i class="fas fa-bone"></i></div>
+        <h2 class="donation-amount">$25</h2>
+        <input type="submit" value="Donate" class="paypal-button">
+      </form>
+    </div>
+
+    <!-- Donation Option 2 -->
+    <div class="donation-option" style="background: #ffab91;">
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="sampleemail@gmail.com">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="amount" value="50">
+        <div class="icon" style="color: #5d4037;"><i class="fas fa-paw"></i></div>
+        <h2 class="donation-amount">$50</h2>
+        <input type="submit" value="Donate" class="paypal-button">
+      </form>
+    </div>
+
+    <!-- Donation Option 3 -->
+    <div class="donation-option" style="background: #ff8a65;">
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="sampleemail@gmail.com">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="amount" value="100">
+        <div class="icon" style="color: #4e342e;"><i class="fas fa-fish"></i></div>
+        <h2 class="donation-amount">$100</h2>
+        <input type="submit" value="Donate" class="paypal-button">
+      </form>
+    </div>
+
+    <!-- Custom Donation Option -->
+    <div class="donation-option" style="background: #ff7043;">
+      <form id="customDonationForm" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="khoadiep99@gmail.com">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="amount" id="customAmountValue">
+        <div class="icon" style="color: #3e2723;"><i class="fas fa-dog"></i></div>
+        <div class="custom-amount">
+          <label for="customAmount" style="display: block; margin-bottom: 5px; font-size: 25px;">$?</label>
+          <input type="number" id="customAmount" name="amount" placeholder="$" onchange="updateCustomAmount()">
+        </div>
+        <input type="submit" value="Donate" class="paypal-button">
+      </form>
+    </div>
+</div>
+<script>
+    // This JavaScript will update the amount when the user types a new amount in the custom amount field
+document.getElementById('customAmount').addEventListener('change', function(e) {
+  var customAmountValue = e.target.value;
+  document.getElementById('customAmountValue').value = customAmountValue; // Update the hidden amount value
+});
+
+</script>
+
+</body>
+</html>

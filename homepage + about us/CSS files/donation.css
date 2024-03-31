@@ -1,0 +1,97 @@
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+  .make-a-donation {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border: solid red;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 10px;
+    padding: 20px;
+    padding-left: 70px;
+    padding-right: 70px;
+    line-height: 1.5;
+    font-size: 20px;
+    border: solid;
+
+  }
+  .donation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  .donation-option {
+    background: #e0e0e0;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  .donation-option:hover {
+    transform: translateY(-20px);
+  }
+  .icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  .donation-option button {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s ease-in-out;
+  }
+  .donation-option button:hover {
+    background: #555;
+  }
+
+  .paypal-button {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .paypal-button:hover {
+    background: #555;
+  }
+  
+  .donation-amount {
+    margin: 15px 0;
+  }
+
+
+  .custom-amount-input {
+    border: 1px solid #ccc ;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    width: 80%;
+    
+  }
+  
+  .custom-amount-input:focus {
+    border-color: #007bff;
+    outline: none; /* Removing default focus outline */
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); /* Bootstrap-like focus glow */
+  }
+  
+  .custom-amount-input:invalid {
+    border-color: #dc3545;
+  }
+  
