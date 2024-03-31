@@ -6,12 +6,23 @@ const PetList = () => {
   const [searchLocation, setSearchLocation] = useState('');
 
   useEffect(() => {
-    // Fetch data from backend API endpoint with the searchLocation parameter
-    fetch(`http://localhost:8080/api/pets?location=${searchLocation}`)  // Update the URL based on your backend setup
+    // Fetch data from backend API endpoint 
+    fetch(`http://localhost:8080/api/pets?location=${encodeURIComponent(searchLocation)}`)  
       .then(response => response.json())
-      .then(data => setPets(data))
+      .then(data => {
+        // Remove duplicates from the data based on pet ID and ensure location is displayed
+        const uniquePets = data.reduce((acc, current) => {
+          const x = acc.find(item => item.id === current.id);
+          if (!x) {
+            return acc.concat([current]);
+          } else {
+            return acc;
+          }
+        }, []);
+        setPets(uniquePets);
+      })
       .catch(error => console.error(error));
-  }, [searchLocation]);
+  }, [searchLocation]); // Depend on searchLocation to re-fetch when it changes
 
   const [expandedPetId, setExpandedPetId] = useState(null);
 
@@ -44,10 +55,10 @@ const PetList = () => {
         {pets.map(pet => (
           <div key={pet.id} className="pet-card">
             <h2>{pet.name}</h2>
-            <p>Location: {pet.location}</p>
+            <p>Location: {pet.location}</p> {/* Display pet location */}
             <div className="image-container">
               {pet.images.length > 0 && (
-                <img src={pet.images[0]} alt={`Pet ${pet.id}`} />
+                <img src={pet.images[0]} alt={`Pet ${pet.name}`} />
               )}
             </div>
             <button onClick={() => handleToggleDescription(pet.id)}>
