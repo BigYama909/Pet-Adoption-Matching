@@ -1,4 +1,6 @@
 import styles from "./header.module.css";
+// import logo_for_website from "../../images/logo_for_website.png";
+
 
 function Header() {
 
@@ -10,7 +12,7 @@ function Header() {
           <a href="/" className={styles.logoLink}>
             <img
               className={styles.logo}
-              src="/src/assets/logo_for_website.png"
+              src="../../images/logo_for_website.png"
               alt="Pet Adoption Match Logo"
             />
           </a>

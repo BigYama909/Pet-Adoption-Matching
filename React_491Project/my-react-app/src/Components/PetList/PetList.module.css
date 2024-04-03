@@ -1,0 +1,117 @@
+
+.pet_list {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-top: 3rem;
+}
+
+.meet_our_pet,
+.check_out {
+  text-align: center;
+}
+
+.meet_our_pet {
+    font-size:3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.check_out {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.pet_items {
+    list-style: none; /*Remove bullet point*/
+    display: flex; /*Make the list items in the samle line */
+    justify-content: space-evenly ; /*Spaces btw list items are the same*/
+    padding-left: 1.5rem;
+    padding-right: 1.5em;
+    margin-bottom: 1.5rem;
+}
+.pet_description {
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+.pet_items a {
+    transition: 0.5s color;
+}
+.pet_items img:hover {
+    transform: scale(1.2)
+}
+
+.pet_items img {
+    border-radius: 40px;
+    transition: transform 1s ease;
+    width: 300px;
+    height: 450px;
+    margin-bottom: 20px;
+}
+
+.pet_info {
+    margin: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .pet_list {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  
+    .pet_items {
+      /* Stack list items vertically */
+      flex-direction: column;
+      align-items: center; /* Center-align the stacked items */
+      padding-left: 0; /* Remove padding when items are stacked */
+      padding-right: 0;
+    }
+  
+    .pet_items a {
+      font-size: 1.5rem; /* Adjust font size for smaller screens */
+      margin-bottom: 1rem; /* Add some space between the links */
+    }
+  
+    .meet_our_pet {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+  
+    .check_out {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+  }
+
+  /* Slightly larger screens */
+@media screen and (min-width: 650px) {
+  .pet_items {
+    flex-direction: row; /* Place items in a row */
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: space-evenly;
+  }
+
+  .pet_items img {
+    /* Resize the images appropriately for medium screens */
+    max-width:100%; /* Example: set max-width to adjust two images per row */
+  }
+}
+
+/* Medium-sized screens */
+@media screen and (min-width: 768px) {
+  .pet_list {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* Larger screens */
+@media screen and (min-width: 991px) {
+  .pet_items img {
+    /* Resize images for larger screens */
+    max-width: 400px; /* Keep the image sizes fixed */
+  }
+}
+  

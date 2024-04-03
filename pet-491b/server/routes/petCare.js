@@ -21,7 +21,14 @@ router.get('/search', async (req, res) => {
     const response = await yelpApi.get('businesses/search', {
       params: { term, location, limit },
     });
-    res.json(response.data);
+    // Map through the businesses and extract the required details
+    const businesses = response.data.businesses.map(business => ({
+      name: business.name,
+      address: business.location.address1, 
+      phone: business.display_phone,
+      image_url: business.image_url,
+    }));
+    res.json(businesses); // Send back the simplified list of businesses
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');

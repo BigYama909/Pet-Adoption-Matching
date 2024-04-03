@@ -1,0 +1,53 @@
+/* Add to Chatbot.module.css */
+.chatbotToggler {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    /* Add more styling as needed */
+  }
+  /* Chatbot.module.css */
+.chatbot {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    background-color: #f0f0f0;
+  }
+  
+  .questionList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .questionList li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+  }
+  
+  .questionList li:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .answer {
+    padding-top: 5px;
+    color: #333;
+  }
+  
+  .minimized {
+    height: 20px;
+    overflow: hidden;
+  }
+  

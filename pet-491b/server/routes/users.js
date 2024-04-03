@@ -42,7 +42,10 @@ const handleRegistration = async (req, res, next) => {
   }
 };
 
+
+
 router.post("/", handleRegistration);
+
 
 router.get("/:id/verify/:token", async (req, res, next) => {
   try {
@@ -62,6 +65,9 @@ router.get("/:id/verify/:token", async (req, res, next) => {
     });
 
     if (!token) return res.status(400).send({ message: "Invalid link" });
+
+    // Store the user ID in the request object
+    req.verifiedUserId = user._id;
 
     res.status(200).send({ message: "Email verified successfully" });
   } catch (error) {

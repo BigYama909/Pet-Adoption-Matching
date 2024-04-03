@@ -33,6 +33,7 @@ const Login = () => {
 		}
 	};
 
+
 	// Render 
 	return (
 		<div className={styles.login_container}>
@@ -69,6 +70,9 @@ const Login = () => {
 						<button type="submit" className={styles.login_btn}>
 							Log In
 						</button>
+						<div>
+							<Link to="/forgot">Forgot Password?</Link>
+						</div>
 					</form>
 				</div>
 				<div className={styles.right}>

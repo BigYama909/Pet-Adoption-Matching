@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './styles.css'; 
+import './styles.css';
 
 const YelpSearch = () => {
   const [location, setLocation] = useState('');
@@ -12,7 +12,8 @@ const YelpSearch = () => {
       const response = await axios.get('http://localhost:8080/api/yelp/search', {
         params: { location, term: term || 'pet care' }
       });
-      setBusinesses(response.data.businesses);
+      // Directly set businesses with response data
+      setBusinesses(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -51,26 +52,18 @@ const YelpSearch = () => {
         <button onClick={handleSearch}>Search</button>
       </div>
 
-      <div className="filters">
-        <input type="text" placeholder="Filter Search" /> {/* Implement filtering logic */}
-        <select name="sort-by" id="sort-by">
-          <option value="rating">Sort by: Rating</option>
-          <option value="distance">Sort by: Distance</option>
-          {/* Add more sorting options as needed */}
-        </select>
-      </div>
-
       <div className="horizontal-provider-list">
         {businesses.length > 0 ? (
-          businesses.map((business) => (
-            <div key={business.id} className="provider-card">
+          businesses.map((business, index) => (
+            <div key={index} className="provider-card">
               <div className="image-container">
-                <img src={business.image_url} alt="business" />
+                <img src={business.image_url} alt={business.name} />
               </div>
               <h2>{business.name}</h2>
-              <p>{business.location.address1}, {business.location.city}</p>
+              <p>{business.address}</p> {/* Adjusted to display just the address */}
+              <p>{business.phone}</p> {/* Display phone number */}
               <div>
-                {/* Social media icons */}
+                {/* Placeholder for social media icons */}
                 <i className="twitter-icon"></i> {/* Replace with actual icons */}
                 <i className="facebook-icon"></i>
                 <i className="instagram-icon"></i>

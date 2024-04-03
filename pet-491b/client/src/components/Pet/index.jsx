@@ -20,6 +20,7 @@ const PetList = () => {
           }
         }, []);
         setPets(uniquePets);
+
       })
       .catch(error => console.error(error));
   }, [searchLocation]); // Depend on searchLocation to re-fetch when it changes

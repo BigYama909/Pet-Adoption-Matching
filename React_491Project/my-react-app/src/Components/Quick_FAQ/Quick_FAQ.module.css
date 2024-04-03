@@ -1,0 +1,57 @@
+.faq {
+    max-width: 1200px; /* Or your preferred max width */
+    margin: 0 auto; /* Center the FAQ section */
+    padding: 20px;
+
+  }
+  
+  .head_of_faq {
+    text-align: center;
+    margin-bottom: 2rem; /* Spacing between the header and the grid */
+  }
+  
+  .first_row,
+  .second_row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates two columns */
+    gap: 20px; /* Spacing between grid items */
+    margin-bottom: 2rem; /* Spacing between rows */
+  }
+.at_a_glance {
+    font-size: 3rem;
+}
+
+.some_faq {
+    font-size: 2rem;
+}
+.text h5 {
+    font-size: 1.25rem;
+}
+.text p {
+    line-height: 1.2;
+}
+  
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .first_row,
+    .second_row {
+      grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    }
+  }
+  
+  
+  
+  .img_and_text {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Spacing between the image and text */
+  }
+  
+  
+  .text h5 {
+    margin: 0.5rem 0; /* Spacing around headings */
+  }
+  
+  
+  
