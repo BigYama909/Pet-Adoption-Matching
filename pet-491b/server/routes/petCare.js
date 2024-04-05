@@ -17,7 +17,7 @@ const yelpApi = axios.create({
 // Define a route for searching businesses
 router.get('/search', async (req, res) => {
   try {
-    const { term = 'pet care', location = 'New York', limit = 10 } = req.query;
+    const { term = 'pet care', location = 'New York', limit = 18 } = req.query;
     const response = await yelpApi.get('businesses/search', {
       params: { term, location, limit },
     });

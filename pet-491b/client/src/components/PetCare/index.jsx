@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './styles.css';
+import Header from "../Header/index";
+import Footer from "../Footer/index"
 
 const YelpSearch = () => {
   const [location, setLocation] = useState('');
   const [term, setTerm] = useState('');
   const [businesses, setBusinesses] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const resultsPerPage = 9;
 
   const handleSearch = async () => {
     try {
@@ -14,26 +19,32 @@ const YelpSearch = () => {
       });
       // Directly set businesses with response data
       setBusinesses(response.data);
+      setTotalPages(Math.ceil(response.data.length / resultsPerPage));
+      setCurrentPage(1);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
 
-  return (
-    <div className="pet-care-container">
-      <nav className="nav-bar">
-        {/* Navigation items here */}
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/petCare">Pet care Providers</a>
-        <a href="/matching">Matching</a>
-        <div className="user-section">
-          <i className="heart-icon"></i> {/* Replace with actual icons */}
-          <i className="shopping-cart-icon"></i>
-          <span>John Doe</span>
-        </div>
-      </nav>
+  const changePage = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
+  const indexOfLastBusiness = currentPage * resultsPerPage;
+  const indexOfFirstBusiness = indexOfLastBusiness - resultsPerPage;
+  const currentBusinesses = businesses.slice(indexOfFirstBusiness, indexOfLastBusiness);
+
+  // Generate page numbers
+  const pageNumbers = [];
+  for (let i = 1; i <= totalPages; i++) {
+    pageNumbers.push(i);
+  }
+
+  return (
+    <>
+    <Header />
+    <div className="pet-care-container">
+      
       <h1>Find Pet Care Services</h1>
 
       <div className="search-bar">
@@ -53,15 +64,15 @@ const YelpSearch = () => {
       </div>
 
       <div className="horizontal-provider-list">
-        {businesses.length > 0 ? (
-          businesses.map((business, index) => (
+        {currentBusinesses.length > 0 ? (
+          currentBusinesses.map((business, index) => (
             <div key={index} className="provider-card">
               <div className="image-container">
                 <img src={business.image_url} alt={business.name} />
               </div>
               <h2>{business.name}</h2>
-              <p>{business.address}</p> {/* Adjusted to display just the address */}
-              <p>{business.phone}</p> {/* Display phone number */}
+              <p>{business.address}</p> 
+              <p>{business.phone}</p> 
               <div>
                 {/* Placeholder for social media icons */}
                 <i className="twitter-icon"></i> {/* Replace with actual icons */}
@@ -74,18 +85,16 @@ const YelpSearch = () => {
           <p>No results found</p>
         )}
       </div>
-
-      <footer className="footer">
-        <p>© 2023 Your Company Incorporated. All rights reserved.</p>
-        <div>
-          {/* Social media links */}
-          <a href="http://twitter.com">Twitter</a>
-          <a href="http://facebook.com">Facebook</a>
-          <a href="http://instagram.com">Instagram</a>
-          <a href="http://linkedin.com">LinkedIn</a>
-        </div>
-      </footer>
+      <div className="pagination">
+        {pageNumbers.map(number => (
+          <button key={number} onClick={() => changePage(number)}>
+            {number}
+          </button>
+        ))}
+      </div>
     </div>
+    <Footer />
+    </>
   );
 };
 
