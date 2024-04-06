@@ -1,4 +1,3 @@
-/* Add or update styles in your existing CSS file */
 .pet-care-container {
   margin: 0 auto;
   max-width: 1200px;
@@ -13,7 +12,6 @@
   margin-bottom: 20px;
 }
 
-/* Assuming your filter and sort components have specific classes */
 .filter-component, .sort-component {
   padding: 5px 10px;
   font-size: 16px;

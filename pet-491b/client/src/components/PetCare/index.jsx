@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './styles.css';
 import Header from "../Header/index";
-import Footer from "../Footer/index"
+import Footer from "../Footer/index";
 
 const YelpSearch = () => {
   const [location, setLocation] = useState('');
