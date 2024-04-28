@@ -1,5 +1,5 @@
 [
-    {"id": 1, "name": "Buddy", "type": "Dog", "breed": "Labrador", "age": 3, "size": "Large", "image": "/public/pet_images/pet1.jpeg"},
+    {"id": 1, "name": "Buddy", "type": "Dog", "breed": "Labrador", "age": 3, "size": "Large", "image": "/pet_images/pet1.jpeg"},
     {"id": 2, "name": "Misty", "type": "Cat", "breed": "Siamese", "age": 2, "size": "Small", "image": "/public/pet_images/pet2.jpeg"},
     {"id": 3, "name": "Rex", "type": "Dog", "breed": "German Shepherd", "age": 5, "size": "Large", "image": "/public/pet_images/pet3.jpeg"},
     {"id": 4, "name": "Shadow", "type": "Cat", "breed": "Maine Coon", "age": 4, "size": "Medium", "image": "/public/pet_images/pet4.jpeg"},
