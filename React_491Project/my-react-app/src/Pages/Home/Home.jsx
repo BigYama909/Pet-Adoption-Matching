@@ -1,4 +1,5 @@
-import Header from "../../Components/Header/Header";
+// Importing necessary components from the Components folder
+import Header from "../../Components/Header/Header1";
 import Footer from "../../Components/Footer/Footer";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import PetList from "../../Components/PetList/PetList";
@@ -6,13 +7,19 @@ import Advice from "../../Components/Advice/Advice";
 import Quick_FAQ from "../../Components/Quick_FAQ/Quick_FAQ.jsx";
 import Services from "../../Components/Services/Services.jsx";
 import FAQ from "../../Components/FAQ/FAQ.jsx";
-import Chat from "../../Components/Chat/Chat.jsx"
-
+import Chat from "../../Components/Chat/Chat.jsx";
+import Calculator from "../../Components/Cost_Calculator/Calculator.jsx"
+import PetGallery from "../../Components/Pet_Gallery/PetGallery.jsx";
+// Defining the Home component that renders the main page of the app
 function Home() {
   return (
     <>
-      <Chat />
+
+    <Chat />
       {/* 
+      
+      
+      */}
       <Header />
       <SearchBar />
       <PetList />
@@ -20,9 +27,11 @@ function Home() {
       <Quick_FAQ />
       <Services />
       <FAQ />
+      <Calculator />
+      <PetGallery/>
       <Footer />
-      */}
     </>
   );
 }
+// Exporting the Home component to be used in other parts of the app
 export default Home;
