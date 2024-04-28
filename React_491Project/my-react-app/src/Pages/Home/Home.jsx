@@ -1,5 +1,6 @@
 // Importing necessary components from the Components folder
 import Header from "../../Components/Header/Header";
+import Header1 from "../../Components/Header/Header1.jsx"
 import Footer from "../../Components/Footer/Footer";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import PetList from "../../Components/PetList/PetList";
@@ -20,7 +21,7 @@ function Home() {
       
       
       */}
-      <Header />
+      <Header1 />
       <SearchBar />
       <PetList />
       <Advice />

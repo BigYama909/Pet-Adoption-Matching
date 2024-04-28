@@ -5,6 +5,7 @@ import About from "./Pages/About/About.jsx";
 import Donate from "./Pages/Donate/Donate.jsx";
 import Login from "./Components/Login/index.jsx";
 import SignUp from "./Components/Signup/index.jsx"
+import UserProfile from "./Pages/User_Profile/User_Profile.jsx";
 import { Route, Routes } from "react-router-dom";
 import './App.css'
 import {useTheme} from "./Components/ThemeContext.jsx"
@@ -31,6 +32,8 @@ function App() {
           <Route path="/donate" element={<Donate />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/userprofile" element={<UserProfile />} />
+          
         </Routes>
 
         
