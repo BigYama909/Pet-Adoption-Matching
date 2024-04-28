@@ -1,4 +1,4 @@
-import Header from "../../Components/Header/Header";
+import Header from "../../Components/Header/LoggedOutHeader";
 import Footer from "../../Components/Footer/Footer";
 import styles from "./About.module.css";
 import AboutImage from "./Images/AboutImage.png";
@@ -150,10 +150,12 @@ function About() {
                 </p>
                 <p className={styles.sample_email}>sample@example.com</p>
                 <div className={styles.contact_paragraph}>
-                    <a className={styles.contact_link}
-                      href={`mailto:${"jane@example.com"}`}>
-                      Contact
-                    </a>
+                  <a
+                    className={styles.contact_link}
+                    href={`mailto:${"jane@example.com"}`}
+                  >
+                    Contact
+                  </a>
                 </div>
               </div>
             </div>
@@ -171,10 +173,12 @@ function About() {
                 </p>
                 <p className={styles.sample_email}>sample@example.com</p>
                 <div className={styles.contact_paragraph}>
-                    <a className={styles.contact_link}
-                      href={`mailto:${"jane@example.com"}`}>
-                      Contact
-                    </a>
+                  <a
+                    className={styles.contact_link}
+                    href={`mailto:${"jane@example.com"}`}
+                  >
+                    Contact
+                  </a>
                 </div>
               </div>
             </div>
@@ -192,12 +196,13 @@ function About() {
                 </p>
                 <p className={styles.sample_email}>sample@example.com</p>
                 <div className={styles.contact_paragraph}>
-                    <a className={styles.contact_link}
-                      href={`mailto:${"jane@example.com"}`}>
-                      Contact
-                    </a>
+                  <a
+                    className={styles.contact_link}
+                    href={`mailto:${"jane@example.com"}`}
+                  >
+                    Contact
+                  </a>
                 </div>
-                
               </div>
             </div>
           </div>
