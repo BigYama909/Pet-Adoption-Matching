@@ -7,8 +7,14 @@ import maskgroup2 from "./Images/maskgroup2.webp";
 import maskgroup3 from "./Images/maskgroup3.webp";
 import PlusIcon from "./Images/PlusIcon.svg";
 import AdoptAPet from "./Images/adoptapet.jpeg";
+import React, { useState, useEffect } from "react";
+
 
 function About() {
+  useEffect(() => {
+    // Set the document title using the browser's document object
+    document.title = "About Us";
+  }, []);
   return (
     <>
       <Header />
