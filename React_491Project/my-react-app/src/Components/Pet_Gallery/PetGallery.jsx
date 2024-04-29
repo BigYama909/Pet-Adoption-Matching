@@ -1,67 +1,81 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import petsData from './pets.json';
 import styles from './PetGallery.module.css';  // Import the CSS module
 import Select from 'react-select'; // Import react-select
+import { debounce } from 'lodash'; // Make sure to install lodash for debouncing
 
 const customSelectStyles = {
     control: (provided, state) => ({
       ...provided,
       margin: '10px',
-      padding: '0px', // Padding adjusted to align visually with other inputs
-      width: 'calc(100% - 22px)', // Matching width calculation
-      border: '1px solid #ccc' ,
-      borderColor: state.isFocused ? '#007BFF' : '#ccc', // Dynamic border color based on focus
+      padding: '0px',
+      width: 'calc(100% - 22px)',
+      border: '1px solid #ccc',
+      borderColor: state.isFocused ? '#007BFF' : '#ccc',
       borderRadius: '4px',
-      boxShadow: state.isFocused ? '0 0 8px rgba(0,123,255,0.2)' : 'inset 0 1px 3px rgba(0,0,0,0.1)', // Box shadow changes on focus
-      transition: 'border-color 0.2s ease, box-shadow 0.2s ease' // Smooth transition for focus and hover
+      boxShadow: state.isFocused ? '0 0 8px rgba(0,123,255,0.2)' : 'inset 0 1px 3px rgba(0,0,0,0.1)',
+      transition: 'border-color 0.2s ease, box-shadow 0.2s ease'
     }),
     option: (provided, state) => ({
       ...provided,
-      color: state.isSelected ? 'white' : 'black', // Text color changes when option is selected
-      backgroundColor: state.isFocused ? '#007BFF' : state.isSelected ? '#007BFF' : null, // Background color on hover and when selected
+      color: state.isSelected ? 'white' : 'black',
+      backgroundColor: state.isFocused ? '#007BFF' : state.isSelected ? '#007BFF' : null,
     }),
     multiValue: (provided) => ({
       ...provided,
       borderRadius: '4px',
-      backgroundColor: '#007BFF', // Style for selected options (tags)
+      backgroundColor: '#007BFF',
     }),
     multiValueLabel: (provided) => ({
       ...provided,
-      color: 'white', // Text color for tags
+      color: 'white',
     }),
     multiValueRemove: (provided) => ({
       ...provided,
       ':hover': {
-        backgroundColor: '#0056b3', // Darker blue on hover for tag removal
+        backgroundColor: '#0056b3',
         color: 'white',
       },
     }),
-  };
+};
 
 const PetGallery = () => {
     const [pets, setPets] = useState(petsData);
     const [nameFilter, setNameFilter] = useState("");
-    const [typeFilter, setTypeFilter] = useState([]); // Updated to support multiple types
+    const [typeFilter, setTypeFilter] = useState([]);
     const [breedFilter, setBreedFilter] = useState("");
     const [sizeFilter, setSizeFilter] = useState("");
-    const [ageFilter, setAgeFilter] = useState(""); // Now a string to support the slider input
+    const [ageFilter, setAgeFilter] = useState("");
 
-    // Options for the 'type' select input
+    // This function sorts the pets based on the user's selection
+    const handleSortChange = (e) => {
+        const sorted = [...pets].sort((a, b) => {
+            if (e.target.value === 'name') return a.name.localeCompare(b.name);
+            if (e.target.value === 'age') return a.age - b.age;
+            // Add other sort conditions as needed
+        });
+        setPets(sorted);
+    };
+
     const typeOptions = [
         { value: 'Dog', label: 'Dog' },
         { value: 'Cat', label: 'Cat' }
     ];
 
-    useEffect(() => {
-        const filteredPets = petsData.filter(pet =>
+    const filteredPets = useMemo(() => {
+        return petsData.filter(pet =>
             pet.name.toLowerCase().includes(nameFilter.toLowerCase()) &&
             (typeFilter.length ? typeFilter.some(option => option.value === pet.type) : true) &&
             (breedFilter ? pet.breed.toLowerCase().includes(breedFilter.toLowerCase()) : true) &&
             (sizeFilter ? pet.size === sizeFilter : true) &&
-            (ageFilter ? pet.age <= parseInt(ageFilter, 10) : true) // Adjusted to handle age as a maximum value
+            (ageFilter ? pet.age <= parseInt(ageFilter, 10) : true)
         );
-        setPets(filteredPets);
     }, [nameFilter, typeFilter, breedFilter, sizeFilter, ageFilter]);
+
+
+    const handleNameChange = debounce((value) => {
+        setNameFilter(value);
+    }, 300);
 
     const resetFilters = () => {
         setNameFilter("");
@@ -79,8 +93,8 @@ const PetGallery = () => {
                     className={styles.searchInput}
                     type="text"
                     placeholder="Search by pet name..."
-                    value={nameFilter}
-                    onChange={(e) => setNameFilter(e.target.value)}
+                    defaultValue={nameFilter}
+                    onChange={(e) => handleNameChange(e.target.value)}
                 />
                 <Select
                     isMulti
@@ -109,6 +123,14 @@ const PetGallery = () => {
                     <option value="Medium">Medium</option>
                     <option value="Large">Large</option>
                 </select>
+                <select
+                    onChange={handleSortChange}
+                    className={styles.filterSelect}
+                >
+                    <option value="">Sort by</option>
+                    <option value="name">Name</option>
+                    <option value="age">Age</option>
+                </select>
                 <label htmlFor="ageRange" className={styles.sliderLabel}>
                     Age: Up to {ageFilter || "Any"}
                 </label>
@@ -128,7 +150,7 @@ const PetGallery = () => {
                     {pets.length > 0 ? (
                         pets.map(pet => (
                             <div key={pet.id} className={styles.petCard}>
-                                <img src={pet.image} alt={`Picture of ${pet.name}`} className={styles.petImage} />
+                                <img src={pet.image} alt={`Picture of ${pet.name}`} loading="lazy" className={styles.petImage} />
                                 <h2>{pet.name} ({pet.type})</h2>
                                 <p>Breed: {pet.breed}</p>
                                 <p>Age: {pet.age} years old</p>
@@ -136,7 +158,7 @@ const PetGallery = () => {
                             </div>
                         ))
                     ) : (
-                    <div className={styles.noResults}>No pets found matching your criteria.Please try again</div>
+                        <div className={styles.noResults}>No pets found matching your criteria. Please try again.</div>
                     )}
                 </div>
             </div>
@@ -145,3 +167,4 @@ const PetGallery = () => {
 };
 
 export default PetGallery;
+
