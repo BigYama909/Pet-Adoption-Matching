@@ -5,9 +5,9 @@ const cors = require("cors");
 const connection = require("./db");
 const userRoutes = require("./routes/users");
 const authRoutes = require("./routes/auth");
-const resetRoutes = require("./routes/reset");
 const petRoutes = require("./routes/pets");
 const petCareRoutes = require("./routes/petCare");
+const resetRoutes = require("./routes/forgetPass");
 
 
 // database connection
@@ -21,9 +21,10 @@ app.use(cors());
 app.use
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
-app.use("/api/reset", resetRoutes);
 app.use("/api/pets", petRoutes);
 app.use("/api/yelp", petCareRoutes);
+app.use("/api/resetpass", resetRoutes);
+
 
 
 const port = process.env.PORT || 8080;

@@ -1,0 +1,40 @@
+.policy-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .policy-container h1 {
+    color: #333;
+    text-align: center;
+  }
+  
+  .policy-container section {
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #eee;
+  }
+  
+  .policy-container h2 {
+    color: #555;
+  }
+  
+  .policy-container ul {
+    list-style-type: none; /* Removes bullet points from lists */
+    padding: 0;
+  }
+  
+  .policy-container li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: #666;
+  }
+  
+  .policy-container p {
+    line-height: 1.6;
+    color: #666;
+  }
+  

@@ -21,6 +21,13 @@ const validate = (data) => {
   return schema.validate(data);
 };
 
+const validatePasswordInput = (data) => {
+  const schema = Joi.object({
+    password: Joi.string().required().label('Password')
+  });
+  return schema.validate(data);
+};
+
 // POST route for user login
 router.post("/", async (req, res, next) => {
   try {
@@ -60,65 +67,12 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-
-//reset password
-router.post("/forgot-password", async (req, res, next) => {
-  try {
-    // Validate the email input
-    const { error } = validate({ email: req.body.email });
-    if (error) return res.status(400).send({ message: error.details[0].message });
-
-    // Find the user by email
-    const user = await User.findOne({ email: req.body.email });
-    if (!user) return res.status(404).send({ message: "User with the provided email not found" });
-
-    // Generate a password reset token and save it
-    const token = await new Token({
-      userId: user._id,
-      token: crypto.randomBytes(32).toString("hex"),
-    }).save();
-
-    // Send an email with the reset link
-    const resetUrl = `${process.env.BASE_URL}reset-password/${user._id}/${token.token}`;
-    await sendEmail(user.email, "Password Reset", resetUrl);
-
-    res.status(200).send({ message: "Password reset email sent successfully" });
-  } catch (error) {
-    next(error);
-  }
-});
-
-// POST route for resetting the password
-router.post("/reset-password/:id/:token", async (req, res, next) => {
-  try {
-    // Find the user by ID
-    const user = await User.findById(req.params.id);
-    if (!user) return res.status(404).send({ message: "User not found" });
-
-    // Find the corresponding token
-    const token = await Token.findOne({
-      userId: user._id,
-      token: req.params.token,
-    });
-
-    if (!token) return res.status(400).send({ message: "Invalid or expired token" });
-
-    // Update the user's password
-    const salt = await bcrypt.genSalt(Number(process.env.SALT));
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
-
-    user.password = hashedPassword;
-    await user.save();
-
-    // Delete the used token
-    await Token.findByIdAndDelete(token._id);
-
-    res.status(200).send({ message: "Password reset successfully" });
-  } catch (error) {
-    next(error);
-  }
-});
+  router.get("/logout", (req, res) => {
+    console.log("logout HERE");
+      req.logout();
+      res.redirect("google.com");
+  });
 
 
 
-module.exports = router;
+module.exports = router
