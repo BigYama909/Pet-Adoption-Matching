@@ -10,6 +10,7 @@ import FAQ from "../../Components/FAQ/FAQ.jsx";
 import Chat from "../../Components/Chat/Chat.jsx";
 import Calculator from "../../Components/Cost_Calculator/Calculator.jsx"
 import PetGallery from "../../Components/Pet_Gallery/PetGallery.jsx";
+import SurveyLink from "../../Components/Survey/survey.jsx";
 // Defining the Home component that renders the main page of the app
 function Home() {
   return (
@@ -29,6 +30,7 @@ function Home() {
       <FAQ />
       <Calculator />
       <PetGallery/>
+      <SurveyLink />
       <Footer />
     </>
   );
