@@ -3,7 +3,6 @@ import Footer from "../Footer/index";
 import Advice from "../Advice/Advice";
 import Quick_FAQ from "../Quick_FAQ/Quick_FAQ.jsx";
 import FAQ from "../FAQ/FAQ.jsx";
-import SurveyLink from "../Survey/survey.jsx";
 
 
 function Home() {
@@ -13,7 +12,6 @@ function Home() {
       <Advice />
       <Quick_FAQ />
       <FAQ />
-      <SurveyLink />
       <Footer />
     </>
   );
