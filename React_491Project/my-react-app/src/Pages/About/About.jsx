@@ -1,4 +1,4 @@
-import Header from "../../Components/Header/Header";
+import Header from "../../Components/Header/LoggedOutHeader";
 import Footer from "../../Components/Footer/Footer";
 import styles from "./About.module.css";
 import AboutImage from "./Images/AboutImage.png";
@@ -7,8 +7,14 @@ import maskgroup2 from "./Images/maskgroup2.webp";
 import maskgroup3 from "./Images/maskgroup3.webp";
 import PlusIcon from "./Images/PlusIcon.svg";
 import AdoptAPet from "./Images/adoptapet.jpeg";
+import React, { useState, useEffect } from "react";
+
 
 function About() {
+  useEffect(() => {
+    // Set the document title using the browser's document object
+    document.title = "About Us";
+  }, []);
   return (
     <>
       <Header />
@@ -150,10 +156,12 @@ function About() {
                 </p>
                 <p className={styles.sample_email}>sample@example.com</p>
                 <div className={styles.contact_paragraph}>
-                    <a className={styles.contact_link}
-                      href={`mailto:${"jane@example.com"}`}>
-                      Contact
-                    </a>
+                  <a
+                    className={styles.contact_link}
+                    href={`mailto:${"jane@example.com"}`}
+                  >
+                    Contact
+                  </a>
                 </div>
               </div>
             </div>
@@ -171,10 +179,12 @@ function About() {
                 </p>
                 <p className={styles.sample_email}>sample@example.com</p>
                 <div className={styles.contact_paragraph}>
-                    <a className={styles.contact_link}
-                      href={`mailto:${"jane@example.com"}`}>
-                      Contact
-                    </a>
+                  <a
+                    className={styles.contact_link}
+                    href={`mailto:${"jane@example.com"}`}
+                  >
+                    Contact
+                  </a>
                 </div>
               </div>
             </div>
@@ -192,12 +202,13 @@ function About() {
                 </p>
                 <p className={styles.sample_email}>sample@example.com</p>
                 <div className={styles.contact_paragraph}>
-                    <a className={styles.contact_link}
-                      href={`mailto:${"jane@example.com"}`}>
-                      Contact
-                    </a>
+                  <a
+                    className={styles.contact_link}
+                    href={`mailto:${"jane@example.com"}`}
+                  >
+                    Contact
+                  </a>
                 </div>
-                
               </div>
             </div>
           </div>

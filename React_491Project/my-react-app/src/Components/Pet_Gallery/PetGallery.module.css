@@ -239,3 +239,51 @@
     font-family: 'Arial', sans-serif;
     border: 1px solid #ddd;
 }
+.petCard {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.petCard:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+.petCard {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.petCard:hover {
+    transform: translateY(-5px);
+}
+
+.searchInput:focus, .filterSelect:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--hover-effect-color);
+}
+
+
+.galleryContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .galleryContainer {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+}
+
+.galleryTitle {
+    font-size: 2rem; /* 48px if the base is 16px */
+    font-weight: bold;
+    color: var(--primary-color); /* Assuming you have a color variable set */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 10px 0;
+    background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

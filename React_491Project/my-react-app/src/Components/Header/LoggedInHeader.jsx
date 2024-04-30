@@ -1,8 +1,7 @@
 import styles from "./Header.module.css";
 import { useTheme } from '/src/Components/ThemeContext.jsx'; 
 import user_icon from "./user_icon.webp"
-import notification_icon_black from "./noti_icon.svg"
-import notification_icon_white from "./white_icon.png"
+
 function Header() {
   const {isNightMode, toggleNightMode} = useTheme();
 
@@ -10,8 +9,6 @@ function Header() {
    const headerClass = isNightMode ? styles.nightHeader : styles.header;
    const navLink = isNightMode ? styles.nightNavItem : styles.navItem;
    const toggle = isNightMode ? styles.lightModeToggle: styles.nightModeToggle;
-
-   const notificationIcon = isNightMode ? notification_icon_white : notification_icon_black;
 
   return (
     <div className={styles.top_bar}>
@@ -52,14 +49,7 @@ function Header() {
         </div>
 
         <div className={styles.iconsContainer}>
-          <a href="/notifications" className={styles.iconLink}>
-            <img
-              className={styles.notificationIcon}
-              src={notificationIcon}
-              alt="Notifications"
-            />
-          </a>
-          <a href="/user-profile" className={styles.iconLink}>
+          <a href="/userprofile" className={styles.iconLink}>
             <img
               className={styles.userIcon}
               src={user_icon}
