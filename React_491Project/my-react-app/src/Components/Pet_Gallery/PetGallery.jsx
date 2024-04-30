@@ -1,9 +1,10 @@
 import React, { useState, useMemo } from 'react';
-import petsData from './pets.json';
-import styles from './PetGallery.module.css';
-import Select from 'react-select';
-import { debounce } from 'lodash';
+import petsData from './pets.json'; // Import the static list of pets
+import styles from './PetGallery.module.css'; // Import custom CSS styles for the component
+import Select from 'react-select'; // Import the react-select library for dropdown components
+import { debounce } from 'lodash'; // Import debounce function from lodash to limit function calls
 
+// Define custom styles for the react-select dropdown components
 const customSelectStyles = {
     control: (provided, state) => ({
         ...provided,
@@ -39,7 +40,9 @@ const customSelectStyles = {
     }),
 };
 
+// Define the PetGallery functional component
 const PetGallery = () => {
+    // State hooks for managing filter inputs
     const [nameFilter, setNameFilter] = useState("");
     const [typeFilter, setTypeFilter] = useState([]);
     const [breedFilter, setBreedFilter] = useState("");
@@ -48,8 +51,10 @@ const PetGallery = () => {
     const [sortField, setSortField] = useState("");
     const [sortOrder, setSortOrder] = useState("asc");
 
+    // Use memoized function to debounce setting the name filter to improve performance
     const debouncedSetNameFilter = useMemo(() => debounce(setNameFilter, 300), []);
 
+    // useMemo to filter and sort pets based on the active filters and sort settings
     const filteredAndSortedPets = useMemo(() => {
         const filtered = petsData.filter(pet =>
             pet.name.toLowerCase().includes(nameFilter.toLowerCase()) &&
@@ -69,20 +74,26 @@ const PetGallery = () => {
         });
     }, [nameFilter, typeFilter, breedFilter, sizeFilter, ageFilter, sortField, sortOrder]);
 
+    // Function to reset all filters to their default values
     const resetFilters = () => {
         setNameFilter("");
         setTypeFilter([]);
         setBreedFilter("");
         setSizeFilter("");
         setAgeFilter("");
-        setSortField("");  // Reset the sort field to default
-    setSortOrder("asc");  // Reset the sort order to default (assuming "asc" as default)
+        setSortField("");
+        setSortOrder("asc");
     };
 
+    // Component rendering
     return (
         <div className={styles.container}>
+             {/* Sidebar section for filters and controls */}
             <div className={styles.sidebar}>
+                {/* Reset button to clear all filters */}
                 <button className={styles.resetButton} onClick={resetFilters}>Reset Filters</button>
+
+                {/* Input for searching pets by name with debounced change handler */}
                 <input
                     className={styles.searchInput}
                     type="text"
@@ -90,6 +101,7 @@ const PetGallery = () => {
                     defaultValue={nameFilter}
                     onChange={e => debouncedSetNameFilter(e.target.value)}
                 />
+                {/* Multi-select dropdown for choosing pet types */}
                 <Select
                     isMulti
                     options={[{ value: 'Dog', label: 'Dog' }, { value: 'Cat', label: 'Cat' }]}
@@ -100,6 +112,7 @@ const PetGallery = () => {
                     value={typeFilter}
                     placeholder="Select types..."
                 />
+                {/* Input for filtering pets by breed */}
                 <input
                     className={styles.searchInput}
                     type="text"
@@ -107,6 +120,7 @@ const PetGallery = () => {
                     value={breedFilter}
                     onChange={e => setBreedFilter(e.target.value)}
                 />
+                {/* Dropdown for selecting pet size */}
                 <select
                     className={styles.filterSelect}
                     value={sizeFilter}
@@ -117,6 +131,7 @@ const PetGallery = () => {
                     <option value="Medium">Medium</option>
                     <option value="Large">Large</option>
                 </select>
+                {/* Dropdown for sorting pets either by name or age */}
                 <select
                     className={styles.filterSelect}
                     value={sortField + "_" + sortOrder}
@@ -132,6 +147,7 @@ const PetGallery = () => {
                     <option value="age_asc">Age (Ascending)</option>
                     <option value="age_desc">Age (Descending)</option>
                 </select>
+                {/* Slider for selecting maximum age */}
                 <label htmlFor="ageRange" className={styles.sliderLabel}>
                     Age: Up to {ageFilter || "Any"}
                 </label>
@@ -145,9 +161,11 @@ const PetGallery = () => {
                     id="ageRange"
                 />
             </div>
+            {/* Main content area where pet cards are displayed */}
             <div className={styles.mainContent}>
                 <h1 className={styles.galleryTitle}>Available Pets for Adoption</h1>
                 <div className={`${styles.galleryContainer} ${filteredAndSortedPets.length === 0 ? styles.centerContent : ''}`}>
+                    {/* Display pet cards or a message if no pets match the filters */}
                     {filteredAndSortedPets.length > 0 ? (
                         filteredAndSortedPets.map(pet => (
                             <div key={pet.id} className={styles.petCard}>

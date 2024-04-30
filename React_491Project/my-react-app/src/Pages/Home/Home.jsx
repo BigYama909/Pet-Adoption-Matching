@@ -1,6 +1,6 @@
 // Importing necessary components from the Components folder
-import Header from "../../Components/Header/LoggedOutHeader.jsx";
-import Header1 from "../../Components/Header/LoggedInHeader.jsx";
+import LoggedOutHeader from "../../Components/Header/LoggedOutHeader.jsx";
+import LoggedInHeader from "../../Components/Header/LoggedInHeader.jsx";
 import Footer from "../../Components/Footer/Footer";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import PetList from "../../Components/PetList/PetList";
@@ -20,7 +20,7 @@ function Home() {
       
       
       */}
-      <Header1 />
+      <LoggedInHeader />
       <SearchBar />
       <PetList />
       <Advice />
