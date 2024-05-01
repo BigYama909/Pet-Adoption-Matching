@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
-import Header from "../Header/LoggedOutHeader";
+
 import Footer from "../Footer/Footer";
 
 const Login = () => {
@@ -38,7 +38,7 @@ const Login = () => {
   // Render
   return (
     <>
-      <Header />
+      
       <div className={styles.login_container}>
         <div className={styles.login_form_container}>
           <div className={styles.left}>
