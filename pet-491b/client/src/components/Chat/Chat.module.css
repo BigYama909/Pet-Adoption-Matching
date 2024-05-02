@@ -1,0 +1,302 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* Styling the chatbot toggle button */
+.chatbot_toggler {
+  position: fixed;
+  right: 1rem;
+  bottom: 5.6rem;
+  height: 44px;
+  color: black;
+  border-radius: 42px;
+  min-width: 95px;
+  padding: 0 13px;
+  justify-content: flex-start;
+  cursor: pointer;
+  background-color: rgb(67, 107, 200);
+  border: none;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/*Styling the icon inside the toggle button*/
+.chatbot_toggler:hover {
+  opacity: 0.8;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/*Styling the whole chatbot*/
+.chatbot {
+  border: solid;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  position: fixed;
+  right: 2rem;
+  bottom: 5.6rem;
+  width: 350px;
+  background: #f6f4f4;
+  border-radius: 1rem;
+  
+  transition: opacity 0.5s ease-in-out;
+  z-index: 10;
+  
+}
+.chatbot {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Adjust content spacing */
+    border: solid;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    position: fixed;
+    right: 2rem;
+    bottom: 5.6rem;
+    width: 350px;
+    background: #f6f4f4;
+    border-radius: 1rem;
+    overflow: hidden; /* Adjust if necessary */
+    transition: opacity 0.5s ease-in-out;
+    z-index: 10;
+    height: 600px; /* Fixed height */
+  }
+.chatbot header {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  background-color: rgb(9, 199, 199);
+}
+
+/*Styling the h2(Chatbot) element in the header*/
+.chatbot header h2 {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  color: white;
+}
+
+.top_buttons {
+  margin-left: auto;
+}
+
+/*Style both buttons themselves*/
+.minimize_btn,
+.close_btn {
+  font-size: 1.5rem;
+  border: none;
+  background-color: rgb(9, 199, 199);
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: background-color 0.4s ease-in-out;
+  position: relative;
+}
+/*Add effect when hover the buttons*/
+.minimize_btn:hover,
+.close_btn:hover {
+  background-color: rgb(205, 205, 205);
+}
+
+/* Add bubble chat effect */
+.minimize_btn:before,
+.close_btn:before {
+  position: absolute;
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  white-space: nowrap; /* Prevent text from wrapping */
+  top: calc(100% + 5px); /* Position below the button */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+  opacity: 0;
+  transition: opacity 0.4s ease; /* Smooth transition */
+}
+
+.minimize_btn:before {
+  content: "Minimize Chat";
+}
+
+.close_btn:before {
+  content: "Close";
+}
+
+/* Show bubble chat on hover */
+.minimize_btn:hover::before,
+.close_btn:hover::before {
+  opacity: 1;
+}
+
+
+
+.messageGroup {
+  display: flex;
+  align-items: center; /* Aligns items vertically */
+  margin-top: 1rem;
+}
+
+.chatbox {
+    flex-grow: 1;
+    overflow-y: auto;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin-bottom: 1rem;
+  padding: 0 0 0 0.5rem;
+  transition: opacity cubic-bezier(0.175, 0.885, 0.32, 1.275) ease-in-out;
+}
+
+.chatbotMessage {
+  background-color: #f4f4f4; /* Light gray background */
+  border-radius: 8px;
+  position: relative; /* For positioning the logo */
+}
+
+.chatbotMessage p {
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 10px;
+  max-width: 75%;
+  color: black;
+  font-size: 1rem;
+  background: rgb(227, 227, 225);
+  margin-top: 1rem;
+  margin-left: 2rem;
+  border: solid;
+}
+.chatbot_logo {
+  width: 50px;
+  height: 50px;
+  align-self: flex-end;
+  border-radius: 50%;
+  margin: 0 10px 10px 0;
+  display: block;
+}
+/* Chat1.module.css */
+
+.userMessage {
+  /* Style properties for echo messages */
+  background-color: #d1e9ff; /* Blue background */
+  background-color: rgb(9, 199, 199);
+  border: solid;
+  padding: 8px 12px;
+  border-radius: 10px;
+
+  margin: 20px 5px; /* Adjust margins as needed */
+  margin-left: 60px;
+  align-self: flex-end; /* Aligns the message to the right */
+  max-width: calc(100% - 40px); /* Adjust width as needed */
+  font-weight: bold; /* Make the text bold */
+  color: #333; /* Text color */
+  border: 1px solid #b1dafc; /* Optional border */
+  display: block;
+}
+/* Animation for fading in messages with a slight delay */
+.message {
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+/* Keyframes for the fadeIn animation, smoothly transitions opacity */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Style for paragraphs within a specified container, setting background, padding, and word wrap */
+
+.paragraph p {
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 10px;
+  max-width: 75%;
+  color: black;
+  font-size: 1rem;
+  background: rgb(227, 227, 225);
+  margin: 0.6rem;
+}
+/* Styles for the menu container, including overflow handling and padding */
+
+.menu {
+  border-top: solid lightgray;
+  border-radius: 20px;
+  width: 100%;
+  padding: 10;
+  overflow: hidden;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+/* Removes list styling for menu items, adjusting padding for alignment */
+
+.menu ul {
+  list-style: none;
+  padding-left: 0.5rem;
+  padding-right: 0.5 rem;
+}
+/* Styling for individual list items in the user choices menu, including hover effects and margins */
+
+.user_choices li {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  align-items: center;
+  border: none;
+  border-bottom: solid lightgray;
+  margin-right: 0.5rem;
+  border-radius: 10px;
+  padding-top: 1rem;
+  margin-bottom: 0.5rem;
+  transition: background-color 0.4s ease-in;
+  margin-top: 0.5rem;
+}
+
+/* Adds a hover effect for list items */
+.user_choices li:hover {
+  border: solid;
+  background-color: rgb(9, 199, 199);
+}
+
+/* Styling for buttons within user choices */
+.user_choices button {
+  font-size: 1.1rem;
+  text-align: left;
+  border: none;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  padding-left: 0.5rem;
+}
+
+
+/* Applies the revised fadeIn animation to elements with the .messageFadeIn class */
+
+
+/* Animation for showing the .menu element */
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.menuSlideUp {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+
+.optionButton {
+  /* Example styling; adjust as needed */
+  background-color: #e4e4e4;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 5px 0;
+  border: none;
+  cursor: pointer;
+}

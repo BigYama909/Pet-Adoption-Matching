@@ -11,6 +11,10 @@ import About from "./components/About";
 import Home from "./components/Home";
 import Policy from "./components/Policy";
 import Testing from "./components/TestingLogout";
+import Survey from "./components/Survey/survey.jsx";
+import Donate from "./components/Donate/Donate.jsx";
+
+
 
 
 
@@ -52,6 +56,9 @@ function App() {
 			<Route path="/policy" exact element={<Policy />} />
 			<Route path="/home" exact element={<Home />} />
 			<Route path="/test" exact element={<Testing />} />
+			<Route path="/survey" exact element={<Survey />} />
+			<Route path="/donate" exact element={<Donate />} />
+
 
 		</Routes>
 	);

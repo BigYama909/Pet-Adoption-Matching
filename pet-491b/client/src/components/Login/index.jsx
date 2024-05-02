@@ -6,7 +6,7 @@ import styles from "./styles.module.css";
 const Login = () => {
 	const [data, setData] = useState({ email: "", password: "" });
 	const [error, setError] = useState("");
-	const navigate = useNavigate(); 
+	const navigate = useNavigate(); // This hook gives you access to the history instance that you may use to navigate.
 
 	// Check if the user is already logged in
 	useEffect(() => {
@@ -26,7 +26,8 @@ const Login = () => {
 			const url = "http://localhost:8080/api/auth";
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
-			localStorage.setItem("email", res.email);
+			localStorage.setItem("name", data.name); // Ensure that 'name' and 'email' are being returned in 'res'
+			localStorage.setItem("email", data.email);
 			console.log("login res: ", res);
 			navigate('/'); // Redirect after successful login
 		} catch (error) {
