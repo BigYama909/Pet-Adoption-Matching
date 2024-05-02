@@ -13,6 +13,15 @@ CLIENT
 -in terminal go to client folder and install packages list below
 npm i axios react-router-dom
 
+npm install --save @fortawesome/fontawesome-svg-core
+npm install --save @fortawesome/free-solid-svg-icons
+npm install --save @fortawesome/react-fontawesome
+npm install --save @fortawesome/free-brands-svg-icons
+npm install --save @fortawesome/free-regular-svg-icons
+
+npm install --save react-chartjs-2 chart.js
+npm install react-select
+
 
 
 -After install all packages do the steps below

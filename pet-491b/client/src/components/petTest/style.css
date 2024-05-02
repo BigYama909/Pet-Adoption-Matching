@@ -1,0 +1,294 @@
+/* General layout settings for the main container, enabling flexible layout with rows */
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Styling for the sidebar, setting fixed width, enabling scrolling, and adding a visual divider */
+.sidebar {
+    flex: 0 0 250px; /* Fixed width for the sidebar */
+    padding: 20px;
+    border-right: 1px solid #ccc; /* Subtle divider between sidebar and content area */
+    height: 100vh; /* Full viewport height */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds the viewport */
+}
+
+/* Styling for the gallery container to display pet cards in a responsive grid layout */
+.galleryContainer {
+    flex: 1; /* Flex grow to take up the remaining space */
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid columns */
+    gap: 20px; /* Space between grid items */
+    justify-content: center; /* Center grid items horizontally */
+}
+
+/* Styling for individual pet cards, adding borders, shadows, and transitions for hover effects */
+.petCard {
+    margin: auto; /* Center card within the grid cell */
+    border: 1px solid #e0e0e0; /* Light grey border */
+    padding: 10px;
+    width: 100%; /* Full width of the grid column */
+    text-align: center; /* Center the text and content within the card */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition for hover effects */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Enhance hover effect by scaling the pet card and adding a deeper shadow */
+.petCard:hover {
+    transform: scale(1.03); /* Slightly enlarge the card */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Darker shadow on hover */
+}
+
+/* Adjustments for pet images within cards to fit nicely and maintain aspect ratio */
+.petImage {
+    width: 100%; /* Full width to fit the card */
+    height: 200px; /* Fixed height */
+    object-fit: cover; /* Ensure the image covers the area without distorting aspect ratio */
+    border-bottom: 1px solid #ddd; /* Subtle border at the bottom of the image */
+    border-top-left-radius: 8px; /* Rounded top corners */
+    border-top-right-radius: 8px;
+}
+
+/* Unified styling for all input fields and select elements within the sidebar */
+.searchInput,
+.filterSelect {
+    margin: 10px;
+    padding: 8px;
+    width: calc(100% - 22px); /* Calculate width to maintain consistent padding and border */
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Rounded corners for inputs */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* Inset shadow for a subtle depth effect */
+}
+
+/* Responsive adjustments for smaller screens to ensure usability and aesthetics */
+@media (max-width: 600px) {
+    .galleryContainer {
+        grid-template-columns: 1fr; /* Single column layout for very small screens */
+    }
+
+    .searchInput,
+    .filterSelect {
+        width: calc(100% - 40px); /* Adjust width to account for smaller screen */
+        margin: 10px 20px; /* Increase side margins for better spacing */
+    }
+}
+
+/* Interactive styles for hover and focus states to improve user experience */
+.filterSelect:hover,
+.searchInput:hover,
+.filterSelect:focus,
+.searchInput:focus {
+    border-color: #007BFF; /* Highlight with a blue border */
+    box-shadow: 0 0 8px rgba(0,123,255,0.2); /* Glowing effect for focus */
+}
+
+/* Styling for the reset button to make it visually appealing and clickable */
+.resetButton {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+    padding: 8px 16px;
+    background-color: #007bff; /* Bright blue background */
+    color: white; /* White text for contrast */
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+    font-size: 14px;
+    margin: 10px;
+}
+
+/* Hover effect for reset button to indicate interactiveness */
+.resetButton:hover {
+    background-color: #0056b3; /* Darker blue for hover effect, provides visual feedback */
+}
+
+/* Animation for fading in pet cards to enhance visual appeal and user experience */
+.petCard {
+    opacity: 0; /* Start fully transparent */
+    animation: fadeIn 0.5s forwards; /* Animation to fade in */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; } /* Start of animation: fully transparent */
+    to { opacity: 1; } /* End of animation: fully opaque */
+}
+
+/* Responsive design adjustments for medium and smaller screens */
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column; /* Stack sidebar and content vertically */
+    }
+
+    .sidebar {
+        width: 100%; /* Full width for sidebar when stacked */
+        height: auto; /* Auto height to fit content */
+        border-right: none; /* Remove right border when sidebar is on top */
+        border-bottom: 1px solid #ddd; /* Add a bottom border instead */
+    }
+
+    .galleryContainer {
+        padding: 10px; /* Reduce padding in smaller screens */
+    }
+}
+
+/* Basic layout settings for container elements */
+.container {
+    display: flex;
+    flex-direction: row; /* Side-by-side layout for larger screens */
+}
+
+.sidebar {
+    flex: 0 0 250px; /* Flex basis of 250px for sidebar */
+    padding: 20px; /* Padding around content within sidebar */
+    border-right: 1px solid #ccc; /* Right border for separation from content */
+}
+
+.mainContent {
+    flex-grow: 1; /* Allow main content to fill the remaining space */
+    padding: 20px; /* Consistent padding around the content */
+}
+
+/* Styling for the title within the gallery, making it prominent and clear */
+.galleryTitle {
+    font-size: 24px; /* Large font size for clear visibility */
+    font-weight: bold; /* Bold font weight for emphasis */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+/* Layout and design for the pet cards displayed in the gallery */
+.galleryContainer {
+    display: grid; /* Grid layout for flexibility and responsiveness */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid columns */
+    gap: 20px; /* Space between cards */
+}
+
+.petCard {
+    border: 1px solid #ccc; /* Consistent border around pet cards */
+    padding: 10px; /* Padding inside the cards */
+    text-align: center; /* Center alignment for the text */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.petImage {
+    width: 100%; /* Full width to fit the card */
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Cover fit to maintain aspect ratio without cropping */
+    border-radius: 8px; /* Rounded corners for the images */
+}
+
+/* Enhanced title styling with responsive adjustments */
+.galleryTitle {
+    font-size: 2rem; /* Responsive font size for various devices */
+    font-weight: bold;
+    color: #333; /* Subtle dark color for contrast */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Text shadow for depth */
+    letter-spacing: 0.05em; /* Letter spacing for readability */
+    margin-bottom: 30px; /* Bottom margin for spacing */
+    text-align: center; /* Center alignment for the title */
+    padding: 10px 0; /* Vertical padding for aesthetic balance */
+}
+
+@media (max-width: 768px) {
+    .galleryTitle {
+        font-size: 1.5rem; /* Smaller font size for mobile devices */
+    }
+}
+
+.petCard {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions for interaction */
+}
+
+.petCard:hover {
+    transform: scale(1.05); /* Scale up slightly on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow for visual effect */
+}
+
+.galleryContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Flexible grid columns */
+    gap: 20px; /* Gaps between grid items */
+    justify-content: center; /* Center items horizontally */
+}
+
+.centerContent {
+    display: flex;
+    justify-content: center; /* Center content vertically and horizontally */
+    max-height: 100vh; /* Limit to viewport height */
+}
+
+.noResults {
+    padding: 20px;
+    text-align: center; /* Center text alignment for no results message */
+    font-size: 20px; /* Font size for clear visibility */
+    color: #666; /* Subtle gray color for the text */
+    border-radius: 8px; /* Rounded corners for aesthetic appeal */
+    background-color: #f9f9f9; /* Light background color for contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+    width: 80%; /* Width relative to parent container */
+    font-family: 'Arial', sans-serif; /* Font family for consistency */
+    border: 1px solid #ddd; /* Border for defining clear boundaries */
+}
+
+/* Enhancements for pet cards to provide better interactivity and visual feedback */
+.petCard {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Initial shadow for 3D effect */
+}
+
+.petCard:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Darker shadow on hover for depth perception */
+}
+
+.petCard {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
+}
+
+.petCard:hover {
+    transform: translateY(-5px); /* Slight upward movement to indicate selection */
+}
+
+/* Focus states for inputs and selects to improve user experience */
+.searchInput:focus, .filterSelect:focus {
+    outline: none; /* Removes default outline to customize focus styles */
+    border-color: var(--primary-color); /* Highlight focus with theme color */
+    box-shadow: 0 0 0 3px var(--hover-effect-color); /* Outer shadow to emphasize focus */
+}
+
+/* Responsive adjustments for the gallery container in smaller screens */
+.galleryContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Maintains grid layout with responsiveness */
+    gap: 20px; /* Consistent spacing between grid items */
+}
+
+@media (max-width: 600px) {
+    .galleryContainer {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); /* Single column layout on very small screens */
+    }
+}
+
+/* Enhanced visual styling for gallery titles with responsive adjustments */
+.galleryTitle {
+    font-size: 2rem; /* Dynamic font size for scalability */
+    font-weight: bold; /* Bold weight for emphasis */
+    color: var(--primary-color); /* Primary color from CSS variables */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Text shadow for depth */
+    letter-spacing: 0.1rem; /* Increased letter spacing for readability */
+    text-transform: uppercase; /* Uppercase for stylistic preference */
+    margin-bottom: 30px; /* Margin below title for spacing */
+    text-align: center; /* Center alignment for prominence */
+    padding: 10px 0; /* Padding for visual balance */
+    background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%); /* Gradient background for visual interest */
+    border-radius: 8px; /* Rounded corners for modern look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow for floating effect */
+}
+
+.image-container {
+    width: 100%; /* Full width */
+    margin-bottom: 10px; /* Space below the image */
+  }
+  
+.image-container img {
+width: 100%; /* Image takes full width of the container */
+height: auto; /* Keep the image aspect ratio */
+}

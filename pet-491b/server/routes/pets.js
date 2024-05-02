@@ -46,6 +46,10 @@ router.get('/', async (req, res) => {
       const pets = petResponse.data.animals.map(pet => ({
           id: pet.id,
           name: pet.name,
+          type: pet.type,
+          breed: pet.breeds.primary,
+          size: pet.size,
+          age: pet.age,
           location: pet.contact.address.city, // Assuming you want the city as the location
           description: pet.description,
           images: pet.photos.map(photo => photo.small), // Adjust the size based on your requirements

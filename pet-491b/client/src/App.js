@@ -13,6 +13,8 @@ import Policy from "./components/Policy";
 import Testing from "./components/TestingLogout";
 import Survey from "./components/Survey/survey.jsx";
 import Donate from "./components/Donate/Donate.jsx";
+import PetTest from "./components/petTest";
+
 
 
 
@@ -58,6 +60,8 @@ function App() {
 			<Route path="/test" exact element={<Testing />} />
 			<Route path="/survey" exact element={<Survey />} />
 			<Route path="/donate" exact element={<Donate />} />
+			<Route path="/pettest" exact element={<PetTest />} />
+
 
 
 		</Routes>
