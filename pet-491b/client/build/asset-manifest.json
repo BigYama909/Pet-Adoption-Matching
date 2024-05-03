@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3af510ca.css",
+    "main.js": "/static/js/main.b806f4f9.js",
+    "static/media/adoptapet.jpeg": "/static/media/adoptapet.302575e6bd06bdbcdc72.jpeg",
+    "static/media/donation.jpeg": "/static/media/donation.6db6f9ae31146cf1321d.jpeg",
+    "static/media/AboutImage.png": "/static/media/AboutImage.6f2363851af74b0bee6f.png",
+    "static/media/pet_adoption.png": "/static/media/pet_adoption.f2b3942194a1cd31cf5c.png",
+    "static/media/Oliver.jpeg": "/static/media/Oliver.8cd22b3e9a13e43eaf05.jpeg",
+    "static/media/pet-background4.jpg": "/static/media/pet-background4.1b25971cca7fd4d488bc.jpg",
+    "static/media/logo_for_website.png": "/static/media/logo_for_website.8040ed1e6eee5ee9b59d.png",
+    "static/media/Toby.jpeg": "/static/media/Toby.9e199163e520a5f0de8f.jpeg",
+    "static/media/favicon_and_chatbot_logo.jpeg": "/static/media/favicon_and_chatbot_logo.cc8590a8144f9730aa55.jpeg",
+    "static/media/Puntia.jpeg": "/static/media/Puntia.6a3d3ae3b0a6b713816a.jpeg",
+    "static/media/pet-background5.jpg": "/static/media/pet-background5.2212f0c452de7608b3f8.jpg",
+    "static/media/Chuck.jpeg": "/static/media/Chuck.ee9515e59139524d17d6.jpeg",
+    "static/media/Group-40290.svg": "/static/media/Group-40290.676636775585f45e6d5431353913ca70.svg",
+    "static/media/Group-40289.svg": "/static/media/Group-40289.6bb1eb059ee92175d65d1cf8180074c3.svg",
+    "static/media/Group-40286.svg": "/static/media/Group-40286.dee2723ee5b0b8ff96de48aa9934d07b.svg",
+    "static/media/Layer_1.svg": "/static/media/Layer_1.05c94db1ec64f33fcc72be135d9e3c51.svg",
+    "static/media/Group-40291.svg": "/static/media/Group-40291.e81c3d8a8c8914e2caaf170bc6e8399c.svg",
+    "static/media/Group-40287.svg": "/static/media/Group-40287.8ab00ae39d723b9ce08c63210cae5488.svg",
+    "static/media/maskgroup1.webp": "/static/media/maskgroup1.1430dc5dd37da4d12196.webp",
+    "static/media/maskgroup3.webp": "/static/media/maskgroup3.3827f39b68185c5ed488.webp",
+    "static/media/maskgroup2.webp": "/static/media/maskgroup2.b0e118030c40ee9d335a.webp",
+    "static/media/Decorative.svg": "/static/media/Decorative.6a3043764aeafb6181f0f77c3b2996f3.svg",
+    "static/media/OrangePhone.svg": "/static/media/OrangePhone.9aaa73f36b8245b71d83e042f8977ed7.svg",
+    "index.html": "/index.html",
+    "static/media/PlusIcon.svg": "/static/media/PlusIcon.c97beff104116a7ae82442a7e7be4788.svg",
+    "main.3af510ca.css.map": "/static/css/main.3af510ca.css.map",
+    "main.b806f4f9.js.map": "/static/js/main.b806f4f9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3af510ca.css",
+    "static/js/main.b806f4f9.js"
+  ]
+}
