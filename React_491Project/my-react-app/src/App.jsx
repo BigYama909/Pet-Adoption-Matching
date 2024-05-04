@@ -7,6 +7,7 @@ import Login from "./Components/Login/index.jsx";
 import SignUp from "./Components/Signup/index.jsx"
 import UserProfile from "./Pages/User_Profile/User_Profile.jsx";
 import { Route, Routes } from "react-router-dom";
+
 import './App.css'
 import {useTheme} from "./Components/ThemeContext.jsx"
 import {useEffect} from 'react';

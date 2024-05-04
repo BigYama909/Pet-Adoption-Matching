@@ -17,12 +17,9 @@ import PetTest from "./components/petTest";
 
 
 
-
-
-
-// import './App.css'
-// import {useTheme} from "./components/ThemeContext.jsx"
-// import {useEffect} from 'react';
+ import './App.css'
+ import {useTheme} from "./components/ThemeContext.js"
+ import {useEffect} from 'react';
 
 
 
@@ -31,15 +28,15 @@ function App() {
 	const user = localStorage.getItem("token");
 
 	// //Nightmode
-	// const { isNightMode } = useTheme();
-	// useEffect(() => {
-	// 	// Add or remove the .nightMode class on the body tag
-	// 	if (isNightMode) {
-	// 	document.body.classList.add('nightMode');
-	// 	} else {
-	// 	document.body.classList.remove('nightMode');
-	// 	}
-	// }, [isNightMode]);
+	 const { isNightMode } = useTheme();
+	 useEffect(() => {
+		// Add or remove the .nightMode class on the body tag
+		if (isNightMode) {
+		document.body.classList.add('nightMode');
+	 	} else {
+		document.body.classList.remove('nightMode');
+	 	}
+	}, [isNightMode]);
 
 
 	// Routes 

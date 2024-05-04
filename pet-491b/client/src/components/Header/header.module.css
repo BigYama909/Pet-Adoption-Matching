@@ -152,6 +152,7 @@
   content: "\f186";
   font-family: "Font Awesome 5 Free";
   font-size: 2rem;
+  font-weight: 900;
 }
 
 .lightModeToggle::before {
@@ -218,4 +219,43 @@
     width: 100%; /* Takes full width to utilize the centering from justify-content */
     margin-bottom: 20px;
   }
+}
+.userProfile {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Aligns the profile icon to the right */
+}
+
+.userProfileLink {
+  display: block;
+  padding: 5px; /* Provides space around the icon */
+}
+
+.userIcon {
+  width: 40px; /* Set appropriate size for your icon */
+  height: 40px; /* Maintain aspect ratio */
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover; /* Ensures the image covers the area properly */
+}
+
+.iconsContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust spacing between icons */
+  margin-left: auto; /* Align icons to the right side */
+}
+
+.iconLink {
+  display: block;
+  padding: 5px; /* Padding around the icon for easier clicking */
+}
+
+.notificationIcon, .userIcon {
+  width: 30px; /* Adjust icon size */
+  height: 30px;
+  border-radius: 50%; /* Circular shape if applicable */
+}
+
+.userIcon {
+  object-fit: cover; /* Ensures the image covers the area properly if it's a photo */
 }

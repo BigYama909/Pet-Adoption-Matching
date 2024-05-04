@@ -1,4 +1,4 @@
-import Header from "../Header/index";
+import Header from "../Header/LoggedInHeader.jsx";
 import Footer from "../Footer/index";
 import Advice from "../Advice/Advice";
 import Quick_FAQ from "../Quick_FAQ/Quick_FAQ.jsx";
