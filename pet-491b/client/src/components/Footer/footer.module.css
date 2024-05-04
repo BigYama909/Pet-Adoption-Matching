@@ -4,16 +4,11 @@
     background-color: rgb(8, 199, 199);
     margin: 0;
     transition: background-color 0.5 ease;
-    font-size: 1.2rem;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
   
 }
 
 .social_icons {
-    font-size: 1.2rem;
+    font-size: 3.2rem;
     padding-top: 40px;
     
    
