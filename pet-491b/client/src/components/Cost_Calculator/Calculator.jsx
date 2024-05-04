@@ -4,13 +4,9 @@ import styles from "./Calculator.module.css";
 import { Doughnut } from "react-chartjs-2"; // Import Doughnut chart component
 import "chart.js/auto"; // This import is necessary for Chart.js 3.x and later
 
-// Define the Calculator component
 function Calculator() {
-  // Ref to access the chart DOM element
   const chartRef = useRef(null);
-  // State for selecting pet type
   const [petType, setPetType] = useState("");
-  // State for storing details about the pet
   const [petDetails, setPetDetails] = useState({
     breed: "",
     size: "",
@@ -19,14 +15,10 @@ function Calculator() {
     vetCost: 0,
     additionalCosts: 0,
   });
-  // State for the list of breeds based on selected pet type
   const [breeds, setBreeds] = useState([]);
-  // State for storing the calculation results
   const [result, setResult] = useState(null);
-  // State for any error messages
   const [error, setError] = useState("");
 
-  // Predefined breed options with additional costs
   const breedOptions = {
     Dog: [
       { name: "Golden Retriever", additionalCost: 200 },
@@ -40,7 +32,6 @@ function Calculator() {
     ],
   };
 
-  // Effect hook to update breeds list and reset breed in petDetails when petType changes
   useEffect(() => {
     if (petType && breedOptions[petType]) {
       setBreeds(breedOptions[petType]);
@@ -51,35 +42,19 @@ function Calculator() {
     }
   }, [petType]);
 
-  // Function to calculate total and monthly costs, and lifetime cost of pet ownership
   const calculateCosts = () => {
     if (!petType || !petDetails.breed || !petDetails.size) {
       setError("Please provide all required details.");
       return;
     }
     setError("");
-    // Base annual cost for any pet
     let baseAnnualCost = 1000;
-    // Additional cost based on breed
-    const breedCost =
-      breeds.find((b) => b.name === petDetails.breed)?.additionalCost || 0;
-    // Total annual cost calculation
-    const totalAnnualCost =
-      baseAnnualCost +
-      breedCost +
-      parseFloat(petDetails.foodCost) +
-      parseFloat(petDetails.groomingCost) +
-      parseFloat(petDetails.vetCost) +
-      parseFloat(petDetails.additionalCosts);
-
-    // Monthly cost calculation
+    const breedCost = breeds.find((b) => b.name === petDetails.breed)?.additionalCost || 0;
+    const totalAnnualCost = baseAnnualCost + breedCost + parseFloat(petDetails.foodCost) + parseFloat(petDetails.groomingCost) + parseFloat(petDetails.vetCost) + parseFloat(petDetails.additionalCosts);
     const monthlyCost = totalAnnualCost / 12;
-    // Calculate expected life span based on pet type and size
     const expectedLifeSpan = calculateLifeExpectancy(petType, petDetails.size);
-    // Calculate lifetime cost
     const lifetimeCost = totalAnnualCost * expectedLifeSpan;
 
-    // Generate chart data for pie chart visualizaiton
     const chartData = {
       labels: ["Food", "Grooming", "Vet", "Additional Costs", "Base Cost"],
       datasets: [
@@ -110,56 +85,33 @@ function Calculator() {
         },
       ],
     };
-    // Set the result state with calcualted costs and chart data for rendering
-    setResult({
-      annualCost: totalAnnualCost,
-      monthlyCost,
-      lifetimeCost,
-      chartData,
-    });
+    setResult({ annualCost: totalAnnualCost, monthlyCost, lifetimeCost, chartData });
   };
 
-  // Options for customizing the appearance and functionality of the chart
   const chartOptions = {
     plugins: {
       title: {
         display: true,
-        text: "Cost Breakdown in Pie Chart", // Chart title
-        font: {
-          size: 40,
-          family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-          weight: "bold",
-        },
+        text: "Cost Breakdown in Pie Chart",
+        font: { size: 40, family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif", weight: "bold" },
         color: "#333",
-        padding: {
-          top: 20,
-          bottom: 30,
-        },
+        padding: { top: 20, bottom: 30 },
       },
       legend: {
-        display: true, // Show legend
-        position: "top", // Legend position
+        display: true,
+        position: "top",
         labels: {
-          font: {
-            size: 13,
-            family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-          },
+          font: { size: 13, family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif" },
           color: "#444",
         },
       },
       tooltip: {
-        enabled: true, // Enable tooltips
+        enabled: true,
         mode: "index",
         intersect: false,
-        bodyFont: {
-          size: 16,
-        },
+        bodyFont: { size: 16 },
         backgroundColor: "rgba(0,0,0,0.8)",
-        titleFont: {
-          size: 16,
-          weight: "bold",
-        },
-        // Custom tooltip format to show currency values
+        titleFont: { size: 16, weight: "bold" },
         callbacks: {
           label: function (context) {
             let label = context.label;
@@ -172,36 +124,28 @@ function Calculator() {
     animation: {
       animateRotate: true,
       animateScale: true,
-      duration: 1000, // Animation duration
+      duration: 1000,
     },
-    responsive: true, // Ensure chart is responsive
-    maintainAspectRatio: false, // Allow aspect ratio to change
+    responsive: true,
+    maintainAspectRatio: false,
     layout: {
-      padding: {
-        left: 10,
-        right: 10,
-        top: 0,
-        bottom: 0,
-      },
+      padding: { left: 10, right: 10, top: 0, bottom: 0 },
     },
   };
 
-  // Function to calculate expected life span of the pet based on its type and size
   const calculateLifeExpectancy = (petType, size) => {
     if (petType === "Dog") {
       return size === "Large" ? 10 : 15;
     } else if (petType === "Cat") {
       return 18;
-    } else {
-      return 5; // Default for 'Other'
     }
+    return 5; // Default for 'Other' pets
   };
 
-  // Function to download the results as a text file and the chart image
   const downloadResults = () => {
     if (!result) return; // Ensure there are results to download
-    const filename = "pet_ownership_cost_estimate.txt";
-    // Format content for the text file
+
+    // Text file content
     const content = `Pet Ownership Cost Estimate:
 Pet Type: ${petType}
 Breed: ${petDetails.breed}
@@ -210,36 +154,35 @@ Annual Cost: $${result.annualCost.toFixed(2)}
 Monthly Cost: $${result.monthlyCost.toFixed(2)}
 Lifetime Cost: $${result.lifetimeCost.toFixed(2)}
 `;
-    // Create and trigger a download link for the text file
-    const element = document.createElement("a");
-    const file = new Blob([content], { type: "text/plain" });
-    element.href = URL.createObjectURL(file);
-    element.download = filename;
-    document.body.appendChild(element); // Required for Firefox
-    element.click();
-    // Check if the chart reference exists and the current instance is available
-    if (chartRef.current) {
-      const chartInstance = chartRef.current.chartInstance;
-      const url = chartInstance.toBase64Image(); // Get the chart image as a base64-encoded string
 
-      // Create a link and trigger the download
+    // Create a Blob from the text file content
+    const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+
+    // Create a download link for the text file
+    const textLink = document.createElement("a");
+    textLink.href = URL.createObjectURL(blob);
+    textLink.download = "pet_ownership_cost_estimate.txt";
+    document.body.appendChild(textLink);
+    textLink.click();
+    document.body.removeChild(textLink);
+
+    // Check if the chart is available and download as an image
+    if (chartRef.current) {
+      const url = chartRef.current.toBase64Image();
       const imageLink = document.createElement("a");
       imageLink.href = url;
-      imageLink.download = "chart.png";
-      document.body.appendChild(imageLink); // Required for Firefox
+      imageLink.download = "pet_cost_breakdown_chart.png";
+      document.body.appendChild(imageLink);
       imageLink.click();
-      document.body.removeChild(imageLink); // Clean up
+      document.body.removeChild(imageLink);
     }
   };
 
-  // Render the calculator UI
+  // JSX for rendering the Calculator component
   return (
     <div className={styles.calculator}>
-    {/* Title of the calculator */}
       <h2 className={styles.h1}>Pet Ownership Cost Calculator</h2>
-      {/* Display error message if there is one */}
       {error && <p className={styles.error}>{error}</p>}
-       {/* Dropdown to select pet type */}
       <div>
         <label className={styles.label}>Pet Type:</label>
         <select value={petType} onChange={(e) => setPetType(e.target.value)}>
@@ -249,86 +192,52 @@ Lifetime Cost: $${result.lifetimeCost.toFixed(2)}
           <option value="Other">Other</option>
         </select>
       </div>
-      {/* Dropdown to select breed based on the selected pet type */}
       <div>
         <label className={styles.label}>Breed:</label>
-        <select
-          value={petDetails.breed}
-          onChange={(e) =>
-            setPetDetails({ ...petDetails, breed: e.target.value })
-          }
-        >
+        <select value={petDetails.breed} onChange={(e) => setPetDetails({...petDetails, breed: e.target.value})}>
           <option value="">Select Breed</option>
-          {breeds.map((breed) => (
-            <option key={breed.name} value={breed.name}>
-              {breed.name}
-            </option>
-          ))}
+          {breeds.map((breed) => <option key={breed.name} value={breed.name}>{breed.name}</option>)}
         </select>
       </div>
-         {/* Dropdown to select pet size */}
       <div>
         <label className={styles.label}>Size:</label>
-        <select
-          value={petDetails.size}
-          onChange={(e) =>
-            setPetDetails({ ...petDetails, size: e.target.value })
-          }
-        >
+        <select value={petDetails.size} onChange={(e) => setPetDetails({...petDetails, size: e.target.value})}>
           <option value="">Select Size</option>
           <option value="Small">Small</option>
           <option value="Medium">Medium</option>
           <option value="Large">Large</option>
         </select>
       </div>
-         {/* Input field for monthly food cost */}
       <div>
         <label className={styles.label}>Monthly Food Cost ($):</label>
-        <input
-          type="number"
-          value={petDetails.foodCost}
-          onChange={(e) =>
-            setPetDetails({ ...petDetails, foodCost: e.target.value })
-          }
-          placeholder="Food Cost"
-        />
+        <input type="number" value={petDetails.foodCost} onChange={(e) => setPetDetails({...petDetails, foodCost: parseFloat(e.target.value)})} placeholder="Food Cost" />
       </div>
-      {/* Input field for annual grooming cost */}
       <div>
         <label className={styles.label}>Annual Grooming Cost ($):</label>
         <input
           type="number"
           value={petDetails.groomingCost}
-          onChange={(e) =>
-            setPetDetails({ ...petDetails, groomingCost: e.target.value })
-          }
+          onChange={(e) => setPetDetails({...petDetails, groomingCost: parseFloat(e.target.value)})}
           placeholder="Grooming Cost"
         />
       </div>
-       {/* Input field for annual vet cost */}
       <div>
         <label className={styles.label}>Annual Vet Cost ($):</label>
         <input
           type="number"
           value={petDetails.vetCost}
-          onChange={(e) =>
-            setPetDetails({ ...petDetails, vetCost: e.target.value })
-          }
+          onChange={(e) => setPetDetails({...petDetails, vetCost: parseFloat(e.target.value)})}
           placeholder="Vet Cost"
         />
       </div>
-         {/* Input field for annual additional costs */}
       <div>
         <label className={styles.label}>Annual Additional Costs ($):</label>
         <input
           type="number"
           value={petDetails.additionalCosts}
-          onChange={(e) =>
-            setPetDetails({ ...petDetails, additionalCosts: e.target.value })
-          }
+          onChange={(e) => setPetDetails({...petDetails, additionalCosts: parseFloat(e.target.value)})}
           placeholder="Additional Costs"
         />
-        {/* Button to calculate costs based on inputs */}
       </div>
       <button onClick={calculateCosts} className={styles.calculateButton}>
         Calculate
@@ -343,7 +252,7 @@ Lifetime Cost: $${result.lifetimeCost.toFixed(2)}
             Download Estimate
           </button>
           {/* Render the pie chart if result and chartData are available */}
-          {result && result.chartData && (
+          {result.chartData && (
             <div className={styles.chartContainer}>
               <Doughnut
                 data={result.chartData}
@@ -359,3 +268,5 @@ Lifetime Cost: $${result.lifetimeCost.toFixed(2)}
 }
 
 export default Calculator;
+
+

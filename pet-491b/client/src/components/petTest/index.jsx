@@ -4,7 +4,7 @@ import styles from './style.css'; // Import custom CSS styles for the component
 import Select from 'react-select'; // Import the react-select library for dropdown components
 import { debounce } from 'lodash'; // Import debounce function from lodash to limit function calls
 
-import Header from "../Header/index";
+import Header from "../Header/LoggedInHeader";
 import Footer from "../Footer/index";
 
 // Define custom styles for the react-select dropdown components

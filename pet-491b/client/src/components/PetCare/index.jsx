@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './styles.css';
-import Header from "../Header/index";
+import Header from "../Header/LoggedInHeader";
 import Footer from "../Footer/index";
 
 const YelpSearch = () => {

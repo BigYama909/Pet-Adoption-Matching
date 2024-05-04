@@ -37,7 +37,7 @@ function Header() {
                 <a href="/about">About Us</a>
               </li>
               <li className={navLink}>
-                <a href="/providers">Pet Care Providers</a>
+                <a href="/petCare">Pet Care Providers</a>
               </li>
               <li className={navLink}>
                 <a href="/matching">Matching</a>
