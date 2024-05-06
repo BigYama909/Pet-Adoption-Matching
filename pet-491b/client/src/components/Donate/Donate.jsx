@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Header from "../Header/LoggedInHeader";
+import Header from "../Header/index";
 import Footer from "../Footer/index";
 import styles from "./Donate.module.css";
 import Donation from "./Images/donation.jpeg";

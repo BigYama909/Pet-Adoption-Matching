@@ -1,4 +1,4 @@
-import Header from "../Header/LoggedInHeader";
+import Header from "../Header/index";
 import Footer from "../Footer/index";
 import styles from "./about.module.css";
 import AboutImage from "../../images/AboutImage.png";
@@ -17,7 +17,7 @@ function About() {
           className={`${styles.w_layout_blockcontainer} ${styles.w_container}`}
         >
           <div className={styles.about_container}>
-            <div className={styles.about_heading_wrapper}>
+            <div className={styles.about_heading_wrapper}>+-++
               <h2 className={styles.h1}>
                 The founding story behind our practice
               </h2>

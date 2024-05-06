@@ -269,4 +269,3 @@ Lifetime Cost: $${result.lifetimeCost.toFixed(2)}
 
 export default Calculator;
 
-

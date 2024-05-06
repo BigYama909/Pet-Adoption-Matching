@@ -1,5 +1,7 @@
 import styles from "./SearchBar.module.css";
 import adoptapet from "../../images/adoptapet.jpeg";
+import { Link, useNavigate } from "react-router-dom";
+
 
 
 function SearchBar() {
@@ -12,14 +14,18 @@ function SearchBar() {
           Let's get started. Search pets by types or locations from shelters and
           rescues.
         </p>
+        
       </div>
       <div className={styles.search_bar_container}>
         <div className={styles.search_bar}>
-          <input className={styles.type_search} type="text" placeholder="Search Dogs, Kittens, etc"></input>
-          <input className={styles.location_search} type="text" placeholder="90250, CA, USA"></input>
-          <button className={styles.search_icon} type="submit">
-            <i className={`fas fa-search ${styles.searchIcon}`}></i>
-            Get Started</button>
+          {/* <input className={styles.type_search} type="text" placeholder="Search Dogs, Kittens, etc"></input>
+          <input className={styles.location_search} type="text" placeholder="90250, CA, USA"></input> */}
+          <Link to="/pettest">
+            <button className={styles.search_icon} type="submit">
+              <i className={`fas fa-search ${styles.searchIcon}`}></i>
+              Get Started
+            </button>
+          </Link>
         </div>
       </div>
     </div>
