@@ -1,5 +1,5 @@
 import styles from "./header.module.css";
-import { useTheme } from '/Users/kevindiep/Documents/GitHub/Pet-Adoption-Matching/pet-491b/client/src/components/ThemeContext.js'
+import { useTheme } from '../../components/ThemeContext.js'
 import user_icon from "./user_icon.webp"
 import logo_for_website from "../../images/logo_for_website.png";
 
