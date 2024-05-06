@@ -6,9 +6,10 @@ const router = express.Router();
 const PETFINDER_API_KEY = process.env.PETFINDER_API_KEY;
 const PETFINDER_API_SECRET = process.env.PETFINDER_API_SECRET;
 
-// Route to fetch pets, now accepting a location parameter
+// Route to fetch pets, now accepting a location and type parameter
 router.get('/', async (req, res) => {
-  const location = req.query.location; // Retrieve location from query parameters
+  const location = req.query.location;
+  const type = req.query.type;  // Retrieve type from query parameters
 
   // Check if location is not just an empty string
   if (location && location.trim() === '') {
@@ -29,11 +30,17 @@ router.get('/', async (req, res) => {
 
       const accessToken = tokenResponse.data.access_token;
       
-      // Adjusting request to include location if provided
+      // Construct the API URL, adding filters as needed
       let petFinderURL = 'https://api.petfinder.com/v2/animals';
+      const queryParams = [];
       if (location) {
-          // Ensure that the location is URL-encoded to prevent URL manipulation and injection
-          petFinderURL += `?location=${encodeURIComponent(location)}`;
+          queryParams.push(`location=${encodeURIComponent(location)}`);
+      }
+      if (type) {
+          queryParams.push(`type=${encodeURIComponent(type)}`);
+      }
+      if (queryParams.length) {
+          petFinderURL += `?${queryParams.join('&')}`;
       }
 
       const petResponse = await axios.get(petFinderURL, {
@@ -42,7 +49,7 @@ router.get('/', async (req, res) => {
           },
       });
 
-      // Extracting relevant information including location
+      // Extracting relevant information
       const pets = petResponse.data.animals.map(pet => ({
           id: pet.id,
           name: pet.name,
@@ -50,20 +57,19 @@ router.get('/', async (req, res) => {
           breed: pet.breeds.primary,
           size: pet.size,
           age: pet.age,
-          location: pet.contact.address.city, // Assuming you want the city as the location
+          location: pet.contact.address.city,
           description: pet.description,
-          images: pet.photos.map(photo => photo.small), // Adjust the size based on your requirements
+          images: pet.photos.map(photo => photo.small),
       }));
 
       res.json(pets);
   } catch (error) {
       console.error(error);
-      // More specific error handling can be done here based on the error returned
       res.status(500).send('Internal Server Error');
   }
 });
 
-// Error handling middleware for catching errors in the route
+// Error handling middleware
 router.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send({ message: 'An unexpected error occurred' });
