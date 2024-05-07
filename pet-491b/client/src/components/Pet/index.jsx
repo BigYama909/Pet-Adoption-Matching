@@ -249,7 +249,7 @@ const PetGallery = () => {
                     ))}
                 </div>
             </div>
-            </div>
+        </div>
 
         {/* </div> */}
         <Footer />

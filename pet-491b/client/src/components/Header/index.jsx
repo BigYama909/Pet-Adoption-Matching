@@ -1,7 +1,12 @@
 import styles from "./header.module.css";
 import { useTheme } from '../../components/ThemeContext.js'
 import user_icon from "./user_icon.webp"
+import logout from "./logout.jpg"
 import logo_for_website from "../../images/logo_for_website.png";
+import { useState } from "react";
+import  { useEffect } from "react";
+import React from "react";
+
 
 function Header() {
   const {isNightMode, toggleNightMode} = useTheme();
@@ -10,6 +15,15 @@ function Header() {
    const headerClass = isNightMode ? styles.nightHeader : styles.header;
    const navLink = isNightMode ? styles.nightNavItem : styles.navItem;
    const toggle = isNightMode ? styles.lightModeToggle: styles.nightModeToggle;
+
+   const handleLogout = () => {
+		console.log("logout");
+		window.open("http://localhost:8080/auth/logout", "_self");
+		localStorage.removeItem("token");
+		localStorage.removeItem("email");
+        localStorage.removeItem("name");
+		window.location = "/login";
+	};
 
   return (
     <div className={styles.top_bar}>
@@ -58,6 +72,15 @@ function Header() {
             />
           </a>
         </div>
+
+        {/* Logout button */}
+        <div >
+          <button onClick={handleLogout}>
+            <img className={styles.userIcon} src={logout} alt="my image" onClick={handleLogout}/>
+          </button>
+        </div>
+
+
 
         {/* Night Mode Toggle Button */}
         <button

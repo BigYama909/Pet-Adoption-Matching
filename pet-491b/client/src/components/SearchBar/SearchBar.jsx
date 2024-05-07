@@ -20,7 +20,7 @@ function SearchBar() {
         <div className={styles.search_bar}>
           {/* <input className={styles.type_search} type="text" placeholder="Search Dogs, Kittens, etc"></input>
           <input className={styles.location_search} type="text" placeholder="90250, CA, USA"></input> */}
-          <Link to="/pettest">
+          <Link to="/pets">
             <button className={styles.search_icon} type="submit">
               <i className={`fas fa-search ${styles.searchIcon}`}></i>
               Get Started

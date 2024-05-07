@@ -284,15 +284,26 @@ General layout settings for the main container, enabling flexible layout with ro
 }
 
 .image-container {
-    width: 100%; /* Full width */
+    width: 50%; /* Full width */
     margin-bottom: 10px; /* Space below the image */
   }
   
 .image-container img {
-width: 100%; /* Image takes full width of the container */
+width: 50%; /* Image takes full width of the container */
 height: auto; /* Keep the image aspect ratio */
 }
 
+
+.pagination{
+    margin-bottom: 50px; /* Adjust this value based on your footer's height */
+    display: flex;
+    height: 10vh;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
 
 
@@ -406,4 +417,18 @@ height: auto; /* Keep the image aspect ratio */
       background-color: rgb(8, 199, 199);
       height: 70px;
       border: none;
+  }
+
+
+
+  .pet-list-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .vertical-pet-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
   }
