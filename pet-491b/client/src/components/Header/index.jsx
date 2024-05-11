@@ -30,7 +30,7 @@ function Header() {
       <header className={headerClass}>
         {/* Logo */}
         <div className={styles.img_logo}>
-          <a href="/" className={styles.logoLink}>
+          <a href="/home" className={styles.logoLink}>
             <img
               className={styles.logo}
               src={logo_for_website}
@@ -45,7 +45,7 @@ function Header() {
             <ul className={styles.navList}>
               {/* Enclose nav items in a ul for semantic structure */}
               <li className={navLink}>
-                <a href="/">Home</a>
+                <a href="/home">Home</a>
               </li>
               <li className={navLink}>
                 <a href="/about">About Us</a>

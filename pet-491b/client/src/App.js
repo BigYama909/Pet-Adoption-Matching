@@ -58,9 +58,6 @@ function App() {
 			<Route path="/survey" exact element={<Survey />} />
 			<Route path="/donate" exact element={<Donate />} />
 			<Route path="/pettest" exact element={<PetTest />} />
-
-
-
 		</Routes>
 	);
 	
