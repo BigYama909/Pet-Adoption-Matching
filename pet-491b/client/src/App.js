@@ -46,7 +46,7 @@ function App() {
 			<Route path="/pets" exact element={<Pet />} />
 			<Route path="/signup" exact element={<Signup />} />
 			<Route path="/login" exact element={<Login />} />
-			<Route path="/" element={<Navigate replace to="/login" />} />
+			<Route path="/" element={<Login/>} />
 			<Route path="/users/:id/verify/:token" element={<EmailVerify />} />
 			<Route path="/forgot-password" element={<ForgotPassword />} />
 			<Route path="/resetpass/:id/:token" element={<ResetPassword />} />
