@@ -24,7 +24,7 @@ function Home() {
       <Services />
       <FAQ />
       <Calculator />
-      {/* <PetGallery/> */}
+      <PetGallery/>
       <SurveyLink />
       <Footer />
     </>

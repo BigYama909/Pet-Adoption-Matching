@@ -7,13 +7,13 @@ module.exports = async (email, subject, text) => {
 			port: Number(process.env.EMAIL_PORT),
 			secure: false,
 			auth: {
-				user: process.env.USER,
-				pass: process.env.PASS,
+				user:" petadoptionmatch@outlook.com",
+				pass: "Leoyuki100598",
 			},
 		});
 
 		await transporter.sendMail({
-			from: process.env.USER,
+			from: "petadoptionmatch@outlook.com",
 			to: email,
 			subject: subject,
 			text: text,

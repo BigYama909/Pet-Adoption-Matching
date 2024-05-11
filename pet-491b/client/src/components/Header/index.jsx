@@ -51,6 +51,9 @@ function Header() {
                 <a href="/about">About Us</a>
               </li>
               <li className={navLink}>
+                <a href="/policy">Privacy Policy</a>
+              </li>
+              <li className={navLink}>
                 <a href="/petCare">Pet Care Providers</a>
               </li>
               <li className={navLink}>
