@@ -12,7 +12,7 @@ const Login = () => {
 	useEffect(() => {
 		const token = localStorage.getItem("token");
 		if (token) {
-			navigate('/'); // Redirect to the homepage or dashboard
+			navigate('/home'); // Redirect to the homepage or dashboard
 		}
 	}, [navigate]);
 
