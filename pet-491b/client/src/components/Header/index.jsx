@@ -1,7 +1,7 @@
 import styles from "./header.module.css";
 import { useTheme } from '../../components/ThemeContext.js'
 import user_icon from "./user_icon.webp"
-import logout from "./logout.jpg"
+import logout from "./logout.png"
 import logo_for_website from "../../images/logo_for_website.png";
 import { useState, useEffect } from "react";
 import React from "react";
@@ -78,7 +78,7 @@ function Header() {
         {/* Logout button */}
         <div>
           <button onClick={handleLogout} className={styles.logoutButton}>  {/* Apply logoutButton style */}
-            <img className={styles.userIcon} src={logout} alt="Logout"/>
+            <img className={styles.loggoutIcon} src={logout} alt="Logout"/>
           </button>
         </div>
 
