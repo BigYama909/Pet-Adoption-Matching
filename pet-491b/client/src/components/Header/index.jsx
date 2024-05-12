@@ -1,7 +1,7 @@
 import styles from "./header.module.css";
 import { useTheme } from '../../components/ThemeContext.js'
 import user_icon from "./user_icon.webp"
-import logout from "./logout.png"
+import logout from "./log_out.jpg"
 import logo_for_website from "../../images/logo_for_website.png";
 import { useState, useEffect } from "react";
 import React from "react";
