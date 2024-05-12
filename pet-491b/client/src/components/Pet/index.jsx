@@ -76,7 +76,7 @@ const PetGallery = () => {
       };
     
       const handleSearch = () => {
-        fetch(`http://localhost:8080/api/pets?location=${encodeURIComponent(searchLocation)}&type=${encodeURIComponent(selectedType)}`)
+        fetch(`https://pet-adoption-matching.onrender.com/api/pets?location=${encodeURIComponent(searchLocation)}&type=${encodeURIComponent(selectedType)}`)
           .then(response => response.json())
           .then(data => {
             setPets(data);
