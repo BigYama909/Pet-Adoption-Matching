@@ -7,14 +7,17 @@ import jsPDF from 'jspdf';
 
 // Construct the User Profile with inputtable information
 const UserProfile = () => {
-    const [user, setUser] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        petType: '', 
-        petSize: '', 
-        petBreed: '' 
+    const [user, setUser] = useState(() => {
+        const savedPreferences = JSON.parse(localStorage.getItem('petPreferences') || '{}'); // Fetch initial preferences if available
+        return {
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            petType: savedPreferences.petType || '', 
+            petSize: savedPreferences.petSize || '', 
+            petBreed: savedPreferences.petBreed || ''
+        };
     });
     const [editGeneralInfo, setEditGeneralInfo] = useState(false);
     const [editPetPreferences, setEditPetPreferences] = useState(false);
@@ -29,11 +32,17 @@ const UserProfile = () => {
     
     // Get the logged in user from local storage
     useEffect(() => {
-        const loadUserData = async () => {
+        async function fetchUserData() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                navigate('/login');
+                return;
+            }
+    
             try {
                 const response = await fetch('http://localhost:8080/api/users/me', {
                     headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                        'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json'
                     }
                 });
@@ -41,30 +50,24 @@ const UserProfile = () => {
                     throw new Error('Failed to fetch user data');
                 }
                 const userData = await response.json();
-                setUser(userData);
+                setUser({ ...user, ...userData });
                 if (userData.petType) {
                     updateBreedOptions(userData.petType);
                 }
-                // Also update local storage when user data is fetched
-                localStorage.setItem('petPreferences', JSON.stringify({
-                    petType: userData.petType,
-                    petSize: userData.petSize,
-                    petBreed: userData.petBreed
-                }));
             } catch (error) {
                 console.error('Error:', error);
                 navigate('/login');
             }
-        };
-        loadUserData();
+        }
+    
+        fetchUserData();
     }, [navigate]);
 
     // Capitalize the Letters in Pet Preference
     const capitalizeFirstLetter = (string) => {
-        if (!string) return string;
-        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+        return string ? string.charAt(0).toUpperCase() + string.slice(1).toLowerCase() : '';
     };
-
+    
     // Add Selection of Pet Breeds
     const updateBreedOptions = (petType) => {
         const breeds = {
@@ -74,25 +77,45 @@ const UserProfile = () => {
         setBreedOptions(breeds[petType.toLowerCase()] || []);
     };
 
-    const savePreferences = async () => {
-        const preferences = { petType: user.petType, petSize: user.petSize, petBreed: user.petBreed };
-        localStorage.setItem('petPreferences', JSON.stringify(preferences));
-        // Implement the call to save to backend here if necessary
-    };
-
     
     // Changing the selection of Breeds depending on Pet Type
-    const handleChange = (e) => {
+    const handleChange = async (e) => {
         const { name, value } = e.target;
         setUser(prev => ({ ...prev, [name]: value }));
+        if (['petType', 'petSize', 'petBreed'].includes(name)) {
+            await savePreferencesToBackend({ ...user, [name]: value });
+        }
         if (name === 'petType') {
             updateBreedOptions(value);
         }
-        if (['petType', 'petSize', 'petBreed'].includes(name)) {
-            savePreferences();
-        }
     };
 
+    const savePreferencesToBackend = async (preferences) => {
+        try {
+            const response = await fetch('http://localhost:8080/api/users/update', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                },
+                body: JSON.stringify(preferences)
+            });
+            if (!response.ok) {
+                throw new Error('Failed to save preferences');
+            }
+            console.log('Preferences updated successfully!');
+    
+            // Also update local storage with the latest preferences
+            localStorage.setItem('petPreferences', JSON.stringify({
+                petType: preferences.petType,
+                petSize: preferences.petSize,
+                petBreed: preferences.petBreed
+            }));
+        } catch (error) {
+            console.error('Error updating preferences:', error);
+        }
+    };
+    
     const formatFavoritePetsForSave = (favoritePets) => {
         const favObject = {};
         favoritePets.slice(0, 10).forEach((petId, index) => {
@@ -112,27 +135,15 @@ const UserProfile = () => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 },
-                body: JSON.stringify({
-                    firstName: user.firstName,
-                    lastName: user.lastName,
-                    email: user.email,
-                    phone: user.phone,
-                    petType: user.petType,
-                    petSize: user.petSize,
-                    petBreed: user.petBreed,
-                    favoritePets: favorites // Include favorite pets in the update
-                })
+                body: JSON.stringify(user)
             });
-    
             if (!response.ok) {
                 throw new Error('Failed to update user data');
             }
-    
-            console.log('User data and favorites updated successfully!');
-            setEditMode(false);
-            setEditPetPreferences(false);
+            console.log('User data updated successfully!');
+            // Optionally re-fetch user data here if other parts of your app depend on updated data
         } catch (error) {
-            console.error('Error updating user data and favorites:', error);
+            console.error('Error updating user data:', error);
         }
     };
 
@@ -181,8 +192,8 @@ const UserProfile = () => {
 
         const websiteLink = "https://pet-adoption-matching-frontend.onrender.com/";  // Replace with your actual website link
 
-        const shareMessage = `Check out ${user.firstName}'s pet preferences and favorite pets:\n` +
-                             `Preferences - Type: ${user.petType}, Size: ${user.petSize}, Breed: ${user.petBreed}.\n` +
+        const shareMessage = `Check out ${capitalizeFirstLetter(user.firstName)}'s pet preferences and favorite pets:\n` +
+                             `Preferences - Type: ${capitalizeFirstLetter(user.petType)}, Size: ${capitalizeFirstLetter(user.petSize)}, Breed: ${user.petBreed}.\n` +
                              `Favorites - ${favoritePetsNames}.\n` +
                              `Check out the pets at ${websiteLink}.`;
 
@@ -234,8 +245,8 @@ const UserProfile = () => {
                     </div>
                 ) : (
                     <div>
-                        <p className={styles.info}><strong>First Name:</strong> {user.firstName}</p>
-                        <p className={styles.info}><strong>Last Name:</strong> {user.lastName}</p>
+                        <p className={styles.info}><strong>First Name:</strong> {capitalizeFirstLetter(user.firstName)}</p>
+                        <p className={styles.info}><strong>Last Name:</strong> {capitalizeFirstLetter(user.lastName)}</p>
                         <p className={styles.info}><strong>Email:</strong> {user.email}</p>
                         <p className={styles.info}><strong>Phone:</strong> {user.phone}</p>
                         <button onClick={() => setEditMode(true)}>Edit Phone</button>
@@ -258,7 +269,7 @@ const UserProfile = () => {
                         <select name="petBreed" value={user.petBreed} onChange={handleChange}>
                             <option value="">Select Pet Breed</option>
                             {breedOptions.map(breed => (
-                                <option key={breed} value={breed}>{breed}</option>
+                                <option key={breed} value={breed}>{capitalizeFirstLetter(breed)}</option>
                             ))}
                         </select>
                         <button onClick={() => {
@@ -269,9 +280,9 @@ const UserProfile = () => {
                 ) : (
                     <div>
                         <button onClick={() => setEditPetPreferences(true)}>Edit Pet Preferences</button>
-                        <p><strong>Type:</strong> {user.petType}</p>
-                        <p><strong>Size:</strong> {user.petSize}</p>
-                        <p><strong>Breed:</strong> {user.petBreed}</p>
+                        <p><strong>Type:</strong> {capitalizeFirstLetter(user.petType)}</p>
+                        <p><strong>Size:</strong> {capitalizeFirstLetter(user.petSize)}</p>
+                        <p><strong>Breed:</strong> {capitalizeFirstLetter(user.petBreed)}</p>
                     </div>
                 )}
                 <h2>Favorite Pets</h2>
@@ -283,12 +294,12 @@ const UserProfile = () => {
                         </div>
                     )) : <p>No favorite pets selected.</p>}
                 </div>
-                <button onClick={updateFavorites} className={styles.saveFavoritesButton}>Save Favorite Pets</button>
                 <button onClick={handleShare} className={styles.shareButton}>Share on Twitter</button>
                 <button onClick={handleDownloadPdf} className={styles.downloadButton}>Save and Download Favorites</button>
             </div>
         </>
     );
+    
 };
 
 export default UserProfile;
