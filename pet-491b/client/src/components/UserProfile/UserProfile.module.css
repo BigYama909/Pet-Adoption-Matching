@@ -28,14 +28,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, se
 }
 
 
-button:hover {
-    background-color: #004494;
-}
 
 
-button:hover {
-    background-color: #004494;
-}
+
+
 
 h1, h2 {
     color: #333;
