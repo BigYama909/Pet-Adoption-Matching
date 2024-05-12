@@ -17,7 +17,7 @@ const EmailVerify = () => {
 		// HTTP GET request to the email verification endpoint.
 		const verifyEmailUrl = async () => {
 			try {
-				const url = `http://localhost:8080/api/users/${param.id}/verify/${param.token}`;
+				const url = `https://pet-adoption-matching.onrender.com/api/users/${param.id}/verify/${param.token}`;
 				const { data } = await axios.get(url);
 				console.log(data);
 				setValidUrl(true);

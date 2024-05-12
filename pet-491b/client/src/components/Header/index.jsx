@@ -3,26 +3,26 @@ import { useTheme } from '../../components/ThemeContext.js'
 import user_icon from "./user_icon.webp"
 import logout from "./logout.jpg"
 import logo_for_website from "../../images/logo_for_website.png";
+import { useState, useEffect } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
-
 
 function Header() {
   const {isNightMode, toggleNightMode} = useTheme();
 
-   // Dynamically set the header class based on isNightMode
-   const headerClass = isNightMode ? styles.nightHeader : styles.header;
-   const navLink = isNightMode ? styles.nightNavItem : styles.navItem;
-   const toggle = isNightMode ? styles.lightModeToggle: styles.nightModeToggle;
+  // Dynamically set the header class based on isNightMode
+  const headerClass = isNightMode ? styles.nightHeader : styles.header;
+  const navLink = isNightMode ? styles.nightNavItem : styles.navItem;
+  const toggle = isNightMode ? styles.lightModeToggle : styles.nightModeToggle;
 
-   const handleLogout = () => {
-		console.log("logout");
-		window.open("http://localhost:8080/auth/logout", "_self");
-		localStorage.removeItem("token");
-		localStorage.removeItem("email");
-        localStorage.removeItem("name");
-		window.location = "/login";
-	};
+  const handleLogout = () => {
+    console.log("logout");
+    window.open("https://pet-adoption-matching.onrender.com/auth/logout", "_self");
+    localStorage.removeItem("token");
+    localStorage.removeItem("email");
+    localStorage.removeItem("name");
+    window.location = "/login";
+  };
 
   return (
     <div className={styles.top_bar}>
@@ -76,13 +76,11 @@ function Header() {
         </div>
 
         {/* Logout button */}
-        <div >
+        <div>
           <button onClick={handleLogout}>
-            <img className={styles.userIcon} src={logout} alt="my image" onClick={handleLogout}/>
+            <img className={styles.userIcon} src={logout} alt="Logout" onClick={handleLogout}/>
           </button>
         </div>
-
-
 
         {/* Night Mode Toggle Button */}
         <button

@@ -9,7 +9,7 @@ const ForgotPassword = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = `http://localhost:8080/api/resetpass`;
+			const url = `https://pet-adoption-matching.onrender.com/api/resetpass`;
 			const response = await axios.post(url, { email });
 			setMsg(response.data.message);
 			setError("");

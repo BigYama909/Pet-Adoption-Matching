@@ -8,7 +8,7 @@ const PasswordReset = () => {
 	const [msg, setMsg] = useState("");
 	const [error, setError] = useState("");
 	const param = useParams();
-	const url = `http://localhost:8080/api/resetpass/${param.id}/${param.token}`;
+	const url = `https://pet-adoption-matching.onrender.com/api/resetpass/${param.id}/${param.token}`;
 
 	useEffect(() => {
 		const verifyUrl = async () => {
