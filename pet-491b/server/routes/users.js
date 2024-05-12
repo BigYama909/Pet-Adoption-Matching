@@ -75,26 +75,42 @@ router.get('/me', authenticate, async (req, res) => {
 });
 
 router.put('/update', authenticate, async (req, res) => {
-  const { phone, petType, petSize, petBreed } = req.body;
+  const { firstName, lastName, phone, petType, petSize, petBreed } = req.body;
+  
+  // Create an update object dynamically based on provided fields
+  let updates = {};
+  if (phone !== undefined) updates.phone = phone;
+  if (petType !== undefined) updates['petPreferences.petType'] = petType;
+  if (petSize !== undefined) updates['petPreferences.petSize'] = petSize;
+  if (petBreed !== undefined) updates['petPreferences.petBreed'] = petBreed;
+  if (firstName !== undefined) updates.firstName = firstName;
+  if (lastName !== undefined) updates.lastName = lastName;
+
   try {
-      const user = await User.findByIdAndUpdate(req.user._id, {
-          $set: {
-              phone: phone,
-              'petPreferences.petType': petType,
-              'petPreferences.petSize': petSize,
-              'petPreferences.petBreed': petBreed
-          }
-      }, { new: true }).select('-password');
+      // Update the user with provided fields
+      const user = await User.findByIdAndUpdate(req.user._id, { $set: updates }, { new: true }).select('-password');
 
       if (!user) {
           return res.status(404).send({ message: 'User not found' });
       }
-      res.send({ message: 'Profile updated successfully', user });
+
+      // Generate a response that includes only the fields that were actually updated
+      let updatedFields = {};
+      for (let key in updates) {
+          let formattedKey = key.replace('petPreferences.', ''); // Formatting keys for easier readability
+          updatedFields[formattedKey] = user.get(key); // Use .get() to handle nested paths
+      }
+
+      res.send({
+          message: 'Profile updated successfully',
+          updatedFields
+      });
   } catch (error) {
       console.error(error);
       res.status(500).send({ message: 'Internal server error' });
   }
 });
+
 
 // Endpoint to update user favorites by email
 router.put('/users/updateFavorites', authenticate, async (req, res) => {
