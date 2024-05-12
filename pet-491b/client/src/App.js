@@ -1,3 +1,4 @@
+import React from 'react';
 import { Route, Routes, Navigate } from "react-router-dom";
 import Main from "./components/Main";
 import Signup from "./components/Signup";
@@ -14,6 +15,9 @@ import Testing from "./components/TestingLogout";
 import Survey from "./components/Survey/survey.jsx";
 import Donate from "./components/Donate/Donate.jsx";
 import PetTest from "./components/petTest";
+import UserProfile from "./components/UserProfile/UserProfile.jsx";
+import PetGallery from './components/Pet_Gallery/PetGallery.jsx';
+import PetProfile from './components/PetProfile/PetProfile';
 
 
 
@@ -58,6 +62,9 @@ function App() {
 			<Route path="/survey" exact element={<Survey />} />
 			<Route path="/donate" exact element={<Donate />} />
 			<Route path="/pettest" exact element={<PetTest />} />
+			<Route path="/userprofile" exact element={<UserProfile />} />
+			<Route path="/" element={<PetGallery />} />
+        	<Route path="/pet/:name" element={<PetProfile />} />
 		</Routes>
 	);
 	

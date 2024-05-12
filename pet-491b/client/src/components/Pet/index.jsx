@@ -3,10 +3,11 @@ import React, { useState, useMemo } from 'react';
 import styles from "./style.css"; // Import custom CSS styles for the component
 import Select from 'react-select'; // Import the react-select library for dropdown components
 import { debounce } from 'lodash'; // Import debounce function from lodash to limit function calls
-
+import PetProfile from "../PetProfile/PetProfile";
+import Modal from 'react-modal';
 import Header from "../Header/index";
 import Footer from "../Footer/index";
-
+import { useNavigate } from 'react-router-dom';
 import adoptapet from "../../images/adoptapet.jpeg";
 
 
@@ -46,6 +47,8 @@ const customSelectStyles = {
     }),
 };
 
+Modal.setAppElement('#root');
+
 // Define the PetGallery functional component
 const PetGallery = () => {
     // State hooks for managing filter inputs
@@ -56,10 +59,21 @@ const PetGallery = () => {
     const [ageFilter, setAgeFilter] = useState("");
     const [sortField, setSortField] = useState("");
     const [sortOrder, setSortOrder] = useState("asc");
+    const [selectedPet, setSelectedPet] = useState(null);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
+    const openModal = (pet) => {
+        setSelectedPet(pet);
+        setModalIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalIsOpen(false);
+    };
 
 
     ///////////////////////////////////////////
+    const navigate = useNavigate();
     const [pets, setPets] = useState([]);
     const [searchLocation, setSearchLocation] = useState('');
     const [selectedType, setSelectedType] = useState(''); // New state for selected pet type
@@ -67,9 +81,6 @@ const PetGallery = () => {
     const [petsPerPage] = useState(9);
     const [expandedPetId, setExpandedPetId] = useState(null);
 
-    const handleToggleDescription = (petId) => {
-        setExpandedPetId(expandedPetId === petId ? null : petId);
-      };
     
       const handleSearchLocationChange = (event) => {
         setSearchLocation(event.target.value);
@@ -84,6 +95,7 @@ const PetGallery = () => {
           })
           .catch(error => console.error(error));
       };
+
     
       // Calculate total pages and current pets
       const indexOfLastPet = currentPage * petsPerPage;
@@ -128,6 +140,7 @@ const PetGallery = () => {
                 </p>
                 
             </div>
+
             <div className={"search_bar_container"}>
                 <div className={"search_bar"}>
                 {/* <input className={"type_search"} type="text" placeholder="Search Dogs, Kittens, etc"></input> */}
@@ -216,27 +229,39 @@ const PetGallery = () => {
                     <option value="age_desc">Age (Descending)</option>
                 </select>
             </div>
-            {/* Filter bar ended*/}            
+            {/* Filter bar ended*/}     
+
+            {/* Modal for displaying pet profile */}
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                contentLabel="Pet Profile"
+                className="Modal"
+                overlayClassName="Overlay"
+            >
+                <PetProfile pet={selectedPet} />
+                <button onClick={closeModal}>Close</button>
+            </Modal>       
 
 
             {/* Pet container & page's number*/}
             <div className="pet-list-container">
                 <div className="vertical-pet-list">
                     {currentPets.length > 0 ? (
-                    currentPets.map(pet => (
-                        <div key={pet.id} className="pet-card">
-                        <h2>{pet.name} ({pet.type})</h2>
-                        <div className="image-container">
-                            {pet.images && pet.images.length > 0 && (
-                            <img src={pet.images[0]} alt={`Pet ${pet.name}`} />
-                            )}
-                        </div>
-                        <p>Location: {pet.location}</p>
-                        <p>Breed: {pet.breed}</p>
-                        <p>Age: {pet.age}</p>
-                        <p>Size: {pet.size}</p>
-                        </div>
-                    ))
+                        currentPets.map(pet => (
+                            <div key={pet.id} className="pet-card" onClick={() => openModal(pet)}>
+                                <h2>{pet.name} ({pet.type})</h2>
+                                <div className="image-container">
+                                    {pet.images && pet.images.length > 0 && (
+                                        <img src={pet.images[0]} alt={`Pet ${pet.name}`} />
+                                    )}
+                                </div>
+                                <p>Location: {pet.location}</p>
+                                <p>Breed: {pet.breed}</p>
+                                <p>Age: {pet.age}</p>
+                                <p>Size: {pet.size}</p>
+                            </div>
+                        ))
                     ) : (
                     searchLocation && <p>No pets found for the specified location.</p>
                     )}

@@ -120,6 +120,18 @@ h2 {
     font-size: 14px;         /* Smaller font size for smaller buttons */
 }
 
+.shareButton, .downloadButton {
+    width: 60%;              /* Narrower width for the buttons */
+    padding: 8px;            /* Adjust padding to make buttons smaller */
+    margin-bottom: 10px;     /* Reduced space between the buttons for a tighter look */
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;         /* Smaller font size for smaller buttons */
+}
+
 .logoutButton {
     margin-bottom: 0;        /* No margin at the bottom of the last button */
 }
@@ -127,4 +139,18 @@ h2 {
 /* Hover effects for better user interaction */
 .shareButton:hover, .logoutButton:hover {
     background-color: #004494;
+}
+
+.saveFavoritesButton {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.saveFavoritesButton:hover {
+    background-color: #0056b3;
 }

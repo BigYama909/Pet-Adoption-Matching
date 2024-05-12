@@ -3,9 +3,8 @@ import { useTheme } from '../../components/ThemeContext.js'
 import user_icon from "./user_icon.webp"
 import logout from "./logout.jpg"
 import logo_for_website from "../../images/logo_for_website.png";
-import { useState } from "react";
-import  { useEffect } from "react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 function Header() {
@@ -30,13 +29,13 @@ function Header() {
       <header className={headerClass}>
         {/* Logo */}
         <div className={styles.img_logo}>
-          <a href="/home" className={styles.logoLink}>
+          <Link to="/home" className={styles.logoLink}>
             <img
               className={styles.logo}
               src={logo_for_website}
               alt="Pet Adoption Match Logo"
             />
-          </a>
+          </Link>
         </div>
 
         <div className={styles.nav_bar}>
@@ -45,35 +44,35 @@ function Header() {
             <ul className={styles.navList}>
               {/* Enclose nav items in a ul for semantic structure */}
               <li className={navLink}>
-                <a href="/home">Home</a>
+                <Link to="/home">Home</Link>
               </li>
               <li className={navLink}>
-                <a href="/about">About Us</a>
+                <Link to="/about">About Us</Link>
               </li>
               <li className={navLink}>
-                <a href="/policy">Privacy Policy</a>
+                <Link to="/policy">Privacy Policy</Link>
               </li>
               <li className={navLink}>
-                <a href="/petCare">Pet Care Providers</a>
+                <Link to="/petCare">Pet Care Providers</Link>
               </li>
               <li className={navLink}>
-                <a href="/matching">Matching</a>
+                <Link to="/matching">Matching</Link>
               </li>
               <li className={navLink}>
-                <a href="/donate">Donate Now</a>
+                <Link to="/donate">Donate Now</Link>
               </li>
             </ul>
           </nav>
         </div>
 
         <div className={styles.iconsContainer}>
-          <a href="/userprofile" className={styles.iconLink}>
+          <Link to="/userprofile" className={styles.iconLink}>
             <img
               className={styles.userIcon}
               src={user_icon}
               alt="User Profile"
             />
-          </a>
+          </Link>
         </div>
 
         {/* Logout button */}
