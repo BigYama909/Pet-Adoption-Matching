@@ -1,1 +1,4 @@
 **/.DS_Store
+node_modules/
+pet-491b/client/node_modules/
+pet-491b/server/node_modules/

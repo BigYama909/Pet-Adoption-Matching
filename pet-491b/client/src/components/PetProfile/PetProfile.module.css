@@ -1,0 +1,48 @@
+.petProfileContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    z-index: 1000; /* Ensure it floats above other content */
+    text-align: center;
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+}
+
+.petName {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.petImage {
+    width: 100%; /* Responsive image width */
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.petDetails {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.detailItem {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #666;
+}

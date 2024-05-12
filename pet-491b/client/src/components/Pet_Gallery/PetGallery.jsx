@@ -3,6 +3,8 @@ import petsData from './pets.json'; // Import the static list of pets
 import styles from './PetGallery.module.css'; // Import custom CSS styles for the component
 import Select from 'react-select'; // Import the react-select library for dropdown components
 import { debounce } from 'lodash'; // Import debounce function from lodash to limit function calls
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 // Define custom styles for the react-select dropdown components
 const customSelectStyles = {
@@ -83,6 +85,20 @@ const PetGallery = () => {
         setAgeFilter("");
         setSortField("");
         setSortOrder("asc");
+    };
+
+    const [favorites, setFavorites] = useState(() => {
+        const savedFavorites = localStorage.getItem('favorites');
+        return savedFavorites ? JSON.parse(savedFavorites) : [];
+    });
+
+    const toggleFavorite = (petId) => {
+        console.log("Toggling favorite for pet:", petId);  // Debug log
+        const updatedFavorites = favorites.includes(petId)
+            ? favorites.filter(id => id !== petId)
+            : [...favorites, petId];
+        setFavorites(updatedFavorites);
+        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
     };
 
     // Component rendering
@@ -170,7 +186,15 @@ const PetGallery = () => {
                         filteredAndSortedPets.map(pet => (
                             <div key={pet.id} className={styles.petCard}>
                                 <img src={pet.image} alt={`Picture of ${pet.name}`} loading="lazy" className={styles.petImage} />
+                                <div className={styles.petInfo}>
                                 <h2>{pet.name} ({pet.type})</h2>
+                                <FontAwesomeIcon 
+                                    icon={faHeart} 
+                                    onClick={() => toggleFavorite(pet.id)}
+                                    className={favorites.includes(pet.id) ? styles.favorited : styles.notFavorited}
+                                    style={{ cursor: 'pointer' }}  // Ensuring it's clear it's clickable
+                                />
+                            </div>
                                 <p>Breed: {pet.breed}</p>
                                 <p>Age: {pet.age} years old</p>
                                 <p>Size: {pet.size}</p>

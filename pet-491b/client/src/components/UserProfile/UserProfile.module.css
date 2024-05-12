@@ -1,0 +1,130 @@
+/* UserProfile.module.css */
+
+.profile_container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.editForm input, .editForm select {
+    font-size: 1.1em;  /* Larger form elements for easier interaction */
+    margin-bottom: 10px;  /* Spacing for clarity */
+}
+
+input[type="text"], input[type="email"], input[type="tel"], select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, select:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+button {
+    background-color: #0056b3;
+    font-size: 1.1em;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #004494;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.favorited {
+    color: red;
+}
+
+.logout_btn, .save_btn, .edit_btn {
+    display: block;
+    width: 100%;
+}
+
+/* Add responsiveness to the form */
+@media (max-width: 768px) {
+    .profile_container {
+        padding: 10px;
+    }
+
+    button {
+        padding: 8px 16px;
+    }
+}
+
+.info {
+    font-size: 1.2em;  /* Larger text for visibility */
+    margin-bottom: 10px;  /* Spacing for clarity */
+}
+
+.favoritesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;  /* Adjusts spacing between items */
+    margin-top: 20px;
+}
+
+.favoritePet {
+    width: 30%;  /* Each pet takes up a third of the container width */
+    margin-bottom: 20px;  /* Spacing below each pet */
+    text-align: center;  /* Centers the text and image */
+}
+
+.favoritePet img {
+    width: 80%;  /* Adjusts image width relative to its container */
+    height: auto;  /* Maintains aspect ratio */
+    border-radius: 50%;  /* Circular images */
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;  /* Stack buttons vertically */
+    align-items: center;     /* Center align the buttons */
+    margin-top: 20px;        /* Space above the button container */
+}
+
+.shareButton, .logoutButton {
+    width: 60%;              /* Narrower width for the buttons */
+    padding: 8px;            /* Adjust padding to make buttons smaller */
+    margin-bottom: 10px;     /* Reduced space between the buttons for a tighter look */
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;         /* Smaller font size for smaller buttons */
+}
+
+.logoutButton {
+    margin-bottom: 0;        /* No margin at the bottom of the last button */
+}
+
+/* Hover effects for better user interaction */
+.shareButton:hover, .logoutButton:hover {
+    background-color: #004494;
+}
