@@ -135,15 +135,16 @@ const UserProfile = () => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 },
-                body: JSON.stringify(user)
+                body: JSON.stringify(user) // This sends the entire user object
             });
             if (!response.ok) {
                 throw new Error('Failed to update user data');
             }
             console.log('User data updated successfully!');
-            // Optionally re-fetch user data here if other parts of your app depend on updated data
+            setEditMode(false); // Exit edit mode on successful save
         } catch (error) {
             console.error('Error updating user data:', error);
+            alert('Failed to update user data.');
         }
     };
 
@@ -234,24 +235,25 @@ const UserProfile = () => {
         <>
             <Header />
             <div className={styles.profile_container}>
-                <h1>User Profile</h1>
-                {editMode ? (
-                    <div className={styles.editForm}>
-                        <input type="text" name="firstName" value={user.firstName} onChange={handleChange} />
-                        <input type="text" name="lastName" value={user.lastName} onChange={handleChange} />
-                        <input type="email" name="email" value={user.email} readOnly />
-                        <input type="tel" name="phone" value={user.phone} onChange={handleChange} />
-                        <button onClick={handleSave}>Save Phone</button>
-                    </div>
-                ) : (
-                    <div>
-                        <p className={styles.info}><strong>First Name:</strong> {capitalizeFirstLetter(user.firstName)}</p>
-                        <p className={styles.info}><strong>Last Name:</strong> {capitalizeFirstLetter(user.lastName)}</p>
-                        <p className={styles.info}><strong>Email:</strong> {user.email}</p>
-                        <p className={styles.info}><strong>Phone:</strong> {user.phone}</p>
-                        <button onClick={() => setEditMode(true)}>Edit Phone</button>
-                    </div>
-                )}
+            <h1>User Profile</h1>
+            {editMode ? (
+                <div className={styles.editForm}>
+                    <input type="text" name="firstName" placeholder="First Name" value={user.firstName} onChange={handleChange} />
+                    <input type="text" name="lastName" placeholder="Last Name" value={user.lastName} onChange={handleChange} />
+                    <input type="email" name="email" value={user.email} readOnly />
+                    <input type="tel" name="phone" placeholder="Phone Number" value={user.phone} onChange={handleChange} />
+                    <button onClick={handleSave}>Save Changes</button>
+                    <button onClick={() => setEditMode(false)}>Cancel</button>
+                </div>
+            ) : (
+                <div>
+                    <p className={styles.info}><strong>First Name:</strong> {capitalizeFirstLetter(user.firstName)}</p>
+                    <p className={styles.info}><strong>Last Name:</strong> {capitalizeFirstLetter(user.lastName)}</p>
+                    <p className={styles.info}><strong>Email:</strong> {user.email}</p>
+                    <p className={styles.info}><strong>Phone:</strong> {user.phone}</p>
+                    <button onClick={() => setEditMode(true)}>Edit Profile</button>
+                </div>
+            )}
                 <h2>Pet Preferences</h2>
                 {editPetPreferences ? (
                     <div className={styles.editForm}>
