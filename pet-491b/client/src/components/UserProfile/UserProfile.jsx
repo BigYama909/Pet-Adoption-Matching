@@ -242,8 +242,12 @@ const UserProfile = () => {
                     <input type="text" name="lastName" placeholder="Last Name" value={user.lastName} onChange={handleChange} />
                     <input type="email" name="email" value={user.email} readOnly />
                     <input type="tel" name="phone" placeholder="Phone Number" value={user.phone} onChange={handleChange} />
-                    <button onClick={handleSave}>Save Changes</button>
-                    <button onClick={() => setEditMode(false)}>Cancel</button>
+                    <editsavebutton onClick={handleSave} className={styles.editButton}>
+                        Save Changes
+                    </editsavebutton>
+                    <button onClick={() => setEditMode(false)} className={styles.editButton}>
+                        Cancel
+                    </button>
                 </div>
             ) : (
                 <div>
@@ -251,7 +255,10 @@ const UserProfile = () => {
                     <p className={styles.info}><strong>Last Name:</strong> {capitalizeFirstLetter(user.lastName)}</p>
                     <p className={styles.info}><strong>Email:</strong> {user.email}</p>
                     <p className={styles.info}><strong>Phone:</strong> {user.phone}</p>
-                    <button onClick={() => setEditMode(true)}>Edit Profile</button>
+                    <button onClick={() => setEditMode(true)} className={styles.editButton}>
+                        Edit Profile
+                    </button>
+                    
                 </div>
             )}
                 <h2>Pet Preferences</h2>
@@ -277,14 +284,16 @@ const UserProfile = () => {
                         <button onClick={() => {
                             handleSave();
                             setEditPetPreferences(false);
-                        }}>Save Pet Preferences</button>
+                        }}className={styles.editButton}>Save Pet Preferences</button>
                     </div>
                 ) : (
                     <div>
-                        <button onClick={() => setEditPetPreferences(true)}>Edit Pet Preferences</button>
                         <p><strong>Type:</strong> {capitalizeFirstLetter(user.petType)}</p>
                         <p><strong>Size:</strong> {capitalizeFirstLetter(user.petSize)}</p>
                         <p><strong>Breed:</strong> {capitalizeFirstLetter(user.petBreed)}</p>
+                        <button onClick={() => setEditPetPreferences(true)} className={styles.editButton}>
+                        Edit Pet Preferences
+                        </button>
                     </div>
                 )}
                 <h2>Favorite Pets</h2>
