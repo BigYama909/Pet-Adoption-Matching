@@ -26,11 +26,11 @@ const Matching = () => {
         setModalIsOpen(false);
     };
 
+    // Fetch all pets from the API
     useEffect(() => {
         const fetchPets = async () => {
             try {
                 const response = await axios.get('https://pet-adoption-matching.onrender.com/api/pets');
-                console.log("Fetched pets:", response.data);  // Debug: log fetched data
                 setPets(response.data);
                 setLoading(false);
             } catch (error) {
@@ -43,23 +43,24 @@ const Matching = () => {
         fetchPets();
     }, []);
 
+    // Apply filters based on user preferences
     useEffect(() => {
-        // Retrieve user preferences from local storage
         const preferences = JSON.parse(localStorage.getItem('petPreferences') || '{}');
-    setUserPreferences(preferences); // Set user preferences in state
+        setUserPreferences(preferences); // Set user preferences in state
 
-    const applyFilters = (pets) => {
-        return pets.filter(pet =>
-            (!preferences.petType || pet.type.toLowerCase() === preferences.petType.toLowerCase()) &&
-            (!preferences.petSize || pet.size.toLowerCase() === preferences.petSize.toLowerCase()) &&
-            (!preferences.petBreed || pet.breed.toLowerCase() === preferences.petBreed.toLowerCase()) &&
-            (!preferences.petAge || pet.age.toLowerCase() === preferences.age.toLowerCase())
-        );
-    };
-    setFilteredPets(applyFilters(pets));
-}, [pets]);
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
+        const applyFilters = (pets) => {
+            return pets.filter(pet =>
+                (!preferences.petType || preferences.petType === "Any" || pet.type.toLowerCase() === preferences.petType.toLowerCase()) &&
+                (!preferences.petSize || preferences.petSize === "Any" || pet.size.toLowerCase() === preferences.petSize.toLowerCase()) &&
+                (!preferences.petBreed || preferences.petBreed === "Any" || pet.breed.toLowerCase() === preferences.petBreed.toLowerCase()) &&
+                (!preferences.age || preferences.age === "Any" || pet.age.toLowerCase() === preferences.age.toLowerCase())
+            );
+        };
+        setFilteredPets(applyFilters(pets));
+    }, [pets]);
+
+    if (loading) return <div className={styles.loading}>Loading...</div>;
+    if (error) return <div className={styles.error}>Error: {error}</div>;
 
     return (
         <>

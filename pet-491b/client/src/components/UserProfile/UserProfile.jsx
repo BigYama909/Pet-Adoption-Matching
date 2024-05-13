@@ -73,7 +73,7 @@ const UserProfile = () => {
     const updateBreedOptions = (petType) => {
         const breeds = {
             dog: ['French Bulldog', 'Labrador Retriever', 'Golden Retriever', 'German Shepherd', 'Bulldog', 'Poodle', 'Siberian Husky', 'Yorkshire Terrier'],
-            cat: ['Domestic Shorthair', 'Siamese', 'Maine Coon', 'Ragdoll', 'Bengal', 'Persian', 'Abyssinian', 'Sphinx']
+            cat: ['Domestic Short Hair', 'Siamese', 'Maine Coon', 'Ragdoll', 'Bengal', 'Persian', 'Abyssinian', 'Sphinx']
         };
         setBreedOptions(breeds[petType.toLowerCase()] || []);
     };
