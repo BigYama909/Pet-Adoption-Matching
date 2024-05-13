@@ -3,7 +3,7 @@ import petsData from './pets.json'; // Import the static list of pets
 import styles from './PetGallery.module.css'; // Import custom CSS styles for the component
 import Select from 'react-select'; // Import the react-select library for dropdown components
 import { debounce } from 'lodash'; // Import debounce function from lodash to limit function calls
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 // Define custom styles for the react-select dropdown components
@@ -92,7 +92,7 @@ const PetGallery = () => {
         setSortOrder("asc");
     };
     
-
+    // Toggle the heart mark to set pet as favorite
     const toggleFavorite = async (petId) => {
         console.log('Before toggle:', favorites);
         const updatedFavorites = favorites.includes(petId)

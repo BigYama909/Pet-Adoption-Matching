@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Modal from 'react-modal';
+import React, { useState, useEffect } from 'react'; // npm install react react-dom
+import axios from 'axios'; // npm install axios react-modal
+import Modal from 'react-modal'; 
 import PetProfile from "../PetProfile/PetProfile";
 import styles from "./Matching.module.css";
 import Header from "../Header/index";
@@ -14,7 +14,7 @@ const Matching = () => {
     const [error, setError] = useState(null);
     const [selectedPet, setSelectedPet] = useState(null);
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const [userPreferences, setUserPreferences] = useState({}); // State to hold user preferences
+    const [userPreferences, setUserPreferences] = useState({});
 
     // Open and close modal functions
     const openModal = (pet) => {

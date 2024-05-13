@@ -16,7 +16,7 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    margin-bottom: 30px; /* Spacing between preferences and pet cards */
+    margin-bottom: 30px; 
     font-size: 18px; /* Larger text for better readability */
 }
 
@@ -65,13 +65,10 @@
     left: 50%;
     right: auto;
     bottom: auto;
-    marginRight: -50%;
     transform: translate(-50%, -50%);
     border: 1px solid #ccc;
     background: white;
     overflow: auto;
-    WebkitOverflowScrolling: 'touch';
-    borderRadius: '4px';
     outline: 'none';
     padding: '20px';
     width: '80%';
@@ -85,13 +82,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    backgroundColor: 'rgba(0, 0, 0, 0.75)';
 }
 
 /* Buttons within the modal */
 .Modal button {
-    padding: 10px 20px; /* Increased padding for better feel */
-    margin-top: 15px; /* More space above the button */
+    padding: 10px 20px; 
+    margin-top: 15px; 
     background-color: #007bff;
     color: white;
     border: none;

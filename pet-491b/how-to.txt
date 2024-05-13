@@ -21,7 +21,9 @@ npm install --save @fortawesome/free-regular-svg-icons
 
 npm install --save react-chartjs-2 chart.js
 npm install react-select
-
+npm install axios react-modal
+npm install react react-dom
+npm install react-router-dom jspdf
 
 
 -After install all packages do the steps below

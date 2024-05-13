@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import Header from "../Header/index";
 import styles from './UserProfile.module.css';  
 import petsData from "../Pet_Gallery/pets.json"; 
-import jsPDF from 'jspdf';
+import jsPDF from 'jspdf'; // npm install react-router-dom jspdf
+
 
 // Construct the User Profile with inputtable information
 const UserProfile = () => {
@@ -69,7 +70,7 @@ const UserProfile = () => {
         return string ? string.charAt(0).toUpperCase() + string.slice(1).toLowerCase() : '';
     };
     
-    // Add Selection of Pet Breeds
+    // Add Selection of Pet Breeds depending on Pet Type
     const updateBreedOptions = (petType) => {
         const breeds = {
             dog: ['French Bulldog', 'Labrador Retriever', 'Golden Retriever', 'German Shepherd', 'Bulldog', 'Poodle', 'Siberian Husky', 'Yorkshire Terrier'],
@@ -90,7 +91,7 @@ const UserProfile = () => {
             updateBreedOptions(value);
         }
     };
-
+    // Send the preferences to the backend database
     const savePreferencesToBackend = async (preferences) => {
         try {
             const response = await fetch('http://localhost:8080/api/users/update', {
@@ -149,44 +150,13 @@ const UserProfile = () => {
             alert('Failed to update user data.');
         }
     };
-
-    const updateFavorites = async () => {
-        const formattedFavorites = formatFavoritePetsForSave(favorites);
-        const userEmail = user.email;
-        try {
-            const response = await fetch('http://localhost:8080/api/users/updateFavorites', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}` // Ensure token is correctly retrieved
-                },
-                body: JSON.stringify({
-                    email: userEmail,
-                    favoritePets: formattedFavorites
-                })
-            });
     
-            if (!response.ok) {
-                throw new Error(`Failed to update favorites: ${response.status}`);
-            }
-    
-            const result = await response.json();
-            console.log('Favorites updated:', result);
-            alert('Favorites updated successfully!');
-        } catch (error) {
-            console.error('Error updating favorites:', error);
-            alert('Failed to update favorites.');
-        }
-    };
-    
-    
-
     const favoritePets = useMemo(() => {
         return petsData.filter(pet => favorites.includes(pet.id)).slice(0, 10);
     }, [favorites, petsData]);
     
 
-    // Sharing Profile on twitter
+    // Sharing Profile on Twitter
     const handleShare = () => {
         const favoritePetsNames = favorites.map(id => {
             const pet = petsData.find(pet => pet.id === id);
@@ -204,6 +174,7 @@ const UserProfile = () => {
         window.open(twitterUrl, '_blank');
     };
 
+    // Save and Download a pdf file of Favorited Pets
     const handleDownloadPdf = () => {
         const doc = new jsPDF();
         doc.setFontSize(12);
