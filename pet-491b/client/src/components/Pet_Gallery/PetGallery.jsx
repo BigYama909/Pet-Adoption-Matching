@@ -44,6 +44,11 @@ const customSelectStyles = {
 
 // Define the PetGallery functional component
 const PetGallery = () => {
+    const [pets, setPets] = useState([]); // Assuming pets state holds your pet data
+    const [favorites, setFavorites] = useState(() => {
+        const saved = localStorage.getItem('favorites');
+        return saved ? JSON.parse(saved) : [];
+    });
     // State hooks for managing filter inputs
     const [nameFilter, setNameFilter] = useState("");
     const [typeFilter, setTypeFilter] = useState([]);
@@ -86,19 +91,41 @@ const PetGallery = () => {
         setSortField("");
         setSortOrder("asc");
     };
+    
 
-    const [favorites, setFavorites] = useState(() => {
-        const savedFavorites = localStorage.getItem('favorites');
-        return savedFavorites ? JSON.parse(savedFavorites) : [];
-    });
-
-    const toggleFavorite = (petId) => {
-        console.log("Toggling favorite for pet:", petId);  // Debug log
+    const toggleFavorite = async (petId) => {
+        console.log('Before toggle:', favorites);
         const updatedFavorites = favorites.includes(petId)
             ? favorites.filter(id => id !== petId)
             : [...favorites, petId];
+
+        console.log('After toggle:', updatedFavorites);
         setFavorites(updatedFavorites);
         localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    
+        try {
+            const userEmail = localStorage.getItem('email');
+            const response = await fetch('http://localhost:8080/api/users/updateFavoritesByEmail', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                },
+                body: JSON.stringify({
+                    email: userEmail,
+                    favorites: updatedFavorites
+                })
+            });
+    
+            if (!response.ok) {
+                throw new Error('Failed to update favorites');
+            }
+    
+            const result = await response.json();
+            console.log('Server response:', result); // Check server response
+        } catch (error) {
+            console.error('Error updating favorites:', error);
+        }
     };
 
     // Component rendering

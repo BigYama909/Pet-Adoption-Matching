@@ -432,3 +432,35 @@ height: auto; /* Keep the image aspect ratio */
     flex-direction: column;
     margin-top: 10px;
   }
+
+  .Modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;  /* Control the width as needed, adjust if it's too wide or too narrow */
+    min-height: 40vh;  /* Sets a minimum height to prevent it from being too small */
+    max-height: 80vh;  /* Sets a maximum height to prevent it from covering the whole screen */
+    overflow-y: auto;  /* Allows vertical scrolling within the modal if the content is too long */
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;  /* Provides internal spacing */
+    outline: none;
+}
+
+.Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);  /* Provides a dimming effect on the rest of the page */
+}
+
+.petDetails {
+    max-height: 70vh; 
+    overflow-y: auto; 
+    padding: 10px; 
+}
+

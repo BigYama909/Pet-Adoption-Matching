@@ -26,7 +26,8 @@ const Login = () => {
 			const url = "https://pet-adoption-matching.onrender.com/api/auth";
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
-			localStorage.setItem("name", data.name); // Ensure that 'name' and 'email' are being returned in 'res'
+			localStorage.setItem("firstName", data.firstName);
+			localStorage.setItem("lastName", data.lastName) // Ensure that 'name' and 'email' are being returned in 'res'
 			localStorage.setItem("email", data.email);
 			console.log("login res: ", res);
 			navigate('/home'); // Redirect after successful login

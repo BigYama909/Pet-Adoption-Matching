@@ -27,21 +27,11 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, se
     outline: none;
 }
 
-button {
-    background-color: #0056b3;
-    font-size: 1.1em;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
 
-button:hover {
-    background-color: #004494;
-}
+
+
+
+
 
 h1, h2 {
     color: #333;
@@ -112,6 +102,17 @@ h2 {
     width: 60%;              /* Narrower width for the buttons */
     padding: 8px;            /* Adjust padding to make buttons smaller */
     margin-bottom: 10px;     /* Reduced space between the buttons for a tighter look */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;         /* Smaller font size for smaller buttons */
+}
+
+.shareButton, .downloadButton {
+    width: 60%;              /* Narrower width for the buttons */
+    padding: 8px;            /* Adjust padding to make buttons smaller */
+    margin-bottom: 10px;     /* Reduced space between the buttons for a tighter look */
     background-color: #0056b3;
     color: white;
     border: none;
@@ -128,3 +129,32 @@ h2 {
 .shareButton:hover, .logoutButton:hover {
     background-color: #004494;
 }
+
+.saveFavoritesButton {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.saveFavoritesButton:hover {
+    background-color: #0056b3;
+}
+
+.editButton {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px; /* Space between buttons */
+  }
+  
+  .editButton:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+  }

@@ -13,6 +13,25 @@ const userSchema = new mongoose.Schema({
 	email: { type: String, required: true },
 	password: { type: String, required: true },
 	verified: { type: Boolean, default: false },
+	phone: { type: String, required: false },
+	petPreferences: {
+        petType: { type: String, required: false },
+        petSize: { type: String, required: false },
+        petBreed: { type: String, required: false },
+		age: {type: String, required: false}
+    },
+	favoritePets: {
+		fav1: { type: String, required: false },
+		fav2: { type: String, required: false },
+		fav3: { type: String, required: false },
+		fav4: { type: String, required: false },
+		fav5: { type: String, required: false },
+		fav6: { type: String, required: false },
+		fav7: { type: String, required: false },
+		fav8: { type: String, required: false },
+		fav9: { type: String, required: false },
+		fav10: { type: String, required: false },
+	}
 });
 
 // generate a JWT token
@@ -33,6 +52,19 @@ const validate = (data) => {
 		lastName: Joi.string().required().label("Last Name"),
 		email: Joi.string().email().required().label("Email"),
 		password: passwordComplexity().required().label("Password"),
+		phone: Joi.string().regex(/^\d{10}$/).label("Phone"),
+		favoritePets: Joi.object({
+			fav1: Joi.string().allow('', null),
+			fav2: Joi.string().allow('', null),
+			fav3: Joi.string().allow('', null),
+			fav4: Joi.string().allow('', null),
+			fav5: Joi.string().allow('', null),
+			fav6: Joi.string().allow('', null),
+			fav7: Joi.string().allow('', null),
+			fav8: Joi.string().allow('', null),
+			fav9: Joi.string().allow('', null),
+			fav10: Joi.string().allow('', null),
+		}).label("Favorite Pets")
 	});
 	return schema.validate(data);
 };

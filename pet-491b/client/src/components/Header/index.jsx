@@ -1,7 +1,7 @@
 import styles from "./header.module.css";
 import { useTheme } from '../../components/ThemeContext.js'
 import user_icon from "./user_icon.webp"
-import logout from "./logout.jpg"
+import logout from "./log_out.jpg"
 import logo_for_website from "../../images/logo_for_website.png";
 import { useState, useEffect } from "react";
 import React from "react";
@@ -68,7 +68,7 @@ function Header() {
         <div className={styles.iconsContainer}>
           <Link to="/userprofile" className={styles.iconLink}>
             <img
-              className={styles.userIcon}
+              className={`${styles.userIcon} ${styles.userProfileButton}`} // Apply userProfileButton style
               src={user_icon}
               alt="User Profile"
             />
@@ -77,10 +77,11 @@ function Header() {
 
         {/* Logout button */}
         <div>
-          <button onClick={handleLogout}>
-            <img className={styles.userIcon} src={logout} alt="Logout" onClick={handleLogout}/>
+          <button onClick={handleLogout} className={styles.logoutButton}>  {/* Apply logoutButton style */}
+            <img className={styles.loggoutIcon} src={logout} alt="Logout"/>
           </button>
         </div>
+
 
         {/* Night Mode Toggle Button */}
         <button
