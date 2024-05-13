@@ -18,8 +18,6 @@ def predict():
     data = request.get_json(force=True)
 
     # Convert data into the format expected by the model (ensure correct feature order and encoding)
-    # This step may involve one-hot encoding of categorical data as done during model training
-    # For simplicity, assuming numeric input for prediction:
     features = np.array(data['features']).reshape(1, -1)
 
     # Make prediction
