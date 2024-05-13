@@ -41,7 +41,8 @@ const UserProfile = () => {
                 return;
             }
     
-            try {
+            try {                              // http://localhost:8080/api/users/me
+                                            // https://pet-adoption-matching.onrender.com/api/users/me
                 const response = await fetch('https://pet-adoption-matching.onrender.com/api/users/me', {
                     headers: {
                         'Authorization': `Bearer ${token}`,
@@ -93,7 +94,8 @@ const UserProfile = () => {
     };
     // Send the preferences to the backend database
     const savePreferencesToBackend = async (preferences) => {
-        try {
+        try {                           //https://pet-adoption-matching.onrender.com/api/users/me
+                                        // http://localhost:8080/api/users/me
             const response = await fetch('https://pet-adoption-matching.onrender.com/api/users/update', {
                 method: 'PUT',
                 headers: {
@@ -131,7 +133,8 @@ const UserProfile = () => {
 
     // Saving General Profile Info
     const handleSave = async () => {
-        try {
+        try {                            // http://localhost:8080/api/users/update
+                                        // https://pet-adoption-matching.onrender.com/api/users/update
             const response = await fetch('https://pet-adoption-matching.onrender.com/api/users/update', {
                 method: 'PUT',
                 headers: {
@@ -162,7 +165,7 @@ const UserProfile = () => {
             const pet = petsData.find(pet => pet.id === id);
             return pet ? pet.name : '';
         }).join(', ');
-
+                            
         const websiteLink = "https://pet-adoption-matching-frontend.onrender.com/";  // Replace with your actual website link
 
         const shareMessage = `Check out ${capitalizeFirstLetter(user.firstName)}'s pet preferences and favorite pets:\n` +
