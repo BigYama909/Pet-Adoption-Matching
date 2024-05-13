@@ -42,7 +42,7 @@ const UserProfile = () => {
             }
     
             try {
-                const response = await fetch('http://localhost:8080/api/users/me', {
+                const response = await fetch('https://pet-adoption-matching.onrender.com/api/users/me', {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json'
@@ -94,7 +94,7 @@ const UserProfile = () => {
     // Send the preferences to the backend database
     const savePreferencesToBackend = async (preferences) => {
         try {
-            const response = await fetch('http://localhost:8080/api/users/update', {
+            const response = await fetch('https://pet-adoption-matching.onrender.com/api/users/update', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -132,7 +132,7 @@ const UserProfile = () => {
     // Saving General Profile Info
     const handleSave = async () => {
         try {
-            const response = await fetch('http://localhost:8080/api/users/update', {
+            const response = await fetch('https://pet-adoption-matching.onrender.com/api/users/update', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

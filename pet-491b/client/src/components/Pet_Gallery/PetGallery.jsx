@@ -105,7 +105,7 @@ const PetGallery = () => {
     
         try {
             const userEmail = localStorage.getItem('email');
-            const response = await fetch('http://localhost:8080/api/users/updateFavoritesByEmail', {
+            const response = await fetch('https://pet-adoption-matching.onrender.com/api/users/updateFavoritesByEmail', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
