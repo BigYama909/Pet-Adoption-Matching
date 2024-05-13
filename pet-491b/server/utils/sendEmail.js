@@ -3,13 +3,16 @@ const nodemailer = require("nodemailer");
 module.exports = async (email, subject, text) => {
 	try {
 		const transporter = nodemailer.createTransport({
-			host: process.env.HOST,
+			host: "smtp-mail.outlook.com",
 			port: Number(process.env.EMAIL_PORT),
 			secure: false,
 			auth: {
-				user:" petadoptionmatch@outlook.com",
+				user:"petadoptionmatch@outlook.com",
 				pass: "Leoyuki100598",
 			},
+			tls: {
+				ciphers: 'SSLv3'
+			}
 		});
 
 		await transporter.sendMail({
