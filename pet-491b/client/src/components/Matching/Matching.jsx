@@ -29,7 +29,8 @@ const Matching = () => {
     useEffect(() => {
         const fetchPets = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/api/pets');
+                const response = await axios.get('https://pet-adoption-matching.onrender.com/api/pets');
+                console.log("Fetched pets:", response.data);  // Debug: log fetched data
                 setPets(response.data);
                 setLoading(false);
             } catch (error) {
@@ -45,18 +46,18 @@ const Matching = () => {
     useEffect(() => {
         // Retrieve user preferences from local storage
         const preferences = JSON.parse(localStorage.getItem('petPreferences') || '{}');
-        setUserPreferences(preferences); // Set user preferences in state
-        const applyFilters = (pets) => {
-            return pets.filter(pet =>
-                (!preferences.petType || pet.type === preferences.petType) &&
-                (!preferences.petSize || pet.size === preferences.petSize) &&
-                (!preferences.petBreed || pet.breed === preferences.petBreed) &&
-                (!preferences.petAge || pet.age === preferences.petAge)
-            );
-        };
-        setFilteredPets(applyFilters(pets));
-    }, [pets]);
+    setUserPreferences(preferences); // Set user preferences in state
 
+    const applyFilters = (pets) => {
+        return pets.filter(pet =>
+            (!preferences.petType || pet.type.toLowerCase() === preferences.petType.toLowerCase()) &&
+            (!preferences.petSize || pet.size.toLowerCase() === preferences.petSize.toLowerCase()) &&
+            (!preferences.petBreed || pet.breed.toLowerCase() === preferences.petBreed.toLowerCase()) &&
+            (!preferences.petAge || pet.age.toLowerCase() === preferences.age.toLowerCase())
+        );
+    };
+    setFilteredPets(applyFilters(pets));
+}, [pets]);
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
@@ -70,7 +71,7 @@ const Matching = () => {
                     <p>Type: {userPreferences.petType || "Any"}</p>
                     <p>Size: {userPreferences.petSize || "Any"}</p>
                     <p>Breed: {userPreferences.petBreed || "Any"}</p>
-                    <p>Age: {userPreferences.petAge || "Any"}</p>
+                    <p>Age: {userPreferences.age || "Any"}</p>
                 </div>
                 {filteredPets.length > 0 ? (
                     filteredPets.map(pet => (
