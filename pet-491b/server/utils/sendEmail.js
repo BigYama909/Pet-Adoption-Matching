@@ -8,11 +8,11 @@ module.exports = async (email, subject, text) => {
 			secure: false,
 			auth: {
 				user:"petadoptionmatch@outlook.com",
-				pass: "Leoyuki100598",
+				pass:"Leoyuki100598",
 			},
-			tls: {
-				ciphers: 'SSLv3'
-			}
+			// tls: {
+			// 	ciphers: 'SSLv3'
+			// }
 		});
 
 		await transporter.sendMail({
