@@ -16,7 +16,8 @@ const UserProfile = () => {
             phone: '',
             petType: savedPreferences.petType || '', 
             petSize: savedPreferences.petSize || '', 
-            petBreed: savedPreferences.petBreed || ''
+            petBreed: savedPreferences.petBreed || '',
+            age: savedPreferences.age || ''
         };
     });
     const [editGeneralInfo, setEditGeneralInfo] = useState(false);
@@ -82,7 +83,7 @@ const UserProfile = () => {
     const handleChange = async (e) => {
         const { name, value } = e.target;
         setUser(prev => ({ ...prev, [name]: value }));
-        if (['petType', 'petSize', 'petBreed'].includes(name)) {
+        if (['petType', 'petSize', 'petBreed', 'age'].includes(name)) {
             await savePreferencesToBackend({ ...user, [name]: value });
         }
         if (name === 'petType') {
@@ -109,7 +110,8 @@ const UserProfile = () => {
             localStorage.setItem('petPreferences', JSON.stringify({
                 petType: preferences.petType,
                 petSize: preferences.petSize,
-                petBreed: preferences.petBreed
+                petBreed: preferences.petBreed,
+                age : preferences.age
             }));
         } catch (error) {
             console.error('Error updating preferences:', error);
@@ -194,7 +196,7 @@ const UserProfile = () => {
         const websiteLink = "https://pet-adoption-matching-frontend.onrender.com/";  // Replace with your actual website link
 
         const shareMessage = `Check out ${capitalizeFirstLetter(user.firstName)}'s pet preferences and favorite pets:\n` +
-                             `Preferences - Type: ${capitalizeFirstLetter(user.petType)}, Size: ${capitalizeFirstLetter(user.petSize)}, Breed: ${user.petBreed}.\n` +
+                             `Preferences - Type: ${capitalizeFirstLetter(user.petType)}, Size: ${capitalizeFirstLetter(user.petSize)}, Breed: ${user.petBreed}, Age: ${capitalizeFirstLetter(user.age)}.\n` +
                              `Favorites - ${favoritePetsNames}.\n` +
                              `Check out the pets at ${websiteLink}.`;
 
@@ -281,6 +283,12 @@ const UserProfile = () => {
                                 <option key={breed} value={breed}>{capitalizeFirstLetter(breed)}</option>
                             ))}
                         </select>
+                        <select name="age" value={user.age} onChange={handleChange}>  
+                            <option value="">Select Age</option>
+                            <option value="baby">Baby</option>
+                            <option value="young">Young</option>
+                            <option value="adult">Adult</option>
+                        </select>
                         <button onClick={() => {
                             handleSave();
                             setEditPetPreferences(false);
@@ -291,6 +299,7 @@ const UserProfile = () => {
                         <p><strong>Type:</strong> {capitalizeFirstLetter(user.petType)}</p>
                         <p><strong>Size:</strong> {capitalizeFirstLetter(user.petSize)}</p>
                         <p><strong>Breed:</strong> {capitalizeFirstLetter(user.petBreed)}</p>
+                        <p><strong>Age:</strong> {capitalizeFirstLetter(user.age)}</p>
                         <button onClick={() => setEditPetPreferences(true)} className={styles.editButton}>
                         Edit Pet Preferences
                         </button>

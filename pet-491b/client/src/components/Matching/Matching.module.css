@@ -1,0 +1,120 @@
+/* General container styling for the matcher */
+.matcherContainer {
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+}
+
+/* Additional spacing between sections */
+.matcherContainer > div:not(:first-child) {
+    margin-top: 30px;
+}
+
+/* Styling for the preferences display section */
+.preferences {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 30px; /* Spacing between preferences and pet cards */
+    font-size: 18px; /* Larger text for better readability */
+}
+
+/* Styling for individual pet cards */
+.petCard {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px; /* Increased padding for better spacing */
+    margin: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.petCard:hover {
+    transform: scale(1.05);
+}
+
+/* Header for each pet's name and type */
+.petCard h3 {
+    color: #333;
+    margin-top: 0;
+    font-size: 24px; /* Larger font size for headers */
+}
+
+/* Text styling within cards */
+.petCard p {
+    margin: 8px 0; /* Adjusted margin for better spacing */
+    color: #666;
+    font-size: 16px; /* Larger text for better readability */
+}
+
+/* Images for pets */
+.petCard img {
+    width: 100%;
+    height: auto;
+    max-height: 250px; /* Adjusted max height for better presentation */
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Modal styling for pet profiles */
+.Modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    marginRight: -50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    background: white;
+    overflow: auto;
+    WebkitOverflowScrolling: 'touch';
+    borderRadius: '4px';
+    outline: 'none';
+    padding: '20px';
+    width: '80%';
+    max-width: '600px';
+}
+
+/* Overlay for modal */
+.Overlay {
+    position: 'fixed';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backgroundColor: 'rgba(0, 0, 0, 0.75)';
+}
+
+/* Buttons within the modal */
+.Modal button {
+    padding: 10px 20px; /* Increased padding for better feel */
+    margin-top: 15px; /* More space above the button */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px; /* Larger text on buttons */
+}
+
+.Modal button:hover {
+    background-color: #0056b3;
+}
+
+/* Error message styling */
+.error {
+    color: red;
+    text-align: center;
+    padding: 15px;
+    font-size: 18px; /* Larger text for errors */
+}
+
+/* Loading message styling */
+.loading {
+    text-align: center;
+    padding: 15px;
+    font-size: 18px; /* Larger text for loading message */
+}

@@ -75,7 +75,7 @@ router.get('/me', authenticate, async (req, res) => {
 });
 
 router.put('/update', authenticate, async (req, res) => {
-  const { firstName, lastName, phone, petType, petSize, petBreed } = req.body;
+  const { firstName, lastName, phone, petType, petSize, petBreed, age } = req.body;
   
   // Create an update object dynamically based on provided fields
   let updates = {};
@@ -83,6 +83,7 @@ router.put('/update', authenticate, async (req, res) => {
   if (petType !== undefined) updates['petPreferences.petType'] = petType;
   if (petSize !== undefined) updates['petPreferences.petSize'] = petSize;
   if (petBreed !== undefined) updates['petPreferences.petBreed'] = petBreed;
+  if (age !== undefined) updates['petPreferences.age'] = age;
   if (firstName !== undefined) updates.firstName = firstName;
   if (lastName !== undefined) updates.lastName = lastName;
 

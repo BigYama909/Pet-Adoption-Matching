@@ -18,6 +18,7 @@ import PetTest from "./components/petTest";
 import UserProfile from "./components/UserProfile/UserProfile.jsx";
 import PetGallery from './components/Pet_Gallery/PetGallery.jsx';
 import PetProfile from './components/PetProfile/PetProfile';
+import Matching from './components/Matching/Matching.jsx'
 
 
 
@@ -65,6 +66,7 @@ function App() {
 			<Route path="/userprofile" exact element={<UserProfile />} />
 			<Route path="/" element={<PetGallery />} />
         	<Route path="/pet/:name" element={<PetProfile />} />
+			<Route path="/matching" element={<Matching />} />
 		</Routes>
 	);
 	

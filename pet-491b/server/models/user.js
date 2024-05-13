@@ -17,7 +17,8 @@ const userSchema = new mongoose.Schema({
 	petPreferences: {
         petType: { type: String, required: false },
         petSize: { type: String, required: false },
-        petBreed: { type: String, required: false }
+        petBreed: { type: String, required: false },
+		age: {type: String, required: false}
     },
 	favoritePets: {
 		fav1: { type: String, required: false },

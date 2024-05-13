@@ -4,8 +4,12 @@ import numpy as np
 
 app = Flask(__name__)
 
-# Load the model
-model = pickle.load(open('model.pkl', 'rb'))
+
+# Load the model and encoder
+with open('model.pkl', 'rb') as f:
+    model = pickle.load(f)
+with open('encoder.pkl', 'rb') as f:
+    encoder = pickle.load(f)
 
 
 @app.route('/predict', methods=['POST'])
@@ -26,4 +30,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=5000)
