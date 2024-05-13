@@ -3,7 +3,7 @@ const nodemailer = require("nodemailer");
 module.exports = async (email, subject, text) => {
 	try {
 		const transporter = nodemailer.createTransport({
-			host: "smtp-mail.outlook.com",
+			host: "smtp.office365.com",
 			port: Number(process.env.EMAIL_PORT),
 			secure: false,
 			auth: {
