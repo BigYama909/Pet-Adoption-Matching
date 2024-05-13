@@ -22,10 +22,13 @@ const Signup = () => {
 	// event handler for form submissions. 
 	// It sends a POST request to the user registration 
 	// endpoint with the provided user data
+
+	// http://localhost:8080
+	// https://pet-adoption-matching.onrender.com/api/users
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "https://pet-adoption-matching.onrender.com/api/users";
+			const url = "http://localhost:8080/api/users";
 			const { data: res } = await axios.post(url, data);
 			setMsg(res.message);
 		} catch (error) {
