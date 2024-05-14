@@ -32,7 +32,7 @@ router.post("/", async (req, res) => {
 			}).save();
 		}
 
-		const url = `http://localhost:3001/resetpass/${user._id}/${token.token}/`;
+		const url = `https://pet-adoption-matching-frontend.onrender.com/resetpass/${user._id}/${token.token}/`;
 		await sendEmail(user.email, "Password Reset", url);
 
 		res
