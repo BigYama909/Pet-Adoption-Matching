@@ -10,9 +10,12 @@ module.exports = async (email, subject, text) => {
 				user:"petadoptionmatch@outlook.com",
 				pass:"Leoyuki100598",
 			},
-			// tls: {
-			// 	ciphers: 'SSLv3'
-			// }
+			tls: {
+				ciphers: 'SSLv3',
+				rejectUnauthorized: false,
+			},
+			logger: true,
+			debug: true, // Enable debug output
 		});
 
 		await transporter.sendMail({
