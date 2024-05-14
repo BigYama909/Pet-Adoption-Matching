@@ -7,8 +7,8 @@ module.exports = async (email, subject, text) => {
 			port: Number(process.env.EMAIL_PORT),
 			secure: false,
 			auth: {
-				user:"petadoptionmatch@outlook.com",
-				pass:"Leoyuki100598",
+				user: process.env.USER,
+				pass: process.env.PASS,
 			},
 			tls: {
 				ciphers: 'SSLv3',
@@ -19,7 +19,7 @@ module.exports = async (email, subject, text) => {
 		});
 
 		await transporter.sendMail({
-			from: "petadoptionmatch@outlook.com",
+			from: process.env.USER,
 			to: email,
 			subject: subject,
 			text: text,
